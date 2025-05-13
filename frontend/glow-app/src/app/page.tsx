@@ -1,4 +1,5 @@
 import Image from "next/image";
+import YellowGradientButton from "@/components/YellowGradientButton";
 
 export default function Welcome() {
   return (
@@ -53,12 +54,9 @@ export default function Welcome() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-64 sm:mb-48">
-          <a
-            href="/onboarding/welcome"
-            className="px-8 py-3 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black font-medium hover:opacity-90 transition-opacity shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-200 text-center"
-          >
+          <YellowGradientButton href="/onboarding/welcome">
             Create Account
-          </a>
+          </YellowGradientButton>
           <a
             href="/about"
             className="px-8 py-3 rounded-full border border-white/30 text-white font-medium hover:bg-white/10 transition-colors backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-yellow-200 text-center"
