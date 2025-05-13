@@ -1,7 +1,17 @@
+"use client";
+
 import React from "react";
 import YellowGradientButton from "@/components/YellowGradientButton";
+import { useRouter } from "next/navigation";
 
 export default function Name() {
+  const router = useRouter();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push("/onboarding/email");
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <main className="flex-1 flex flex-col justify-start items-center px-6 pt-8">
@@ -43,11 +53,15 @@ export default function Name() {
             </div>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
-            What's your name?
+            What&apos;s your name?
           </h1>
         </div>
         {/* Name form */}
-        <form className="w-full max-w-md mx-auto flex flex-col gap-4">
+        <form
+          id="name-form"
+          onSubmit={handleSubmit}
+          className="w-full max-w-md mx-auto flex flex-col gap-4"
+        >
           <input
             type="text"
             placeholder="First name (required)"
@@ -57,7 +71,9 @@ export default function Name() {
         </form>
       </main>
       <div className="w-full px-0 pb-8 flex flex-col items-center">
-        <YellowGradientButton type="submit">Continue</YellowGradientButton>
+        <YellowGradientButton type="submit" form="name-form">
+          Continue
+        </YellowGradientButton>
       </div>
     </div>
   );
