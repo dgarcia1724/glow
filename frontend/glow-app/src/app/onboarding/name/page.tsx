@@ -1,4 +1,5 @@
 import React from "react";
+import YellowGradientButton from "@/components/YellowGradientButton";
 
 export default function Name() {
   return (
@@ -56,12 +57,7 @@ export default function Name() {
         </form>
       </main>
       <div className="w-full px-0 pb-8 flex flex-col items-center">
-        <button
-          type="submit"
-          className="w-full max-w-md mx-auto px-8 py-3 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black font-medium hover:opacity-90 transition-opacity shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-200 text-center cursor-pointer"
-        >
-          Continue
-        </button>
+        <YellowGradientButton type="submit">Continue</YellowGradientButton>
       </div>
     </div>
   );
