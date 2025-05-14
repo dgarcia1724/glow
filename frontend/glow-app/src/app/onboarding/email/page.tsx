@@ -16,10 +16,7 @@ export default function Email() {
     <div className="min-h-screen flex flex-col bg-white">
       <main className="flex-1 flex flex-col justify-start items-center px-6 pt-8">
         {/* Progress indicator and icon */}
-        <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
-          <div className="text-xs text-gray-500 mb-4 tracking-wide text-center">
-            NO BACKGROUND CHECKS ARE CONDUCTED
-          </div>
+        <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8 pt-4">
           <div className="flex items-center gap-2 mb-6">
             <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-yellow-300 bg-white">
               <svg
@@ -110,7 +107,7 @@ export default function Email() {
             type="password"
             placeholder="Password (required)"
             required
-            minLength={8}
+            minLength={6}
             className="w-full border-b-2 border-black/80 focus:border-yellow-400 outline-none text-lg py-3 placeholder-gray-400 mb-2 transition-colors bg-transparent text-black"
           />
         </form>
