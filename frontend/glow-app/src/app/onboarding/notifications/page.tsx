@@ -94,7 +94,10 @@ export default function Notifications() {
       </main>
 
       <div className="w-full px-0 pb-8 flex flex-col items-center">
-        <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-md mx-auto flex justify-center"
+        >
           <YellowGradientButton type="submit">Continue</YellowGradientButton>
         </form>
       </div>
