@@ -11,7 +11,7 @@ export default function Notifications() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: Save notification preference
-    router.push("/onboarding/next-step"); // Update to your next onboarding step
+    router.push("/onboarding/basic-info");
   };
 
   return (

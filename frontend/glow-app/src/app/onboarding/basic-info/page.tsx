@@ -1,7 +1,7 @@
 import React from "react";
 import YellowGradientButton from "@/components/YellowGradientButton";
 
-export default function Welcome() {
+export default function BasicInfo() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <main className="flex-1 flex flex-col justify-center items-center px-6">
@@ -95,15 +95,15 @@ export default function Welcome() {
               </defs>
             </svg>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-black mb-8 leading-tight text-center">
-            Welcome to
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-black mb-8 leading-tight text-center">
+            Add basic info for
             <br />
-            glow.
+            accurate match making
           </h1>
         </div>
       </main>
       <div className="w-full px-0 pb-8 flex flex-col items-center">
-        <YellowGradientButton href="/onboarding/name">
+        <YellowGradientButton href="/onboarding/next-step">
           Continue
         </YellowGradientButton>
       </div>
