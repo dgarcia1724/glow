@@ -29,18 +29,46 @@ function calculateAge(dateStr: string) {
   return `${age} years old`;
 }
 
+function getAgeNumber(dateStr: string): number {
+  if (!dateStr) return 0;
+  const today = new Date();
+  const birthDate = new Date(dateStr);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+}
+
 export default function Birthday() {
   const router = useRouter();
-  const [dob, setDob] = useState("");
+  const [month, setMonth] = useState("");
+  const [day, setDay] = useState("");
+  const [year, setYear] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [showAgeError, setShowAgeError] = useState(false);
+
+  // Helper to pad month/day
+  const pad = (val: string) => val.padStart(2, "0");
+  // Combine to YYYY-MM-DD for date functions
+  const dob = year && month && day ? `${year}-${pad(month)}-${pad(day)}` : "";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const age = getAgeNumber(dob);
+
+    if (age < 18) {
+      setShowAgeError(true);
+      return;
+    }
+
+    setShowAgeError(false);
     setShowModal(true);
   };
 
   const handleEdit = () => setShowModal(false);
-  const handleConfirm = () => router.push("/onboarding/next-step"); // Update as needed
+  const handleConfirm = () => router.push("/onboarding/notifications");
 
   return (
     <div className="min-h-screen flex flex-col bg-white relative">
@@ -97,13 +125,64 @@ export default function Birthday() {
           onSubmit={handleSubmit}
           className="w-full max-w-md mx-auto flex flex-col gap-4"
         >
-          <input
-            type="date"
-            required
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
-            className="w-full border-b-2 border-black/80 focus:border-yellow-400 outline-none text-lg py-3 placeholder-gray-400 mb-2 transition-colors bg-transparent text-black"
-          />
+          {showAgeError && (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+              <p className="text-red-700 text-sm text-center">
+                You must be 18 or older to continue.
+              </p>
+            </div>
+          )}
+          <div className="flex justify-between gap-3 w-full">
+            <input
+              type="text"
+              inputMode="numeric"
+              pattern="^(0[1-9]|1[0-2])$"
+              maxLength={2}
+              placeholder="MM"
+              required
+              value={month}
+              onChange={(e) => {
+                const val = e.target.value.replace(/\D/g, "");
+                if (val.length <= 2 && (+val <= 12 || val === ""))
+                  setMonth(val);
+              }}
+              className="text-center text-2xl sm:text-3xl font-bold border-b-2 border-black/80 focus:border-yellow-400 outline-none py-3 w-1/3 bg-transparent text-black"
+            />
+            <span className="text-2xl sm:text-3xl font-bold text-black/60 self-center">
+              /
+            </span>
+            <input
+              type="text"
+              inputMode="numeric"
+              pattern="^(0[1-9]|[12][0-9]|3[01])$"
+              maxLength={2}
+              placeholder="DD"
+              required
+              value={day}
+              onChange={(e) => {
+                const val = e.target.value.replace(/\D/g, "");
+                if (val.length <= 2 && (+val <= 31 || val === "")) setDay(val);
+              }}
+              className="text-center text-2xl sm:text-3xl font-bold border-b-2 border-black/80 focus:border-yellow-400 outline-none py-3 w-1/3 bg-transparent text-black"
+            />
+            <span className="text-2xl sm:text-3xl font-bold text-black/60 self-center">
+              /
+            </span>
+            <input
+              type="text"
+              inputMode="numeric"
+              pattern="^\d{4}$"
+              maxLength={4}
+              placeholder="YYYY"
+              required
+              value={year}
+              onChange={(e) => {
+                const val = e.target.value.replace(/\D/g, "");
+                if (val.length <= 4) setYear(val);
+              }}
+              className="text-center text-2xl sm:text-3xl font-bold border-b-2 border-black/80 focus:border-yellow-400 outline-none py-3 w-1/3 bg-transparent text-black"
+            />
+          </div>
         </form>
       </main>
       <div className="w-full px-0 pb-8 flex flex-col items-center">
