@@ -83,7 +83,9 @@ export default function Birthday() {
         {/* Progress indicator and icon */}
         <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
           <div className="flex items-center gap-2 mb-6">
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-yellow-300 bg-white">
+            <span className="w-2 h-2 rounded-full bg-gray-200 inline-block" />
+            <span className="w-2 h-2 rounded-full bg-gray-200 inline-block ml-2" />
+            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-yellow-300 bg-white ml-2">
               <svg
                 className="w-6 h-6 text-yellow-400"
                 fill="none"
@@ -109,11 +111,7 @@ export default function Birthday() {
                 />
               </svg>
             </span>
-            <div className="flex gap-1 ml-2">
-              <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />
-              <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />
-              <span className="w-2 h-2 rounded-full bg-yellow-400 inline-block" />
-            </div>
+            <span className="w-2 h-2 rounded-full bg-gray-200 inline-block ml-2" />
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
             What&apos;s your date of birth?
