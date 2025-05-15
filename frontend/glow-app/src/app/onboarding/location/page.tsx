@@ -1,14 +1,19 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
+import LocationInput from "@/components/LocationInput";
 
 export default function Location() {
   const router = useRouter();
+  const [selectedLocation, setSelectedLocation] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push("/onboarding/name"); // Update this to the next onboarding step as needed
+    if (selectedLocation) {
+      // Here you would typically save the location to your state management or backend
+      router.push("/onboarding/name");
+    }
   };
 
   return (
@@ -52,12 +57,7 @@ export default function Location() {
           onSubmit={handleSubmit}
           className="w-full max-w-md mx-auto flex flex-col gap-4"
         >
-          <input
-            type="text"
-            placeholder="Enter your address, neighborhood, or ZIP"
-            required
-            className="w-full border-b-2 border-black/80 focus:border-yellow-400 outline-none text-lg py-3 placeholder-gray-400 mb-2 transition-colors bg-transparent text-black"
-          />
+          <LocationInput onLocationSelect={setSelectedLocation} />
         </form>
       </main>
       <div className="w-full px-0 pb-8 flex flex-col items-center">
