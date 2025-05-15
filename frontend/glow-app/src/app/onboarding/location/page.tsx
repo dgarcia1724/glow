@@ -12,7 +12,7 @@ export default function Location() {
     e.preventDefault();
     if (selectedLocation) {
       // Here you would typically save the location to your state management or backend
-      router.push("/onboarding/name");
+      router.push("/onboarding/gender");
     }
   };
 
