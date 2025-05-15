@@ -7,6 +7,7 @@ interface YellowGradientButtonProps {
   type?: "button" | "submit" | "reset";
   className?: string;
   form?: string;
+  disabled?: boolean;
 }
 
 export default function YellowGradientButton({
@@ -15,6 +16,7 @@ export default function YellowGradientButton({
   type = "button",
   className = "",
   form,
+  disabled = false,
 }: YellowGradientButtonProps) {
   const baseClass =
     "px-8 py-3 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black font-medium hover:opacity-90 transition-opacity shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-200 text-center cursor-pointer " +
@@ -28,7 +30,7 @@ export default function YellowGradientButton({
     );
   }
   return (
-    <button type={type} className={baseClass} form={form}>
+    <button type={type} className={baseClass} form={form} disabled={disabled}>
       {children}
     </button>
   );
