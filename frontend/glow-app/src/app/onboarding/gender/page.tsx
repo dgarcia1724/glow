@@ -21,6 +21,7 @@ export default function Gender() {
         {/* Progress indicator and icon */}
         <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
           <div className="flex items-center gap-2 mb-6">
+            <span className="w-2 h-2 rounded-full bg-gray-200 inline-block"></span>
             <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-yellow-300 bg-white">
               <svg
                 className="w-6 h-6 text-yellow-400"
@@ -36,18 +37,15 @@ export default function Gender() {
                 />
               </svg>
             </span>
-            {/* Progress dots: second is yellow, rest gray */}
-            {[...Array(9)].map((_, i) => (
+            {[...Array(8)].map((_, i) => (
               <span
                 key={i}
-                className={`w-2 h-2 rounded-full inline-block ml-2 ${
-                  i === 1 ? "bg-yellow-400" : "bg-gray-200"
-                }`}
+                className="w-2 h-2 rounded-full bg-gray-200 inline-block ml-2"
               />
             ))}
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
-            What's your gender?
+            What&apos;s your gender?
           </h1>
         </div>
         {/* Gender form */}
