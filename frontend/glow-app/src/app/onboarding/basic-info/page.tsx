@@ -103,7 +103,7 @@ export default function BasicInfo() {
         </div>
       </main>
       <div className="w-full px-0 pb-8 flex flex-col items-center">
-        <YellowGradientButton href="/onboarding/next-step">
+        <YellowGradientButton href="/onboarding/location">
           Continue
         </YellowGradientButton>
       </div>
