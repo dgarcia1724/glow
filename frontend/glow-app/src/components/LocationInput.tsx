@@ -1,10 +1,32 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 
-declare global {
-  interface Window {
-    google: any;
-  }
+interface GoogleMapsWindow extends Window {
+  google: {
+    maps: {
+      places: {
+        Autocomplete: new (
+          input: HTMLInputElement,
+          options?: {
+            types?: string[];
+            fields?: string[];
+          }
+        ) => {
+          addListener: (event: string, callback: () => void) => void;
+          getPlace: () => {
+            formatted_address?: string;
+            geometry?: {
+              location: {
+                lat: () => number;
+                lng: () => number;
+              };
+            };
+            name?: string;
+          };
+        };
+      };
+    };
+  };
 }
 
 interface LocationInputProps {
@@ -19,40 +41,49 @@ export default function LocationInput({
   className = "",
 }: LocationInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const autocompleteRef = useRef<any>(null);
+  const autocompleteRef =
+    useRef<ReturnType<typeof window.google.maps.places.Autocomplete>>();
 
   useEffect(() => {
-    // Load Google Maps script
-    const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`;
-    script.async = true;
-    script.defer = true;
-    script.onload = initializeAutocomplete;
-    document.head.appendChild(script);
+    const initializeAutocomplete = () => {
+      if (!inputRef.current) return;
+      const googleWindow = window as unknown as GoogleMapsWindow;
+      autocompleteRef.current =
+        new googleWindow.google.maps.places.Autocomplete(inputRef.current, {
+          types: ["geocode", "establishment"],
+          fields: ["formatted_address", "geometry", "name"],
+        });
+      autocompleteRef.current.addListener("place_changed", () => {
+        const place = autocompleteRef.current?.getPlace();
+        if (place?.formatted_address) {
+          onLocationSelect(place.formatted_address);
+        }
+      });
+    };
+
+    // Only add the script if it hasn't been added yet
+    if (!(window as any).google || !(window as any).google.maps) {
+      if (!document.getElementById("google-maps-script")) {
+        const script = document.createElement("script");
+        script.id = "google-maps-script";
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`;
+        script.async = true;
+        script.defer = true;
+        script.onload = initializeAutocomplete;
+        document.head.appendChild(script);
+      } else {
+        // If script exists but google is not loaded yet, add onload
+        const script = document.getElementById("google-maps-script");
+        if (script) script.addEventListener("load", initializeAutocomplete);
+      }
+    } else {
+      initializeAutocomplete();
+    }
 
     return () => {
-      document.head.removeChild(script);
+      // No need to remove the script, just clean up listeners if needed
     };
-  }, []);
-
-  const initializeAutocomplete = () => {
-    if (!inputRef.current) return;
-
-    autocompleteRef.current = new window.google.maps.places.Autocomplete(
-      inputRef.current,
-      {
-        types: ["geocode", "establishment"],
-        fields: ["formatted_address", "geometry", "name"],
-      }
-    );
-
-    autocompleteRef.current.addListener("place_changed", () => {
-      const place = autocompleteRef.current.getPlace();
-      if (place.formatted_address) {
-        onLocationSelect(place.formatted_address);
-      }
-    });
-  };
+  }, [onLocationSelect]);
 
   return (
     <input
