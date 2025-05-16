@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
-export default function Gender() {
+export default function DatingPreferences() {
   const router = useRouter();
-  const [gender, setGender] = useState<string>("");
+  const [preference, setPreference] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (gender) {
-      // Save gender selection as needed
-      router.push("/onboarding/dating-preferences"); // Update to dating preferences page
+    if (preference) {
+      // Save preference selection as needed
+      router.push("/onboarding/birthday"); // Update to next step as needed
     }
   };
 
@@ -21,6 +21,7 @@ export default function Gender() {
         {/* Progress indicator and icon */}
         <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
           <div className="flex items-center gap-2 mb-6">
+            <span className="w-2 h-2 rounded-full bg-gray-200 inline-block"></span>
             <span className="w-2 h-2 rounded-full bg-gray-200 inline-block"></span>
             <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-yellow-300 bg-white">
               <svg
@@ -37,7 +38,7 @@ export default function Gender() {
                 />
               </svg>
             </span>
-            {[...Array(8)].map((_, i) => (
+            {[...Array(7)].map((_, i) => (
               <span
                 key={i}
                 className="w-2 h-2 rounded-full bg-gray-200 inline-block ml-2"
@@ -45,49 +46,66 @@ export default function Gender() {
             ))}
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
-            What&apos;s your gender?
+            Who do you want to date?
           </h1>
         </div>
-        {/* Gender form */}
+        {/* Dating preferences form */}
         <form
-          id="gender-form"
+          id="dating-preferences-form"
           onSubmit={handleSubmit}
           className="w-full max-w-md mx-auto flex flex-col gap-6"
         >
           <div className="flex flex-col gap-4">
             <label
               className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                gender === "Man"
+                preference === "Men"
                   ? "border-yellow-400 bg-yellow-50"
                   : "border-black/10 bg-white"
               }`}
             >
               <input
                 type="radio"
-                name="gender"
-                value="Man"
-                checked={gender === "Man"}
-                onChange={() => setGender("Man")}
+                name="preference"
+                value="Men"
+                checked={preference === "Men"}
+                onChange={() => setPreference("Men")}
                 className="form-radio accent-yellow-400 mr-3"
               />
-              <span className="text-lg text-black">Man</span>
+              <span className="text-lg text-black">Men</span>
             </label>
             <label
               className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                gender === "Woman"
+                preference === "Women"
                   ? "border-yellow-400 bg-yellow-50"
                   : "border-black/10 bg-white"
               }`}
             >
               <input
                 type="radio"
-                name="gender"
-                value="Woman"
-                checked={gender === "Woman"}
-                onChange={() => setGender("Woman")}
+                name="preference"
+                value="Women"
+                checked={preference === "Women"}
+                onChange={() => setPreference("Women")}
                 className="form-radio accent-yellow-400 mr-3"
               />
-              <span className="text-lg text-black">Woman</span>
+              <span className="text-lg text-black">Women</span>
+            </label>
+            <label
+              className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
+                preference === "Everyone"
+                  ? "border-yellow-400 bg-yellow-50"
+                  : "border-black/10 bg-white"
+              }`}
+            >
+              <input
+                type="radio"
+                name="preference"
+                value="Everyone"
+                checked={preference === "Everyone"}
+                onChange={() => setPreference("Everyone")}
+                className="form-radio accent-yellow-400 mr-3"
+              />
+              <span className="text-lg text-black">Everyone</span>
             </label>
           </div>
         </form>
@@ -95,8 +113,8 @@ export default function Gender() {
       <div className="w-full px-0 pb-8 flex flex-col items-center">
         <YellowGradientButton
           type="submit"
-          form="gender-form"
-          disabled={!gender}
+          form="dating-preferences-form"
+          disabled={!preference}
         >
           Continue
         </YellowGradientButton>
