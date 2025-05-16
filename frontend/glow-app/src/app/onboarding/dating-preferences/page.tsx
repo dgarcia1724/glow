@@ -11,7 +11,7 @@ export default function DatingPreferences() {
     e.preventDefault();
     if (preference) {
       // Save preference selection as needed
-      router.push("/onboarding/birthday"); // Update to next step as needed
+      router.push("/onboarding/height"); // Update to height page
     }
   };
 
