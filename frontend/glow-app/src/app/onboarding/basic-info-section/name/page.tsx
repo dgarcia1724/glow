@@ -9,7 +9,7 @@ export default function Name() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push("/onboarding/email");
+    router.push("/onboarding/basic-info-section/email");
   };
 
   return (
