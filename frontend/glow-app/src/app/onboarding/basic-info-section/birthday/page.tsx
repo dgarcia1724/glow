@@ -18,24 +18,30 @@ function formatDate(dateStr: string) {
 }
 
 function calculateAge(dateStr: string) {
-  if (!dateStr) return "";
+  if (!dateStr) return "0";
   const today = new Date();
-  const birthDate = new Date(dateStr);
+  const birthDate = new Date(dateStr + "T00:00:00");
   let age = today.getFullYear() - birthDate.getFullYear();
-  const m = today.getMonth() - birthDate.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  if (
+    monthDiff < 0 ||
+    (monthDiff === 0 && today.getDate() < birthDate.getDate())
+  ) {
     age--;
   }
   return `${age} years old`;
 }
 
-function getAgeNumber(dateStr: string): number {
+function getAgeNumber(dateStr: string) {
   if (!dateStr) return 0;
   const today = new Date();
-  const birthDate = new Date(dateStr);
+  const birthDate = new Date(dateStr + "T00:00:00");
   let age = today.getFullYear() - birthDate.getFullYear();
-  const m = today.getMonth() - birthDate.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  if (
+    monthDiff < 0 ||
+    (monthDiff === 0 && today.getDate() < birthDate.getDate())
+  ) {
     age--;
   }
   return age;
@@ -68,7 +74,8 @@ export default function Birthday() {
   };
 
   const handleEdit = () => setShowModal(false);
-  const handleConfirm = () => router.push("/onboarding/notifications");
+  const handleConfirm = () =>
+    router.push("/onboarding/basic-info-section/location");
 
   return (
     <div className="min-h-screen flex flex-col bg-white relative">
@@ -123,18 +130,11 @@ export default function Birthday() {
           onSubmit={handleSubmit}
           className="w-full max-w-md mx-auto flex flex-col gap-4"
         >
-          {showAgeError && (
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
-              <p className="text-red-700 text-sm text-center">
-                You must be 18 or older to continue.
-              </p>
-            </div>
-          )}
           <div className="flex justify-between gap-3 w-full">
             <input
               type="text"
               inputMode="numeric"
-              pattern="^(0[1-9]|1[0-2])$"
+              pattern="^(0?[1-9]|1[0-2])$"
               maxLength={2}
               placeholder="MM"
               required
@@ -146,13 +146,10 @@ export default function Birthday() {
               }}
               className="text-center text-2xl sm:text-3xl font-bold border-b-2 border-black/80 focus:border-yellow-400 outline-none py-3 w-1/3 bg-transparent text-black"
             />
-            <span className="text-2xl sm:text-3xl font-bold text-black/60 self-center">
-              /
-            </span>
             <input
               type="text"
               inputMode="numeric"
-              pattern="^(0[1-9]|[12][0-9]|3[01])$"
+              pattern="^(0?[1-9]|[12][0-9]|3[01])$"
               maxLength={2}
               placeholder="DD"
               required
@@ -163,24 +160,37 @@ export default function Birthday() {
               }}
               className="text-center text-2xl sm:text-3xl font-bold border-b-2 border-black/80 focus:border-yellow-400 outline-none py-3 w-1/3 bg-transparent text-black"
             />
-            <span className="text-2xl sm:text-3xl font-bold text-black/60 self-center">
-              /
-            </span>
             <input
               type="text"
               inputMode="numeric"
-              pattern="^\d{4}$"
+              pattern="^(19|20)\d{2}$"
               maxLength={4}
               placeholder="YYYY"
               required
               value={year}
               onChange={(e) => {
                 const val = e.target.value.replace(/\D/g, "");
-                if (val.length <= 4) setYear(val);
+                if (val.length <= 4) {
+                  // Only allow years between 1900 and current year
+                  const currentYear = new Date().getFullYear();
+                  if (
+                    val === "" ||
+                    (val.length === 4 && +val >= 1900 && +val <= currentYear)
+                  ) {
+                    setYear(val);
+                  } else if (val.length < 4) {
+                    setYear(val);
+                  }
+                }
               }}
               className="text-center text-2xl sm:text-3xl font-bold border-b-2 border-black/80 focus:border-yellow-400 outline-none py-3 w-1/3 bg-transparent text-black"
             />
           </div>
+          {showAgeError && (
+            <p className="text-red-500 text-sm mt-2">
+              You must be at least 18 years old to use this app.
+            </p>
+          )}
         </form>
       </main>
       <div className="w-full px-0 pb-8 flex flex-col items-center">
