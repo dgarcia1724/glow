@@ -12,7 +12,7 @@ export default function Height() {
     e.preventDefault();
     if (feet && inches) {
       // Save height selection as needed
-      router.push("/onboarding/birthday"); // Update to next step as needed
+      router.push("/onboarding/ethnicity"); // Update to ethnicity page
     }
   };
 
