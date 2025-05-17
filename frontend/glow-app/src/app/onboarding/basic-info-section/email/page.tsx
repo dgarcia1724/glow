@@ -9,7 +9,7 @@ export default function Email() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push("/onboarding/birthday");
+    router.push("/onboarding/basic-info-section/birthday");
   };
 
   return (
@@ -97,7 +97,7 @@ export default function Email() {
         >
           <input
             type="email"
-            placeholder="Email address (required)"
+            placeholder="Email (required)"
             required
             className="w-full border-b-2 border-black/80 focus:border-yellow-400 outline-none text-lg py-3 placeholder-gray-400 mb-2 transition-colors bg-transparent text-black"
           />
