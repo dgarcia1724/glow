@@ -1,7 +1,16 @@
+"use client";
 import React from "react";
 import YellowGradientButton from "@/components/YellowGradientButton";
+import { useRouter } from "next/navigation";
 
 export default function BasicInfo() {
+  const router = useRouter();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push("/onboarding/basic-info-section/name");
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <main className="flex-1 flex flex-col justify-center items-center px-6">
@@ -103,9 +112,12 @@ export default function BasicInfo() {
         </div>
       </main>
       <div className="w-full px-0 pb-8 flex flex-col items-center">
-        <YellowGradientButton href="/onboarding/location">
-          Continue
-        </YellowGradientButton>
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-md mx-auto flex justify-center"
+        >
+          <YellowGradientButton type="submit">Continue</YellowGradientButton>
+        </form>
       </div>
     </div>
   );
