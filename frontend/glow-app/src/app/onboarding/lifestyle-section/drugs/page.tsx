@@ -18,7 +18,7 @@ export default function Lifestyle() {
     e.preventDefault();
     if (selected) {
       // Save selection as needed
-      router.push("/onboarding/lifestyle-section/values-selection");
+      router.push("/onboarding/bio-and-pics-section/bio-and-pics");
     }
   };
 
