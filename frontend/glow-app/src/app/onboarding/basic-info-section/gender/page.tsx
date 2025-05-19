@@ -90,7 +90,7 @@ export default function Gender() {
             </label>
             <label
               className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                selectedGender === "Other"
+                selectedGender === "Nonbinary"
                   ? "border-yellow-400 bg-yellow-50"
                   : "border-black/10 bg-white"
               }`}
@@ -98,12 +98,12 @@ export default function Gender() {
               <input
                 type="radio"
                 name="gender"
-                value="Other"
-                checked={selectedGender === "Other"}
-                onChange={() => setSelectedGender("Other")}
+                value="Nonbinary"
+                checked={selectedGender === "Nonbinary"}
+                onChange={() => setSelectedGender("Nonbinary")}
                 className="form-radio accent-yellow-400 mr-3"
               />
-              <span className="text-lg text-black">Other</span>
+              <span className="text-lg text-black">Nonbinary</span>
             </label>
           </div>
         </form>
