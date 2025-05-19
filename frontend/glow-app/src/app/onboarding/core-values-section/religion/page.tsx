@@ -14,7 +14,6 @@ const RELIGIONS = [
   "Agnostic",
   "Atheist",
   "Other",
-  "Prefer Not to Say",
 ];
 
 export default function Religion() {
@@ -63,25 +62,6 @@ export default function Religion() {
                   <span className="text-lg text-black">{religion}</span>
                 </label>
               ))}
-            </div>
-            <div className="w-full flex items-center justify-between border-t pt-4 mt-2">
-              <span className="text-base font-medium text-black">Visible</span>
-              <button
-                type="button"
-                aria-pressed={visible}
-                onClick={() => setVisible((v) => !v)}
-                className={`relative inline-flex h-6 w-12 items-center rounded-full transition-colors focus:outline-none border-2
-                  ${
-                    visible
-                      ? "bg-yellow-400 border-yellow-400"
-                      : "bg-gray-200 border-gray-200"
-                  }`}
-              >
-                <span
-                  className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform
-                    ${visible ? "translate-x-6" : "translate-x-1"}`}
-                />
-              </button>
             </div>
           </form>
         </div>
