@@ -3,12 +3,11 @@ import React, { useState } from "react";
 import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
-const FITNESS_LEVELS = [
-  "🛋️ Rarely active",
-  "🚶 Light activity (1–2×/week)",
-  "🏃 Moderate activity (2–4×/week)",
-  "🏋️ Very active (5+×/week or intense)",
-  "🥇 Competitive/Athlete (training-focused)",
+const ALCOHOL_LEVELS = [
+  "❌ Never",
+  "🍷 Occasionally (socially or rarely)",
+  "🍻 Regularly (weekends or more)",
+  "🥂 Frequently (almost daily)",
 ];
 
 export default function Lifestyle() {
@@ -19,7 +18,7 @@ export default function Lifestyle() {
     e.preventDefault();
     if (selected) {
       // Save selection as needed
-      router.push("/onboarding/lifestyle-section/alcohol");
+      router.push("/onboarding/lifestyle-section/values-selection");
     }
   };
 
@@ -28,7 +27,7 @@ export default function Lifestyle() {
       <main className="flex-1 flex flex-col justify-center items-center px-6">
         <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-6 text-center">
-            What is your fitness level?
+            What is your alcohol consumption?
           </h1>
           <form
             id="lifestyle-form"
@@ -36,7 +35,7 @@ export default function Lifestyle() {
             className="w-full max-w-md mx-auto flex flex-col gap-6"
           >
             <div className="flex flex-col gap-4">
-              {FITNESS_LEVELS.map((level) => (
+              {ALCOHOL_LEVELS.map((level) => (
                 <label
                   key={level}
                   className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
@@ -47,7 +46,7 @@ export default function Lifestyle() {
                 >
                   <input
                     type="radio"
-                    name="fitness"
+                    name="alcohol"
                     value={level}
                     checked={selected === level}
                     onChange={() => setSelected(level)}
