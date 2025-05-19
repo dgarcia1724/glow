@@ -3,63 +3,51 @@ import React, { useState } from "react";
 import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
-const RELIGIONS = [
-  "Buddhist",
-  "Catholic",
-  "Christian",
-  "Hindu",
-  "Jewish",
-  "Muslim",
-  "Spiritual",
-  "Agnostic",
-  "Atheist",
-  "Other",
-];
+const POLITICAL_VIEWS = ["Liberal", "Moderate", "Conservative"];
 
-export default function Religion() {
+export default function Politics() {
   const router = useRouter();
   const [selected, setSelected] = useState<string>("");
-  const [visible, setVisible] = useState(true);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (selected) {
       // Save selection as needed
-      router.push("/onboarding/core-values-section/politics");
+      router.push("/onboarding/lifestyle-section/lifestyle");
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <main className="flex-1 flex flex-col justify-start items-center px-6 pt-8">
+      <main className="flex-1 flex flex-col justify-center items-center px-6">
         <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-6 text-center">
-            What are your religious beliefs?
+            What are your political views?
           </h1>
           <form
-            id="religion-form"
+            id="politics-form"
             onSubmit={handleSubmit}
             className="w-full max-w-md mx-auto flex flex-col gap-6"
           >
             <div className="flex flex-col gap-4">
-              {RELIGIONS.map((religion) => (
+              {POLITICAL_VIEWS.map((view) => (
                 <label
-                  key={religion}
+                  key={view}
                   className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                    selected === religion
+                    selected === view
                       ? "border-yellow-400 bg-yellow-50"
                       : "border-black/10 bg-white"
                   }`}
                 >
                   <input
                     type="radio"
-                    name="religion"
-                    value={religion}
-                    checked={selected === religion}
-                    onChange={() => setSelected(religion)}
+                    name="politics"
+                    value={view}
+                    checked={selected === view}
+                    onChange={() => setSelected(view)}
                     className="form-radio accent-yellow-400 mr-3"
                   />
-                  <span className="text-lg text-black">{religion}</span>
+                  <span className="text-lg text-black">{view}</span>
                 </label>
               ))}
             </div>
@@ -69,7 +57,7 @@ export default function Religion() {
       <div className="w-full px-0 pb-8 flex flex-col items-center">
         <YellowGradientButton
           type="submit"
-          form="religion-form"
+          form="politics-form"
           disabled={!selected}
         >
           Continue
