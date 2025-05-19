@@ -11,7 +11,7 @@ export default function DatingPreferences() {
     e.preventDefault();
     if (preference) {
       // Save preference selection as needed
-      router.push("/onboarding/height"); // Update to height page
+      router.push("/onboarding/core-values-section/core-values");
     }
   };
 
@@ -89,6 +89,23 @@ export default function DatingPreferences() {
                 className="form-radio accent-yellow-400 mr-3"
               />
               <span className="text-lg text-black">Women</span>
+            </label>
+            <label
+              className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
+                preference === "Nonbinary people"
+                  ? "border-yellow-400 bg-yellow-50"
+                  : "border-black/10 bg-white"
+              }`}
+            >
+              <input
+                type="radio"
+                name="preference"
+                value="Nonbinary people"
+                checked={preference === "Nonbinary people"}
+                onChange={() => setPreference("Nonbinary people")}
+                className="form-radio accent-yellow-400 mr-3"
+              />
+              <span className="text-lg text-black">Nonbinary people</span>
             </label>
             <label
               className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
