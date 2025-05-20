@@ -8,7 +8,7 @@ export default function BioAndPics() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push("/onboarding/bio-and-pics-section/upload-pics");
+    router.push("/onboarding/bio-and-pics-section/bio");
   };
 
   return (
