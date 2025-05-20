@@ -107,7 +107,7 @@ export default function Welcome() {
           <h1 className="text-4xl sm:text-5xl font-extrabold text-black mb-8 leading-tight text-center">
             Welcome to
             <br />
-            glow.
+            glow
           </h1>
         </div>
       </main>

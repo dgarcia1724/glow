@@ -87,39 +87,8 @@ export default function Birthday() {
         onConfirm={handleConfirm}
       />
       <main className="flex-1 flex flex-col justify-start items-center px-6 pt-8">
-        {/* Progress indicator and icon */}
-        <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
-          <div className="flex items-center gap-2 mb-6">
-            <span className="w-2 h-2 rounded-full bg-gray-200 inline-block" />
-            <span className="w-2 h-2 rounded-full bg-gray-200 inline-block ml-2" />
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-yellow-300 bg-white ml-2">
-              <svg
-                className="w-6 h-6 text-yellow-400"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2v2M8 4v2M16 4v2M4 10h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-                <path
-                  d="M4 14h16"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-            </span>
-            <span className="w-2 h-2 rounded-full bg-gray-200 inline-block ml-2" />
-          </div>
+        {/* Title section */}
+        <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8 mt-16">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
             What&apos;s your date of birth?
           </h1>
