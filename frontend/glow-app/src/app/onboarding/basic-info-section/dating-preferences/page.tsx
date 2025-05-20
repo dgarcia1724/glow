@@ -3,6 +3,12 @@ import React, { useState } from "react";
 import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
+const DATING_PREFERENCES = [
+  { emoji: "🤵", text: "Men" },
+  { emoji: "💃", text: "Women" },
+  { emoji: "💫", text: "Everyone" },
+];
+
 export default function DatingPreferences() {
   const router = useRouter();
   const [preference, setPreference] = useState<string>("");
@@ -31,74 +37,27 @@ export default function DatingPreferences() {
           className="w-full max-w-md mx-auto flex flex-col gap-6"
         >
           <div className="flex flex-col gap-4">
-            <label
-              className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                preference === "Men"
-                  ? "border-yellow-400 bg-yellow-50"
-                  : "border-black/10 bg-white"
-              }`}
-            >
-              <input
-                type="radio"
-                name="preference"
-                value="Men"
-                checked={preference === "Men"}
-                onChange={() => setPreference("Men")}
-                className="form-radio accent-yellow-400 mr-3"
-              />
-              <span className="text-lg text-black">Men</span>
-            </label>
-            <label
-              className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                preference === "Women"
-                  ? "border-yellow-400 bg-yellow-50"
-                  : "border-black/10 bg-white"
-              }`}
-            >
-              <input
-                type="radio"
-                name="preference"
-                value="Women"
-                checked={preference === "Women"}
-                onChange={() => setPreference("Women")}
-                className="form-radio accent-yellow-400 mr-3"
-              />
-              <span className="text-lg text-black">Women</span>
-            </label>
-            <label
-              className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                preference === "Nonbinary people"
-                  ? "border-yellow-400 bg-yellow-50"
-                  : "border-black/10 bg-white"
-              }`}
-            >
-              <input
-                type="radio"
-                name="preference"
-                value="Nonbinary people"
-                checked={preference === "Nonbinary people"}
-                onChange={() => setPreference("Nonbinary people")}
-                className="form-radio accent-yellow-400 mr-3"
-              />
-              <span className="text-lg text-black">Nonbinary people</span>
-            </label>
-            <label
-              className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                preference === "Everyone"
-                  ? "border-yellow-400 bg-yellow-50"
-                  : "border-black/10 bg-white"
-              }`}
-            >
-              <input
-                type="radio"
-                name="preference"
-                value="Everyone"
-                checked={preference === "Everyone"}
-                onChange={() => setPreference("Everyone")}
-                className="form-radio accent-yellow-400 mr-3"
-              />
-              <span className="text-lg text-black">Everyone</span>
-            </label>
+            {DATING_PREFERENCES.map((option) => (
+              <label
+                key={option.text}
+                className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
+                  preference === option.text
+                    ? "border-yellow-400 bg-yellow-50"
+                    : "border-black/10 bg-white"
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="preference"
+                  value={option.text}
+                  checked={preference === option.text}
+                  onChange={() => setPreference(option.text)}
+                  className="form-radio accent-yellow-400 mr-3"
+                />
+                <span className="text-xl mr-3">{option.emoji}</span>
+                <span className="text-lg text-black">{option.text}</span>
+              </label>
+            ))}
           </div>
         </form>
       </main>

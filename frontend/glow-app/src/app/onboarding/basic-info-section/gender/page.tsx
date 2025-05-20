@@ -3,6 +3,11 @@ import React, { useState } from "react";
 import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
+const GENDER_OPTIONS = [
+  { emoji: "🤵", text: "Man" },
+  { emoji: "💃", text: "Woman" },
+];
+
 export default function Gender() {
   const router = useRouter();
   const [selectedGender, setSelectedGender] = useState("");
@@ -31,57 +36,27 @@ export default function Gender() {
           className="w-full max-w-md mx-auto flex flex-col gap-6"
         >
           <div className="flex flex-col gap-4">
-            <label
-              className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                selectedGender === "Man"
-                  ? "border-yellow-400 bg-yellow-50"
-                  : "border-black/10 bg-white"
-              }`}
-            >
-              <input
-                type="radio"
-                name="gender"
-                value="Man"
-                checked={selectedGender === "Man"}
-                onChange={() => setSelectedGender("Man")}
-                className="form-radio accent-yellow-400 mr-3"
-              />
-              <span className="text-lg text-black">Man</span>
-            </label>
-            <label
-              className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                selectedGender === "Woman"
-                  ? "border-yellow-400 bg-yellow-50"
-                  : "border-black/10 bg-white"
-              }`}
-            >
-              <input
-                type="radio"
-                name="gender"
-                value="Woman"
-                checked={selectedGender === "Woman"}
-                onChange={() => setSelectedGender("Woman")}
-                className="form-radio accent-yellow-400 mr-3"
-              />
-              <span className="text-lg text-black">Woman</span>
-            </label>
-            <label
-              className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                selectedGender === "Nonbinary"
-                  ? "border-yellow-400 bg-yellow-50"
-                  : "border-black/10 bg-white"
-              }`}
-            >
-              <input
-                type="radio"
-                name="gender"
-                value="Nonbinary"
-                checked={selectedGender === "Nonbinary"}
-                onChange={() => setSelectedGender("Nonbinary")}
-                className="form-radio accent-yellow-400 mr-3"
-              />
-              <span className="text-lg text-black">Nonbinary</span>
-            </label>
+            {GENDER_OPTIONS.map((option) => (
+              <label
+                key={option.text}
+                className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
+                  selectedGender === option.text
+                    ? "border-yellow-400 bg-yellow-50"
+                    : "border-black/10 bg-white"
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="gender"
+                  value={option.text}
+                  checked={selectedGender === option.text}
+                  onChange={() => setSelectedGender(option.text)}
+                  className="form-radio accent-yellow-400 mr-3"
+                />
+                <span className="text-xl mr-3">{option.emoji}</span>
+                <span className="text-lg text-black">{option.text}</span>
+              </label>
+            ))}
           </div>
         </form>
       </main>
