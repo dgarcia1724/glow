@@ -4,22 +4,21 @@ import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
 const RELIGIONS = [
-  "Buddhist",
-  "Catholic",
-  "Christian",
-  "Hindu",
-  "Jewish",
-  "Muslim",
-  "Spiritual",
-  "Agnostic",
-  "Atheist",
-  "Other",
+  { emoji: "☸️", text: "Buddhist" },
+  { emoji: "✝️", text: "Catholic" },
+  { emoji: "✝️", text: "Christian" },
+  { emoji: "🕉️", text: "Hindu" },
+  { emoji: "✡️", text: "Jewish" },
+  { emoji: "☪️", text: "Muslim" },
+  { emoji: "✨", text: "Spiritual" },
+  { emoji: "🤔", text: "Agnostic" },
+  { emoji: "⚛️", text: "Atheist" },
+  { emoji: "💫", text: "Other" },
 ];
 
 export default function Religion() {
   const router = useRouter();
   const [selected, setSelected] = useState<string>("");
-  const [visible, setVisible] = useState(true);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +30,7 @@ export default function Religion() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <main className="flex-1 flex flex-col justify-start items-center px-6 pt-8">
+      <main className="flex-1 flex flex-col justify-center items-center px-6">
         <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-6 text-center">
             What are your religious beliefs?
@@ -44,9 +43,9 @@ export default function Religion() {
             <div className="flex flex-col gap-4">
               {RELIGIONS.map((religion) => (
                 <label
-                  key={religion}
+                  key={religion.text}
                   className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                    selected === religion
+                    selected === religion.text
                       ? "border-yellow-400 bg-yellow-50"
                       : "border-black/10 bg-white"
                   }`}
@@ -54,12 +53,13 @@ export default function Religion() {
                   <input
                     type="radio"
                     name="religion"
-                    value={religion}
-                    checked={selected === religion}
-                    onChange={() => setSelected(religion)}
+                    value={religion.text}
+                    checked={selected === religion.text}
+                    onChange={() => setSelected(religion.text)}
                     className="form-radio accent-yellow-400 mr-3"
                   />
-                  <span className="text-lg text-black">{religion}</span>
+                  <span className="text-xl mr-3">{religion.emoji}</span>
+                  <span className="text-lg text-black">{religion.text}</span>
                 </label>
               ))}
             </div>
