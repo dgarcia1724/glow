@@ -27,15 +27,16 @@ export default function MainAppLayout({
           >
             <svg
               className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
               viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10L12 2Z"
+                fill="currentColor"
+                stroke="currentColor"
+                strokeWidth="0.5"
+                transform="rotate(0 12 12)"
               />
             </svg>
             <span className="text-xs mt-1">Potential</span>
@@ -58,7 +59,7 @@ export default function MainAppLayout({
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
               />
             </svg>
             <span className="text-xs mt-1">Likes You</span>
