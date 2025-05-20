@@ -22,7 +22,7 @@ export default function Pics() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically handle the photo uploads
-    router.push("/onboarding/core-values-section/values");
+    router.push("/onboarding/done");
   };
 
   return (
@@ -33,9 +33,6 @@ export default function Pics() {
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
             Add your pics
           </h1>
-          <p className="text-gray-600 text-center text-sm">
-            Add at least one photo to get started
-          </p>
         </div>
         {/* Photos form */}
         <form
