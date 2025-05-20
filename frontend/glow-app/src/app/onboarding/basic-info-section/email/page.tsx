@@ -15,38 +15,8 @@ export default function Email() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <main className="flex-1 flex flex-col justify-start items-center px-6 pt-8">
-        {/* Progress indicator and icon */}
-        <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8 pt-4">
-          <div className="flex items-center gap-2 mb-6">
-            <span className="w-2 h-2 rounded-full bg-gray-200 inline-block" />
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-yellow-300 bg-white ml-2">
-              <svg
-                className="w-6 h-6 text-yellow-400"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-              >
-                <rect
-                  x="4"
-                  y="6"
-                  width="16"
-                  height="12"
-                  rx="2"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M8 10h8M8 14h4"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-            <span className="w-2 h-2 rounded-full bg-gray-200 inline-block ml-2" />
-            <span className="w-2 h-2 rounded-full bg-gray-200 inline-block ml-2" />
-          </div>
+        {/* Title section */}
+        <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8 mt-16">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
             Create your account
           </h1>
