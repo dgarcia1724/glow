@@ -3,7 +3,11 @@ import React, { useState } from "react";
 import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
-const POLITICAL_VIEWS = ["Liberal", "Moderate", "Conservative"];
+const POLITICAL_VIEWS = [
+  { emoji: "🔵", text: "Liberal" },
+  { emoji: "🟣", text: "Moderate" },
+  { emoji: "🔴", text: "Conservative" },
+];
 
 export default function Politics() {
   const router = useRouter();
@@ -32,9 +36,9 @@ export default function Politics() {
             <div className="flex flex-col gap-4">
               {POLITICAL_VIEWS.map((view) => (
                 <label
-                  key={view}
+                  key={view.text}
                   className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                    selected === view
+                    selected === view.text
                       ? "border-yellow-400 bg-yellow-50"
                       : "border-black/10 bg-white"
                   }`}
@@ -42,12 +46,13 @@ export default function Politics() {
                   <input
                     type="radio"
                     name="politics"
-                    value={view}
-                    checked={selected === view}
-                    onChange={() => setSelected(view)}
+                    value={view.text}
+                    checked={selected === view.text}
+                    onChange={() => setSelected(view.text)}
                     className="form-radio accent-yellow-400 mr-3"
                   />
-                  <span className="text-lg text-black">{view}</span>
+                  <span className="text-xl mr-3">{view.emoji}</span>
+                  <span className="text-lg text-black">{view.text}</span>
                 </label>
               ))}
             </div>
