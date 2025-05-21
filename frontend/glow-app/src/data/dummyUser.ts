@@ -77,7 +77,8 @@ export const dummyUser: User = {
   email: "jane.doe@gmail.com",
   emailVerified: true,
   displayName: "Jane Doe",
-  photoURL: "https://lh3.googleusercontent.com/a/...", // Google profile photo URL
+  photoURL:
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
   authProvider: "google",
   lastSignInTime: "2024-03-15T10:00:00.000Z",
   creationTime: "2024-03-15T09:30:00.000Z",
@@ -122,21 +123,39 @@ export const dummyUser: User = {
   pictures: [
     {
       id: "pic_1",
-      url: "/dummy/profile-main.jpg",
+      url: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
       isMain: true,
       order: 1,
     },
     {
       id: "pic_2",
-      url: "/dummy/hiking.jpg",
+      url: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop",
       isMain: false,
       order: 2,
     },
     {
       id: "pic_3",
-      url: "/dummy/travel.jpg",
+      url: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=400&auto=format&fit=crop",
       isMain: false,
       order: 3,
+    },
+    {
+      id: "pic_4",
+      url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
+      isMain: false,
+      order: 4,
+    },
+    {
+      id: "pic_5",
+      url: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop",
+      isMain: false,
+      order: 5,
+    },
+    {
+      id: "pic_6",
+      url: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400&auto=format&fit=crop",
+      isMain: false,
+      order: 6,
     },
   ],
   createdAt: "2024-03-15T10:00:00Z",
