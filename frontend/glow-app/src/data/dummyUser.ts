@@ -1,9 +1,24 @@
 export interface User {
-  // Basic Info
-  id: string;
+  // Database ID
+  id: number; // PostgreSQL auto-incrementing ID
+
+  // Firebase Auth fields
+  uid: string; // Firebase Auth user ID
   email: string;
+  emailVerified: boolean;
+  displayName: string | null;
+  photoURL: string | null;
+  authProvider: "google" | "email" | "phone";
+  lastSignInTime: string;
+  creationTime: string;
+
+  // Spring Boot fields
+  version: number; // For JPA optimistic locking
+  status: "ACTIVE" | "INACTIVE" | "SUSPENDED";
+  roles: string[]; // For Spring Security roles
+
+  // Basic Info
   firstName: string;
-  lastName: string;
   birthday: string;
   gender: string;
   location: {
@@ -26,9 +41,8 @@ export interface User {
 
   // Core Values
   coreValues: {
-    politics: string;
     religion: string;
-    values: string[]; // Array of important values like "Family", "Career", etc.
+    politics: string;
   };
 
   // Lifestyle
@@ -57,10 +71,26 @@ export interface User {
 }
 
 export const dummyUser: User = {
-  id: "usr_123456789",
-  email: "jane.doe@example.com",
+  // Database ID
+  id: 1, // PostgreSQL auto-incrementing ID
+
+  // Firebase Auth fields
+  uid: "xK9mP2nL5vR8tY3wQ7hJ4fG1dS6cB9",
+  email: "jane.doe@gmail.com",
+  emailVerified: true,
+  displayName: "Jane Doe",
+  photoURL: "https://lh3.googleusercontent.com/a/...", // Google profile photo URL
+  authProvider: "google",
+  lastSignInTime: "2024-03-15T10:00:00.000Z",
+  creationTime: "2024-03-15T09:30:00.000Z",
+
+  // Spring Boot fields
+  version: 1,
+  status: "ACTIVE",
+  roles: ["ROLE_USER"],
+
+  // Basic Info
   firstName: "Jane",
-  lastName: "Doe",
   birthday: "1995-06-15",
   gender: "Female",
   location: {
@@ -81,9 +111,8 @@ export const dummyUser: User = {
     distance: 50,
   },
   coreValues: {
-    politics: "Moderate",
     religion: "Spiritual but not religious",
-    values: ["Family", "Career Growth", "Personal Development", "Travel"],
+    politics: "Moderate",
   },
   lifestyle: {
     fitness: "Very Active",
