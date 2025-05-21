@@ -21,8 +21,18 @@ export const lifestyleEmojis: Record<string, string> = {
   "Very active (5+×/week or intense)": "🏋️",
   "Competitive/Athlete (training-focused)": "🥇",
 
-  Socially: "🍷",
-  Never: "🚫",
-  Smoking: "🚭",
-  Drugs: "🌿",
+  "Alcohol - Never": "❌",
+  "Alcohol - Occasionally": "🍷",
+  "Alcohol - Regularly": "🍷🍷",
+  "Alcohol - Frequently": "🍷🍷🍷",
+
+  "Smoking - Never": "🚭",
+  "Smoking - Occasionally": "🚬",
+  "Smoking - Regularly": "🚬🚬",
+  "Smoking - Frequently": "🚬🚬🚬",
+
+  "Drugs - Never": "❌",
+  "Drugs - Occasionally": "💊",
+  "Drugs - Regularly": "💊💊",
+  "Drugs - Frequently": "💊💊💊",
 };

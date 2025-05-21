@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 
 const ALCOHOL_LEVELS = [
   "❌ Never",
-  "🍷 Occasionally (socially or rarely)",
-  "🍻 Regularly (weekends or more)",
-  "🥂 Frequently (almost daily)",
+  "🍷 Occasionally",
+  "🍷🍷 Regularly",
+  "🍷🍷🍷 Frequently",
 ];
 
 export default function Lifestyle() {
