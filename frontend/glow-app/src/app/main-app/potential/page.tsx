@@ -81,10 +81,11 @@ export default function PotentialPage() {
                 {user.lifestyle.alcohol}
               </div>
               <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
-                {lifestyleEmojis["Smoking"]} {user.lifestyle.smoking}
+                {lifestyleEmojis[user.lifestyle.smoking]}{" "}
+                {user.lifestyle.smoking}
               </div>
               <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
-                {lifestyleEmojis["Drugs"]} {user.lifestyle.drugs}
+                {lifestyleEmojis[user.lifestyle.drugs]} {user.lifestyle.drugs}
               </div>
             </div>
           </div>

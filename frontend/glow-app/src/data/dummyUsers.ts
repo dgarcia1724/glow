@@ -36,14 +36,14 @@ export const dummyUsers: User[] = [
       distance: 50,
     },
     coreValues: {
-      religion: "Spiritual but not religious",
+      religion: "Spiritual",
       politics: "Moderate",
     },
     lifestyle: {
-      fitness: "Very Active",
-      alcohol: "Socially",
-      smoking: "Never",
-      drugs: "Never",
+      fitness: "Very active (5+×/week or intense)",
+      alcohol: "Alcohol - Never",
+      smoking: "Smoking - Never",
+      drugs: "Drugs - Frequently",
     },
     bio: "Adventure-seeking software engineer who loves hiking, photography, and trying new restaurants. Looking for someone to share life's adventures with!",
     pictures: [
@@ -109,10 +109,10 @@ export const dummyUsers: User[] = [
       politics: "Liberal",
     },
     lifestyle: {
-      fitness: "Moderately Active",
-      alcohol: "Socially",
-      smoking: "Never",
-      drugs: "Never",
+      fitness: "Moderate activity (2–4×/week)",
+      alcohol: "Alcohol - Occasionally",
+      smoking: "Smoking - Never",
+      drugs: "Drugs - Never",
     },
     bio: "Art gallery curator by day, amateur chef by night. Love exploring museums, trying new recipes, and weekend getaways to the beach.",
     pictures: [
@@ -178,10 +178,10 @@ export const dummyUsers: User[] = [
       politics: "Conservative",
     },
     lifestyle: {
-      fitness: "Very Active",
-      alcohol: "Never",
-      smoking: "Never",
-      drugs: "Never",
+      fitness: "Very active (5+×/week or intense)",
+      alcohol: "Alcohol - Never",
+      smoking: "Smoking - Never",
+      drugs: "Drugs - Never",
     },
     bio: "Elementary school teacher who loves hiking, yoga, and reading. Looking for someone who shares my values and enjoys outdoor adventures.",
     pictures: [
