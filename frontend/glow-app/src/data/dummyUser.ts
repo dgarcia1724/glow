@@ -48,8 +48,8 @@ export interface User {
   // Lifestyle
   lifestyle: {
     fitness: string; // e.g., "Very Active", "Moderately Active", etc.
-    smoking: string; // e.g., "Never", "Occasionally", "Regularly"
     alcohol: string; // e.g., "Never", "Socially", "Regularly"
+    smoking: string; // e.g., "Never", "Occasionally", "Regularly"
     drugs: string; // e.g., "Never", "Occasionally", "Regularly"
   };
 
@@ -116,8 +116,8 @@ export const dummyUser: User = {
   },
   lifestyle: {
     fitness: "Very Active",
-    smoking: "Never",
     alcohol: "Socially",
+    smoking: "Never",
     drugs: "Never",
   },
   bio: "Adventure-seeking software engineer who loves hiking, photography, and trying new restaurants. Looking for someone to share life's adventures with!",
