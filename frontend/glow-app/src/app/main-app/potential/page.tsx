@@ -40,10 +40,12 @@ export default function PotentialPage() {
             <h2 className="text-xl font-semibold text-gray-800">Core Values</h2>
             <div className="flex flex-wrap gap-2">
               <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
-                {user.coreValues.religion}
+                <span className="mr-2">{user.coreValues.religion.emoji}</span>
+                {user.coreValues.religion.value}
               </div>
               <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
-                {user.coreValues.politics}
+                <span className="mr-2">{user.coreValues.politics.emoji}</span>
+                {user.coreValues.politics.value}
               </div>
             </div>
           </div>
@@ -63,22 +65,26 @@ export default function PotentialPage() {
           {/* Lifestyle Section */}
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-gray-800">Lifestyle</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <span className="text-sm text-gray-500">Fitness</span>
-                <p className="font-medium">{user.lifestyle.fitness}</p>
+            <div className="flex flex-wrap gap-2">
+              <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
+                <span className="mr-2">{user.lifestyle.fitness.emoji}</span>
+                <span className="text-sm font-medium">Fitness:</span>{" "}
+                {user.lifestyle.fitness.value}
               </div>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <span className="text-sm text-gray-500">Alcohol</span>
-                <p className="font-medium">{user.lifestyle.alcohol}</p>
+              <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
+                <span className="mr-2">{user.lifestyle.alcohol.emoji}</span>
+                <span className="text-sm font-medium">Alcohol:</span>{" "}
+                {user.lifestyle.alcohol.value}
               </div>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <span className="text-sm text-gray-500">Smoking</span>
-                <p className="font-medium">{user.lifestyle.smoking}</p>
+              <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
+                <span className="mr-2">{user.lifestyle.smoking.emoji}</span>
+                <span className="text-sm font-medium">Smoking:</span>{" "}
+                {user.lifestyle.smoking.value}
               </div>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <span className="text-sm text-gray-500">Drugs</span>
-                <p className="font-medium">{user.lifestyle.drugs}</p>
+              <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
+                <span className="mr-2">{user.lifestyle.drugs.emoji}</span>
+                <span className="text-sm font-medium">Drugs:</span>{" "}
+                {user.lifestyle.drugs.value}
               </div>
             </div>
           </div>
