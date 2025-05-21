@@ -41,34 +41,16 @@ export interface User {
 
   // Core Values
   coreValues: {
-    religion: {
-      value: string;
-      emoji: string;
-    };
-    politics: {
-      value: string;
-      emoji: string;
-    };
+    religion: string;
+    politics: string;
   };
 
   // Lifestyle
   lifestyle: {
-    fitness: {
-      value: string;
-      emoji: string;
-    };
-    alcohol: {
-      value: string;
-      emoji: string;
-    };
-    smoking: {
-      value: string;
-      emoji: string;
-    };
-    drugs: {
-      value: string;
-      emoji: string;
-    };
+    fitness: string;
+    alcohol: string;
+    smoking: string;
+    drugs: string;
   };
 
   // Bio and Pictures
@@ -128,32 +110,14 @@ export const dummyUser: User = {
     distance: 50,
   },
   coreValues: {
-    religion: {
-      value: "Spiritual but not religious",
-      emoji: "🤍",
-    },
-    politics: {
-      value: "Moderate",
-      emoji: "🤝",
-    },
+    religion: "Spiritual but not religious",
+    politics: "Moderate",
   },
   lifestyle: {
-    fitness: {
-      value: "Very Active",
-      emoji: "🏋️‍♂️",
-    },
-    alcohol: {
-      value: "Socially",
-      emoji: "🍷",
-    },
-    smoking: {
-      value: "Never",
-      emoji: "🚭",
-    },
-    drugs: {
-      value: "Never",
-      emoji: "🌿",
-    },
+    fitness: "Very Active",
+    alcohol: "Socially",
+    smoking: "Never",
+    drugs: "Never",
   },
   bio: "Adventure-seeking software engineer who loves hiking, photography, and trying new restaurants. Looking for someone to share life's adventures with!",
   pictures: [
