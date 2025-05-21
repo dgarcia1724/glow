@@ -30,7 +30,7 @@ export default function PotentialPage() {
             <h1 className="text-3xl font-extrabold text-gray-900">
               {user.firstName}
             </h1>
-            <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
+            <div className="px-4 py-2 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black font-medium shadow-lg">
               <span className="mr-2">🎂</span>
               {new Date().getFullYear() - new Date(user.birthday).getFullYear()}
             </div>
@@ -43,11 +43,11 @@ export default function PotentialPage() {
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-gray-800">Core Values</h2>
             <div className="flex flex-wrap gap-2">
-              <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
+              <div className="px-4 py-2 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black font-medium shadow-lg">
                 {coreValueEmojis[user.coreValues.religion]}{" "}
                 {user.coreValues.religion}
               </div>
-              <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
+              <div className="px-4 py-2 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black font-medium shadow-lg">
                 {coreValueEmojis[user.coreValues.politics]}{" "}
                 {user.coreValues.politics}
               </div>
@@ -70,18 +70,18 @@ export default function PotentialPage() {
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-gray-800">Lifestyle</h2>
             <div className="flex flex-wrap gap-2">
-              <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
+              <div className="px-4 py-2 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black font-medium shadow-lg">
                 {lifestyleEmojis[user.lifestyle.fitness]}{" "}
                 {user.lifestyle.fitness}
               </div>
-              <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
+              <div className="px-4 py-2 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black font-medium shadow-lg">
                 {lifestyleEmojis[user.lifestyle.alcohol]}{" "}
                 {user.lifestyle.alcohol}
               </div>
-              <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
+              <div className="px-4 py-2 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black font-medium shadow-lg">
                 {lifestyleEmojis["Smoking"]} {user.lifestyle.smoking}
               </div>
-              <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
+              <div className="px-4 py-2 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black font-medium shadow-lg">
                 {lifestyleEmojis["Drugs"]} {user.lifestyle.drugs}
               </div>
             </div>
