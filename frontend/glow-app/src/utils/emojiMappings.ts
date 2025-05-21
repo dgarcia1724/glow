@@ -9,14 +9,18 @@ export const coreValueEmojis: Record<string, string> = {
   Spiritual: "✨",
   Agnostic: "🤔",
   Other: "💫",
-  Moderate: "🤝",
-  Liberal: "🌈",
-  Conservative: "🦅",
+  Moderate: "🟣",
+  Liberal: "🔵",
+  Conservative: "🔴",
 };
 
 export const lifestyleEmojis: Record<string, string> = {
-  "Very Active": "🏃‍♀️",
-  "Moderately Active": "🧘‍♀️",
+  "Rarely active": "🛋️",
+  "Light activity (1–2×/week)": "🚶",
+  "Moderate activity (2–4×/week)": "🏃",
+  "Very active (5+×/week or intense)": "🏋️",
+  "Competitive/Athlete (training-focused)": "🥇",
+
   Socially: "🍷",
   Never: "🚫",
   Smoking: "🚭",
