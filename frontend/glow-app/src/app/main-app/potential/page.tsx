@@ -51,6 +51,18 @@ export default function PotentialPage() {
           />
         </div>
 
+        {/* Age and Location */}
+        <div className="p-6 pb-0 flex flex-wrap gap-2">
+          <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
+            <span className="mr-2">🎂</span>
+            {new Date().getFullYear() - new Date(user.birthday).getFullYear()}
+          </div>
+          <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
+            <span className="mr-2">📍</span>
+            {user.location.city}, {user.location.state}
+          </div>
+        </div>
+
         {/* User Info */}
         <div className="p-6 space-y-6">
           {/* Core Values Section */}
@@ -94,17 +106,6 @@ export default function PotentialPage() {
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-gray-800">Bio</h2>
             <p className="text-gray-700 text-lg">{user.bio}</p>
-            <div className="flex flex-wrap gap-2">
-              <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
-                <span className="mr-2">🎂</span>
-                {new Date().getFullYear() -
-                  new Date(user.birthday).getFullYear()}
-              </div>
-              <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
-                <span className="mr-2">📍</span>
-                {user.location.city}, {user.location.state}
-              </div>
-            </div>
           </div>
 
           {/* Second Photo */}
