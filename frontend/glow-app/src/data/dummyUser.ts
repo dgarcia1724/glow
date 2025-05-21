@@ -66,8 +66,6 @@ export interface User {
   createdAt: string;
   updatedAt: string;
   lastActive: string;
-  isVerified: boolean;
-  isPremium: boolean;
 }
 
 export const dummyUser: User = {
@@ -144,6 +142,4 @@ export const dummyUser: User = {
   createdAt: "2024-03-15T10:00:00Z",
   updatedAt: "2024-03-15T10:00:00Z",
   lastActive: "2024-03-15T10:00:00Z",
-  isVerified: true,
-  isPremium: false,
 };
