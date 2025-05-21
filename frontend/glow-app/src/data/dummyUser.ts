@@ -110,14 +110,14 @@ export const dummyUser: User = {
     distance: 50,
   },
   coreValues: {
-    religion: "Spiritual but not religious",
+    religion: "Spiritual",
     politics: "Moderate",
   },
   lifestyle: {
-    fitness: "Very Active",
-    alcohol: "Socially",
-    smoking: "Never",
-    drugs: "Never",
+    fitness: "Very active (5+×/week or intense)",
+    alcohol: "Alcohol - Occasionally",
+    smoking: "Smoking - Never",
+    drugs: "Drugs - Never",
   },
   bio: "Adventure-seeking software engineer who loves hiking, photography, and trying new restaurants. Looking for someone to share life's adventures with!",
   pictures: [
