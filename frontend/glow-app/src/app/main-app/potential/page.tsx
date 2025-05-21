@@ -3,6 +3,7 @@
 import React from "react";
 import { dummyUsers } from "@/data/dummyUsers";
 import Image from "next/image";
+import { coreValueEmojis, lifestyleEmojis } from "@/utils/emojiMappings";
 
 export default function PotentialPage() {
   // For now, we'll just use the first user
@@ -43,12 +44,12 @@ export default function PotentialPage() {
             <h2 className="text-xl font-semibold text-gray-800">Core Values</h2>
             <div className="flex flex-wrap gap-2">
               <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
-                <span className="mr-2">{user.coreValues.religion.emoji}</span>
-                {user.coreValues.religion.value}
+                {coreValueEmojis[user.coreValues.religion]}{" "}
+                {user.coreValues.religion}
               </div>
               <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
-                <span className="mr-2">{user.coreValues.politics.emoji}</span>
-                {user.coreValues.politics.value}
+                {coreValueEmojis[user.coreValues.politics]}{" "}
+                {user.coreValues.politics}
               </div>
             </div>
           </div>
@@ -70,24 +71,18 @@ export default function PotentialPage() {
             <h2 className="text-xl font-semibold text-gray-800">Lifestyle</h2>
             <div className="flex flex-wrap gap-2">
               <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
-                <span className="mr-2">{user.lifestyle.fitness.emoji}</span>
-                <span className="text-sm font-medium">Fitness:</span>{" "}
-                {user.lifestyle.fitness.value}
+                {lifestyleEmojis[user.lifestyle.fitness]}{" "}
+                {user.lifestyle.fitness}
               </div>
               <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
-                <span className="mr-2">{user.lifestyle.alcohol.emoji}</span>
-                <span className="text-sm font-medium">Alcohol:</span>{" "}
-                {user.lifestyle.alcohol.value}
+                {lifestyleEmojis[user.lifestyle.alcohol]}{" "}
+                {user.lifestyle.alcohol}
               </div>
               <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
-                <span className="mr-2">{user.lifestyle.smoking.emoji}</span>
-                <span className="text-sm font-medium">Smoking:</span>{" "}
-                {user.lifestyle.smoking.value}
+                {lifestyleEmojis["Smoking"]} {user.lifestyle.smoking}
               </div>
               <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
-                <span className="mr-2">{user.lifestyle.drugs.emoji}</span>
-                <span className="text-sm font-medium">Drugs:</span>{" "}
-                {user.lifestyle.drugs.value}
+                {lifestyleEmojis["Drugs"]} {user.lifestyle.drugs}
               </div>
             </div>
           </div>

@@ -36,32 +36,14 @@ export const dummyUsers: User[] = [
       distance: 50,
     },
     coreValues: {
-      religion: {
-        value: "Spiritual but not religious",
-        emoji: "✨",
-      },
-      politics: {
-        value: "Moderate",
-        emoji: "🤝",
-      },
+      religion: "Spiritual but not religious",
+      politics: "Moderate",
     },
     lifestyle: {
-      fitness: {
-        value: "Very Active",
-        emoji: "🏃‍♀️",
-      },
-      alcohol: {
-        value: "Socially",
-        emoji: "🍷",
-      },
-      smoking: {
-        value: "Never",
-        emoji: "🚭",
-      },
-      drugs: {
-        value: "Never",
-        emoji: "🌿",
-      },
+      fitness: "Very Active",
+      alcohol: "Socially",
+      smoking: "Never",
+      drugs: "Never",
     },
     bio: "Adventure-seeking software engineer who loves hiking, photography, and trying new restaurants. Looking for someone to share life's adventures with!",
     pictures: [
@@ -123,32 +105,14 @@ export const dummyUsers: User[] = [
       distance: 30,
     },
     coreValues: {
-      religion: {
-        value: "Atheist",
-        emoji: "🌌",
-      },
-      politics: {
-        value: "Liberal",
-        emoji: "🌈",
-      },
+      religion: "Atheist",
+      politics: "Liberal",
     },
     lifestyle: {
-      fitness: {
-        value: "Moderately Active",
-        emoji: "🧘‍♀️",
-      },
-      alcohol: {
-        value: "Socially",
-        emoji: "🍷",
-      },
-      smoking: {
-        value: "Never",
-        emoji: "🚭",
-      },
-      drugs: {
-        value: "Never",
-        emoji: "🌿",
-      },
+      fitness: "Moderately Active",
+      alcohol: "Socially",
+      smoking: "Never",
+      drugs: "Never",
     },
     bio: "Art gallery curator by day, amateur chef by night. Love exploring museums, trying new recipes, and weekend getaways to the beach.",
     pictures: [
@@ -210,32 +174,14 @@ export const dummyUsers: User[] = [
       distance: 25,
     },
     coreValues: {
-      religion: {
-        value: "Christian",
-        emoji: "✝️",
-      },
-      politics: {
-        value: "Conservative",
-        emoji: "🦅",
-      },
+      religion: "Christian",
+      politics: "Conservative",
     },
     lifestyle: {
-      fitness: {
-        value: "Very Active",
-        emoji: "🏃‍♀️",
-      },
-      alcohol: {
-        value: "Never",
-        emoji: "🚫",
-      },
-      smoking: {
-        value: "Never",
-        emoji: "🚭",
-      },
-      drugs: {
-        value: "Never",
-        emoji: "🌿",
-      },
+      fitness: "Very Active",
+      alcohol: "Never",
+      smoking: "Never",
+      drugs: "Never",
     },
     bio: "Elementary school teacher who loves hiking, yoga, and reading. Looking for someone who shares my values and enjoys outdoor adventures.",
     pictures: [
