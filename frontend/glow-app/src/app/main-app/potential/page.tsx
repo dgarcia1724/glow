@@ -26,10 +26,13 @@ export default function PotentialPage() {
         <div className="p-6 space-y-6">
           {/* Name and Age */}
           <div className="flex items-center space-x-2">
-            <h1 className="text-3xl font-bold">{user.firstName}</h1>
-            <span className="text-xl text-gray-600">
+            <h1 className="text-3xl font-extrabold text-gray-900">
+              {user.firstName}
+            </h1>
+            <div className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">
+              <span className="mr-2">🎂</span>
               {new Date().getFullYear() - new Date(user.birthday).getFullYear()}
-            </span>
+            </div>
           </div>
 
           {/* Bio */}
