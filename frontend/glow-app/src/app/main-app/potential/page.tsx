@@ -15,18 +15,6 @@ export default function PotentialPage() {
       <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
         {/* Name and Active Status with Core Values */}
         <div className="p-6 pb-2">
-          {/* Core Values Section */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
-              {coreValueEmojis[user.coreValues.religion]}{" "}
-              {user.coreValues.religion}
-            </div>
-            <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
-              {coreValueEmojis[user.coreValues.politics]}{" "}
-              {user.coreValues.politics}
-            </div>
-          </div>
-
           <div className="space-y-2">
             <h1 className="text-3xl font-extrabold text-gray-900 truncate">
               {user.firstName}
@@ -48,6 +36,21 @@ export default function PotentialPage() {
               >
                 {getLastActiveText(user.lastActive).text}
               </p>
+            </div>
+          </div>
+
+          {/* Core Values Section */}
+          <div className="mt-6 space-y-4">
+            <h2 className="text-xl font-semibold text-gray-800">Core Values</h2>
+            <div className="flex flex-wrap gap-2">
+              <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
+                {coreValueEmojis[user.coreValues.religion]}{" "}
+                {user.coreValues.religion}
+              </div>
+              <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
+                {coreValueEmojis[user.coreValues.politics]}{" "}
+                {user.coreValues.politics}
+              </div>
             </div>
           </div>
         </div>

@@ -37,7 +37,7 @@ export const dummyUsers: User[] = [
     },
     coreValues: {
       religion: "Spiritual but not religious",
-      politics: "Moderate",
+      politics: "Conservative",
     },
     lifestyle: {
       fitness: "Very active (5+×/week or intense)",
