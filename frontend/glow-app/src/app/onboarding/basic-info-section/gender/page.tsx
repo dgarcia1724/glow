@@ -4,8 +4,9 @@ import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
 const GENDER_OPTIONS = [
-  { emoji: "🤵", text: "Man" },
-  { emoji: "💃", text: "Woman" },
+  { text: "Man" },
+  { text: "Woman" },
+  { text: "Nonbinary" },
 ];
 
 export default function Gender() {
@@ -53,7 +54,6 @@ export default function Gender() {
                   onChange={() => setSelectedGender(option.text)}
                   className="form-radio accent-yellow-400 mr-3"
                 />
-                <span className="text-xl mr-3">{option.emoji}</span>
                 <span className="text-lg text-black">{option.text}</span>
               </label>
             ))}
