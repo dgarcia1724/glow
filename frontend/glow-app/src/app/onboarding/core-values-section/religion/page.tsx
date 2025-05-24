@@ -10,7 +10,7 @@ const RELIGIONS = [
   { emoji: "🕉️", text: "Hindu" },
   { emoji: "✡️", text: "Jewish" },
   { emoji: "☪️", text: "Muslim" },
-  { emoji: "✨", text: "Spiritual" },
+  { emoji: "✨", text: "Spiritual but not religious" },
   { emoji: "🤔", text: "Agnostic" },
   { emoji: "⚛️", text: "Atheist" },
   { emoji: "💫", text: "Other" },
