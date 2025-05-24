@@ -15,7 +15,7 @@ export const dummyUsers: User[] = [
     version: 1,
     status: "ACTIVE",
     roles: ["ROLE_USER"],
-    firstName: "Grrrrrrrrrrrrrrrrrrrrrr",
+    firstName: "Jenny",
     birthday: "1995-06-15",
     gender: "Female",
     location: {
@@ -36,13 +36,13 @@ export const dummyUsers: User[] = [
       distance: 50,
     },
     coreValues: {
-      religion: "Christian",
+      religion: "Spiritual but not religious",
       politics: "Moderate",
     },
     lifestyle: {
       fitness: "Very active (5+×/week or intense)",
-      alcohol: "Alcohol - Never",
-      smoking: "Smoking - Never",
+      alcohol: "Alcohol - Regularly",
+      smoking: "Smoking - Occasionally",
       drugs: "Drugs - Frequently",
     },
     bio: "Adventure-seeking software engineer who loves hiking, photography, and trying new restaurants. Looking for someone to share life's adventures with!",
