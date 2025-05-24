@@ -6,7 +6,7 @@ export const dummyUsers: User[] = [
     uid: "xK9mP2nL5vR8tY3wQ7hJ4fG1dS6cB9",
     email: "jane.doe@gmail.com",
     emailVerified: true,
-    displayName: "Jane Doe",
+    displayName: "Grrrrrrrrrrrrrrrrrrrrrr Doe",
     photoURL:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
     authProvider: "google",
@@ -15,7 +15,7 @@ export const dummyUsers: User[] = [
     version: 1,
     status: "ACTIVE",
     roles: ["ROLE_USER"],
-    firstName: "Jane",
+    firstName: "Grrrrrrrrrrrrrrrrrrrrrr",
     birthday: "1995-06-15",
     gender: "Female",
     location: {
