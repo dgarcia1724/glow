@@ -4,9 +4,9 @@ import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
 const DATING_PREFERENCES = [
-  { emoji: "🤵", text: "Men" },
-  { emoji: "💃", text: "Women" },
-  { emoji: "💫", text: "Everyone" },
+  { text: "Men" },
+  { text: "Women" },
+  { text: "Everyone" },
 ];
 
 export default function DatingPreferences() {
@@ -54,7 +54,6 @@ export default function DatingPreferences() {
                   onChange={() => setPreference(option.text)}
                   className="form-radio accent-yellow-400 mr-3"
                 />
-                <span className="text-xl mr-3">{option.emoji}</span>
                 <span className="text-lg text-black">{option.text}</span>
               </label>
             ))}
