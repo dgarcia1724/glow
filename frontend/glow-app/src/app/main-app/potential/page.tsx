@@ -4,7 +4,7 @@ import React from "react";
 import { dummyUsers } from "@/data/dummyUsers";
 import Image from "next/image";
 import { coreValueEmojis, lifestyleEmojis } from "@/utils/emojiMappings";
-import { getLastActiveText } from "@/utils/timeMappings";
+import PotentialTopNav from "@/components/PotentialTopNav";
 
 export default function PotentialPage() {
   // For now, we'll just use the first user
@@ -12,35 +12,15 @@ export default function PotentialPage() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-        {/* Name and Active Status with Core Values */}
-        <div className="p-6 pb-2">
-          <div className="space-y-2">
-            <h1 className="text-3xl font-extrabold text-gray-900 truncate">
-              {user.firstName}
-            </h1>
-            <div className="flex items-center">
-              <div
-                className={`w-2 h-2 rounded-full mr-2 ${
-                  getLastActiveText(user.lastActive).isActive
-                    ? "bg-green-500"
-                    : "bg-red-500"
-                }`}
-              />
-              <p
-                className={`text-sm ${
-                  getLastActiveText(user.lastActive).isActive
-                    ? "text-green-600"
-                    : "text-red-600"
-                }`}
-              >
-                {getLastActiveText(user.lastActive).text}
-              </p>
-            </div>
-          </div>
+      <PotentialTopNav
+        firstName={user.firstName}
+        lastActive={user.lastActive}
+      />
 
-          {/* Core Values Section */}
-          <div className="mt-6 space-y-4">
+      <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        {/* Core Values Section */}
+        <div className="p-6 pb-2">
+          <div className="space-y-4">
             <h2 className="text-xl font-semibold text-gray-800">Core Values</h2>
             <div className="flex flex-wrap gap-2">
               <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
