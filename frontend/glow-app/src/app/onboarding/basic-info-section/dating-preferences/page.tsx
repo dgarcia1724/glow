@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 const DATING_PREFERENCES = [
   { text: "Men" },
   { text: "Women" },
+  { text: "Nonbinary" },
   { text: "Everyone" },
 ];
 
