@@ -31,9 +31,9 @@ export default function Bio() {
             placeholder="Share your interests and what you're looking for..."
             required
             className="w-full border-2 border-black/80 focus:border-yellow-400 outline-none text-lg py-3 px-4 placeholder-gray-400 mb-2 transition-colors bg-transparent text-black rounded-lg min-h-[150px] resize-none"
-            maxLength={500}
+            maxLength={100}
           />
-          <p className="text-sm text-gray-500 text-right">0/500 characters</p>
+          <p className="text-sm text-gray-500 text-right">0/100 characters</p>
         </form>
       </main>
       <div className="w-full px-0 pb-8 flex flex-col items-center">
