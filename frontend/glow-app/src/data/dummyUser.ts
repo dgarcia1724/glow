@@ -110,7 +110,7 @@ export const dummyUser: User = {
     distance: 50,
   },
   coreValues: {
-    religion: "Spiritual",
+    religion: "Christian",
     politics: "Moderate",
   },
   lifestyle: {

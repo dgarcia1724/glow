@@ -13,30 +13,44 @@ export default function PotentialPage() {
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-        {/* Name and Active Status */}
+        {/* Name and Active Status with Core Values */}
         <div className="p-6 pb-2">
-          <div className="flex items-center space-x-2">
-            <h1 className="text-3xl font-extrabold text-gray-900">
-              {user.firstName}
-            </h1>
-          </div>
-          <div className="flex items-center mt-2">
-            <div
-              className={`w-2 h-2 rounded-full mr-2 ${
-                getLastActiveText(user.lastActive).isActive
-                  ? "bg-green-500"
-                  : "bg-red-500"
-              }`}
-            />
-            <p
-              className={`text-sm ${
-                getLastActiveText(user.lastActive).isActive
-                  ? "text-green-600"
-                  : "text-red-600"
-              }`}
-            >
-              {getLastActiveText(user.lastActive).text}
-            </p>
+          <div className="flex justify-between items-start">
+            <div className="space-y-2">
+              <h1 className="text-3xl font-extrabold text-gray-900">
+                {user.firstName}
+              </h1>
+              <div className="flex items-center">
+                <div
+                  className={`w-2 h-2 rounded-full mr-2 ${
+                    getLastActiveText(user.lastActive).isActive
+                      ? "bg-green-500"
+                      : "bg-red-500"
+                  }`}
+                />
+                <p
+                  className={`text-sm ${
+                    getLastActiveText(user.lastActive).isActive
+                      ? "text-green-600"
+                      : "text-red-600"
+                  }`}
+                >
+                  {getLastActiveText(user.lastActive).text}
+                </p>
+              </div>
+            </div>
+
+            {/* Core Values Section */}
+            <div className="flex flex-col gap-2 min-w-[200px]">
+              <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
+                {coreValueEmojis[user.coreValues.religion]}{" "}
+                {user.coreValues.religion}
+              </div>
+              <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
+                {coreValueEmojis[user.coreValues.politics]}{" "}
+                {user.coreValues.politics}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -65,21 +79,6 @@ export default function PotentialPage() {
 
         {/* User Info */}
         <div className="p-6 space-y-6">
-          {/* Core Values Section */}
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-gray-800">Core Values</h2>
-            <div className="flex flex-wrap gap-2">
-              <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
-                {coreValueEmojis[user.coreValues.religion]}{" "}
-                {user.coreValues.religion}
-              </div>
-              <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
-                {coreValueEmojis[user.coreValues.politics]}{" "}
-                {user.coreValues.politics}
-              </div>
-            </div>
-          </div>
-
           {/* Lifestyle Section */}
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-gray-800">Lifestyle</h2>

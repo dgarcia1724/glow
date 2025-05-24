@@ -51,6 +51,9 @@ export default function Welcome() {
               glow
             </span>
           </h1>
+          <p className="text-white text-xl sm:text-2xl font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+            No clutter. Just core values.
+          </p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-64 sm:mb-48">

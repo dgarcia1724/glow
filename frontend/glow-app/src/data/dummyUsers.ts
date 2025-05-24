@@ -36,7 +36,7 @@ export const dummyUsers: User[] = [
       distance: 50,
     },
     coreValues: {
-      religion: "Spiritual",
+      religion: "Christian",
       politics: "Moderate",
     },
     lifestyle: {

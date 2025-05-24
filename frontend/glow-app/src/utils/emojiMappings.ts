@@ -6,7 +6,7 @@ export const coreValueEmojis: Record<string, string> = {
   Hindu: "🕉️",
   Jewish: "✡️",
   Muslim: "☪️",
-  Spiritual: "✨",
+  "Spiritual but not religious": "✨",
   Agnostic: "🤔",
   Other: "💫",
   Moderate: "🟣",
