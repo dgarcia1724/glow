@@ -21,9 +21,14 @@ export default function Pics() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (photos.filter(Boolean).length === 0) {
+      return; // Don't proceed if no photos are selected
+    }
     // Here you would typically handle the photo uploads
     router.push("/onboarding/done");
   };
+
+  const photoCount = photos.filter(Boolean).length;
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -33,6 +38,10 @@ export default function Pics() {
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
             Add your pics
           </h1>
+          <p className="text-gray-600 text-center mb-4">
+            Add 1-4 photos. At least one photo is required.
+          </p>
+          <p className="text-sm text-gray-500">{photoCount}/4 photos added</p>
         </div>
         {/* Photos form */}
         <form
@@ -40,8 +49,8 @@ export default function Pics() {
           onSubmit={handleSubmit}
           className="w-full max-w-md mx-auto flex flex-col gap-6"
         >
-          <div className="grid grid-cols-3 gap-4">
-            {[0, 1, 2].map((index) => (
+          <div className="grid grid-cols-2 gap-4">
+            {[0, 1, 2, 3].map((index) => (
               <div
                 key={index}
                 className="aspect-square border-2 border-dashed border-black/80 rounded-lg flex items-center justify-center cursor-pointer hover:border-yellow-400 transition-colors relative"
@@ -84,7 +93,11 @@ export default function Pics() {
         </form>
       </main>
       <div className="w-full px-0 pb-8 flex flex-col items-center">
-        <YellowGradientButton type="submit" form="pics-form">
+        <YellowGradientButton
+          type="submit"
+          form="pics-form"
+          disabled={photoCount === 0}
+        >
           Continue
         </YellowGradientButton>
       </div>
