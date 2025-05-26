@@ -18,11 +18,11 @@ const ETHNICITIES = [
 
 export default function Ethnicity() {
   const router = useRouter();
-  const [selected, setSelected] = useState<string>("");
+  const [selected, setSelected] = useState<string[]>([]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (selected) {
+    if (selected.length > 0) {
       // Save selection as needed
       router.push("/onboarding/basic-info-section/dating-preferences");
     }
@@ -41,26 +41,35 @@ export default function Ethnicity() {
             className="w-full max-w-md mx-auto flex flex-col gap-6"
           >
             <div className="flex flex-col gap-4">
-              {ETHNICITIES.map((ethnicity) => (
-                <label
-                  key={ethnicity.text}
-                  className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                    selected === ethnicity.text
-                      ? "border-yellow-400 bg-yellow-50"
-                      : "border-black/10 bg-white"
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name="ethnicity"
-                    value={ethnicity.text}
-                    checked={selected === ethnicity.text}
-                    onChange={() => setSelected(ethnicity.text)}
-                    className="form-radio accent-yellow-400 mr-3"
-                  />
-                  <span className="text-lg text-black">{ethnicity.text}</span>
-                </label>
-              ))}
+              {ETHNICITIES.map((ethnicity) => {
+                const isChecked = selected.includes(ethnicity.text);
+                return (
+                  <label
+                    key={ethnicity.text}
+                    className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
+                      isChecked
+                        ? "border-yellow-400 bg-yellow-50"
+                        : "border-black/10 bg-white"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      name="ethnicity"
+                      value={ethnicity.text}
+                      checked={isChecked}
+                      onChange={() => {
+                        setSelected((prev) =>
+                          isChecked
+                            ? prev.filter((item) => item !== ethnicity.text)
+                            : [...prev, ethnicity.text]
+                        );
+                      }}
+                      className="form-checkbox accent-yellow-400 mr-3"
+                    />
+                    <span className="text-lg text-black">{ethnicity.text}</span>
+                  </label>
+                );
+              })}
             </div>
           </form>
         </div>
@@ -69,7 +78,7 @@ export default function Ethnicity() {
         <YellowGradientButton
           type="submit"
           form="ethnicity-form"
-          disabled={!selected}
+          disabled={selected.length === 0}
         >
           Continue
         </YellowGradientButton>
