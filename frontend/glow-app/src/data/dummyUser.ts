@@ -43,6 +43,7 @@ export interface User {
   coreValues: {
     religion: string;
     politics: string;
+    relationshipType: string;
   };
 
   // Lifestyle
@@ -112,6 +113,7 @@ export const dummyUser: User = {
   coreValues: {
     religion: "Christian",
     politics: "Moderate",
+    relationshipType: "Long-term relationship",
   },
   lifestyle: {
     fitness: "Very active (5+×/week or intense)",

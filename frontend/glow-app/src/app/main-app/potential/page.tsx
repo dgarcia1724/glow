@@ -31,6 +31,10 @@ export default function PotentialPage() {
                 {coreValueEmojis[user.coreValues.politics]}{" "}
                 {user.coreValues.politics}
               </div>
+              <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
+                {coreValueEmojis[user.coreValues.relationshipType]}{" "}
+                {user.coreValues.relationshipType}
+              </div>
             </div>
           </div>
         </div>

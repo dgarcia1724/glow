@@ -12,6 +12,8 @@ export const coreValueEmojis: Record<string, string> = {
   Moderate: "🟣",
   Liberal: "🔵",
   Conservative: "🔴",
+  "Short-term relationship": "🔎",
+  "Long-term relationship": "🔎",
 };
 
 export const lifestyleEmojis: Record<string, string> = {

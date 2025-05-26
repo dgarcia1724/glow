@@ -11,9 +11,9 @@ export default function PotentialTopNav({
   lastActive,
 }: PotentialTopNavProps) {
   return (
-    <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
+    <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
       <div className="max-w-md mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+        <div className="space-y-1">
           <h1 className="text-2xl font-extrabold text-gray-900 truncate">
             {firstName}
           </h1>

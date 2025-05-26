@@ -38,6 +38,7 @@ export const dummyUsers: User[] = [
     coreValues: {
       religion: "Spiritual but not religious",
       politics: "Conservative",
+      relationshipType: "Long-term relationship",
     },
     lifestyle: {
       fitness: "Very active (5+×/week or intense)",
@@ -107,6 +108,7 @@ export const dummyUsers: User[] = [
     coreValues: {
       religion: "Atheist",
       politics: "Liberal",
+      relationshipType: "Short-term relationship",
     },
     lifestyle: {
       fitness: "Moderate activity (2–4×/week)",
@@ -176,6 +178,7 @@ export const dummyUsers: User[] = [
     coreValues: {
       religion: "Christian",
       politics: "Conservative",
+      relationshipType: "Long-term relationship",
     },
     lifestyle: {
       fitness: "Very active (5+×/week or intense)",
