@@ -3,15 +3,14 @@ import React, { useState } from "react";
 import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
-const POLITICAL_VIEWS = [
-  { color: "bg-blue-700", text: "Liberal" },
-  { color: "bg-sky-400", text: "Left-Leaning" },
-  { color: "bg-purple-400", text: "Moderate" },
-  { color: "bg-rose-400", text: "Right-Leaning" },
-  { color: "bg-red-700", text: "Conservative" },
+const RELATIONSHIP_TYPES = [
+  { text: "Long-term – 💍" },
+  { text: "Short-term – 🔥" },
+  { text: "Casual – 😈" },
+  { text: "Open to Anything – 🤔" },
 ];
 
-export default function Politics() {
+export default function RelationshipType() {
   const router = useRouter();
   const [selected, setSelected] = useState<string>("");
 
@@ -19,7 +18,7 @@ export default function Politics() {
     e.preventDefault();
     if (selected) {
       // Save selection as needed
-      router.push("/onboarding/core-values-section/relationship-type");
+      router.push("/onboarding/lifestyle-section/lifestyle");
     }
   };
 
@@ -28,33 +27,32 @@ export default function Politics() {
       <main className="flex-1 flex flex-col justify-center items-center px-6">
         <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-6 text-center">
-            What are your political views?
+            What is your relationship type?
           </h1>
           <form
-            id="politics-form"
+            id="relationship-form"
             onSubmit={handleSubmit}
             className="w-full max-w-md mx-auto flex flex-col gap-6"
           >
             <div className="flex flex-col gap-4">
-              {POLITICAL_VIEWS.map((view) => (
+              {RELATIONSHIP_TYPES.map((type) => (
                 <label
-                  key={view.text}
+                  key={type.text}
                   className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                    selected === view.text
+                    selected === type.text
                       ? "border-yellow-400 bg-yellow-50"
                       : "border-black/10 bg-white"
                   }`}
                 >
                   <input
                     type="radio"
-                    name="politics"
-                    value={view.text}
-                    checked={selected === view.text}
-                    onChange={() => setSelected(view.text)}
+                    name="relationship"
+                    value={type.text}
+                    checked={selected === type.text}
+                    onChange={() => setSelected(type.text)}
                     className="form-radio accent-yellow-400 mr-3"
                   />
-                  <div className={`w-6 h-6 rounded-full ${view.color} mr-3`} />
-                  <span className="text-lg text-black">{view.text}</span>
+                  <span className="text-lg text-black">{type.text}</span>
                 </label>
               ))}
             </div>
@@ -64,7 +62,7 @@ export default function Politics() {
       <div className="w-full px-0 pb-8 flex flex-col items-center">
         <YellowGradientButton
           type="submit"
-          form="politics-form"
+          form="relationship-form"
           disabled={!selected}
         >
           Continue
