@@ -4,16 +4,15 @@ import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
 const ETHNICITIES = [
-  { text: "Asian" },
-  { text: "Black/African Descent" },
+  { text: "Black / African Descent" },
   { text: "East Asian" },
-  { text: "Hispanic/Latino" },
+  { text: "Hispanic / Latino" },
   { text: "Middle Eastern" },
-  { text: "Native American/Indigenous" },
+  { text: "Native American" },
   { text: "Pacific Islander" },
   { text: "South Asian" },
   { text: "Southeast Asian" },
-  { text: "White/Caucasian" },
+  { text: "White / Caucasian" },
   { text: "Other" },
 ];
 
@@ -25,14 +24,14 @@ export default function Ethnicity() {
     e.preventDefault();
     if (selected) {
       // Save selection as needed
-      router.push("/onboarding/basic-info-section/gender");
+      router.push("/onboarding/basic-info-section/dating-preferences");
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <main className="flex-1 flex flex-col justify-center items-center px-6">
-        <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
+      <main className="flex-1 flex flex-col justify-start items-center px-6 pt-8">
+        <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8 mt-16">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-6 text-center">
             What&apos;s your ethnicity?
           </h1>
