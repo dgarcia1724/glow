@@ -4,9 +4,11 @@ import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
 const POLITICAL_VIEWS = [
-  { emoji: "🔵", text: "Liberal" },
-  { emoji: "🟣", text: "Moderate" },
-  { emoji: "🔴", text: "Conservative" },
+  { color: "bg-blue-700", text: "Liberal" },
+  { color: "bg-sky-400", text: "Left-Leaning" },
+  { color: "bg-purple-400", text: "Moderate" },
+  { color: "bg-rose-400", text: "Right-Leaning" },
+  { color: "bg-red-700", text: "Conservative" },
 ];
 
 export default function Politics() {
@@ -51,7 +53,7 @@ export default function Politics() {
                     onChange={() => setSelected(view.text)}
                     className="form-radio accent-yellow-400 mr-3"
                   />
-                  <span className="text-xl mr-3">{view.emoji}</span>
+                  <div className={`w-6 h-6 rounded-full ${view.color} mr-3`} />
                   <span className="text-lg text-black">{view.text}</span>
                 </label>
               ))}
