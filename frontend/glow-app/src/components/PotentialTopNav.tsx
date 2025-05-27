@@ -1,19 +1,20 @@
 import React from "react";
 import { getLastActiveText } from "@/utils/timeMappings";
+import { useRouter } from "next/navigation";
 
 interface PotentialTopNavProps {
   firstName: string;
   lastActive: string;
   onBack?: () => void;
-  onFilter?: () => void;
 }
 
 export default function PotentialTopNav({
   firstName,
   lastActive,
   onBack,
-  onFilter,
 }: PotentialTopNavProps) {
+  const router = useRouter();
+
   return (
     <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
       <div className="max-w-md mx-auto px-6 py-4">
@@ -63,7 +64,7 @@ export default function PotentialTopNav({
               </svg>
             </button>
             <button
-              onClick={onFilter}
+              onClick={() => router.push("/main-app/filters")}
               className="p-2 text-black hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
               aria-label="Open filters"
             >

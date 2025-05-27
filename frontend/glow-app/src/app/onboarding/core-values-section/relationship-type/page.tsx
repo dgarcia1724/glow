@@ -4,10 +4,10 @@ import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
 const RELATIONSHIP_TYPES = [
-  { text: "Long-term – 💍" },
-  { text: "Short-term – 🔥" },
-  { text: "Casual – 😈" },
-  { text: "Open to Anything – 🤔" },
+  { emoji: "💍", text: "Long-term" },
+  { emoji: "🔥", text: "Short-term" },
+  { emoji: "😈", text: "Casual" },
+  { emoji: "🤔", text: "Open to Anything" },
 ];
 
 export default function RelationshipType() {
@@ -52,6 +52,7 @@ export default function RelationshipType() {
                     onChange={() => setSelected(type.text)}
                     className="form-radio accent-yellow-400 mr-3"
                   />
+                  <span className="text-xl mr-3">{type.emoji}</span>
                   <span className="text-lg text-black">{type.text}</span>
                 </label>
               ))}
