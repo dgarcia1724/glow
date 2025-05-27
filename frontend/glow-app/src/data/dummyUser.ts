@@ -46,14 +46,6 @@ export interface User {
     relationshipType: string;
   };
 
-  // Lifestyle
-  lifestyle: {
-    fitness: string;
-    alcohol: string;
-    smoking: string;
-    drugs: string;
-  };
-
   // Bio and Pictures
   bio: string;
   pictures: {
@@ -114,12 +106,6 @@ export const dummyUser: User = {
     religion: "Christian",
     politics: "Moderate",
     relationshipType: "Long-term relationship",
-  },
-  lifestyle: {
-    fitness: "Very active (5+×/week or intense)",
-    alcohol: "Alcohol - Occasionally",
-    smoking: "Smoking - Never",
-    drugs: "Drugs - Never",
   },
   bio: "Adventure-seeking software engineer who loves hiking, photography, and trying new restaurants. Looking for someone to share life's adventures with!",
   pictures: [

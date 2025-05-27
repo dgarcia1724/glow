@@ -40,12 +40,6 @@ export const dummyUsers: User[] = [
       politics: "Conservative",
       relationshipType: "Long-term relationship",
     },
-    lifestyle: {
-      fitness: "Very active (5+×/week or intense)",
-      alcohol: "Alcohol - Regularly",
-      smoking: "Smoking - Occasionally",
-      drugs: "Drugs - Frequently",
-    },
     bio: "Adventure-seeking software engineer who loves hiking, photography, and trying new restaurants. Looking for someone to share life's adventures with!",
     pictures: [
       {
@@ -110,12 +104,6 @@ export const dummyUsers: User[] = [
       politics: "Liberal",
       relationshipType: "Short-term relationship",
     },
-    lifestyle: {
-      fitness: "Moderate activity (2–4×/week)",
-      alcohol: "Alcohol - Occasionally",
-      smoking: "Smoking - Never",
-      drugs: "Drugs - Never",
-    },
     bio: "Art gallery curator by day, amateur chef by night. Love exploring museums, trying new recipes, and weekend getaways to the beach.",
     pictures: [
       {
@@ -179,12 +167,6 @@ export const dummyUsers: User[] = [
       religion: "Christian",
       politics: "Conservative",
       relationshipType: "Long-term relationship",
-    },
-    lifestyle: {
-      fitness: "Very active (5+×/week or intense)",
-      alcohol: "Alcohol - Never",
-      smoking: "Smoking - Never",
-      drugs: "Drugs - Never",
     },
     bio: "Elementary school teacher who loves hiking, yoga, and reading. Looking for someone who shares my values and enjoys outdoor adventures.",
     pictures: [

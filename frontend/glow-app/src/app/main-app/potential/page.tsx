@@ -3,7 +3,7 @@
 import React from "react";
 import { dummyUsers } from "@/data/dummyUsers";
 import Image from "next/image";
-import { coreValueEmojis, lifestyleEmojis } from "@/utils/emojiMappings";
+import { coreValueEmojis } from "@/utils/emojiMappings";
 import PotentialTopNav from "@/components/PotentialTopNav";
 
 export default function PotentialPage() {
@@ -27,8 +27,22 @@ export default function PotentialPage() {
                 {coreValueEmojis[user.coreValues.religion]}{" "}
                 {user.coreValues.religion}
               </div>
-              <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
-                {coreValueEmojis[user.coreValues.politics]}{" "}
+              <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
+                <div
+                  className={`w-4 h-4 rounded-full mr-2 ${
+                    user.coreValues.politics === "Liberal"
+                      ? "bg-blue-700"
+                      : user.coreValues.politics === "Left-Leaning"
+                      ? "bg-sky-400"
+                      : user.coreValues.politics === "Moderate"
+                      ? "bg-purple-400"
+                      : user.coreValues.politics === "Right-Leaning"
+                      ? "bg-rose-400"
+                      : user.coreValues.politics === "Conservative"
+                      ? "bg-red-700"
+                      : ""
+                  }`}
+                />
                 {user.coreValues.politics}
               </div>
               <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
@@ -64,28 +78,6 @@ export default function PotentialPage() {
 
         {/* User Info */}
         <div className="p-6 space-y-6">
-          {/* Lifestyle Section */}
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-gray-800">Lifestyle</h2>
-            <div className="flex flex-wrap gap-2">
-              <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
-                {lifestyleEmojis[user.lifestyle.fitness]}{" "}
-                {user.lifestyle.fitness}
-              </div>
-              <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
-                {lifestyleEmojis[user.lifestyle.alcohol]}{" "}
-                {user.lifestyle.alcohol}
-              </div>
-              <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
-                {lifestyleEmojis[user.lifestyle.smoking]}{" "}
-                {user.lifestyle.smoking}
-              </div>
-              <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
-                {lifestyleEmojis[user.lifestyle.drugs]} {user.lifestyle.drugs}
-              </div>
-            </div>
-          </div>
-
           {/* Bio Section */}
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-gray-800">Bio</h2>
