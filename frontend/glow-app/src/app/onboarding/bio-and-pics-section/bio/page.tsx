@@ -28,7 +28,7 @@ export default function Bio() {
           className="w-full max-w-md mx-auto flex flex-col gap-4"
         >
           <textarea
-            placeholder="Share your interests and what you're looking for..."
+            placeholder="Talk about your interests, beliefs, and what you're looking for..."
             className="w-full border-2 border-black/80 focus:border-yellow-400 outline-none text-lg py-3 px-4 placeholder-gray-400 mb-2 transition-colors bg-transparent text-black rounded-lg min-h-[150px] resize-none"
             maxLength={100}
           />
@@ -41,7 +41,7 @@ export default function Bio() {
         </YellowGradientButton>
         <button
           onClick={() => router.push("/onboarding/bio-and-pics-section/pics")}
-          className="text-gray-500 hover:text-gray-700 font-medium"
+          className="text-gray-500 hover:text-gray-700 font-medium cursor-pointer"
         >
           Skip for now
         </button>
