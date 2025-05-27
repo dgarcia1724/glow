@@ -18,7 +18,7 @@ export default function Bio() {
         {/* Title section */}
         <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8 mt-16">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
-            Add your bio
+            Add your bio (optional)
           </h1>
         </div>
         {/* Bio form */}

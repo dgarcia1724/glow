@@ -18,7 +18,7 @@ export default function RelationshipType() {
     e.preventDefault();
     if (selected) {
       // Save selection as needed
-      router.push("/onboarding/lifestyle-section/lifestyle");
+      router.push("/onboarding/bio-and-pics-section/bio-and-pics");
     }
   };
 
