@@ -37,8 +37,8 @@ export const dummyUsers: User[] = [
     },
     coreValues: {
       religion: "Spiritual but not religious",
-      politics: "Conservative",
-      relationshipType: "Long-term relationship",
+      politics: "Liberal",
+      relationshipType: "Casual",
     },
     bio: "Adventure-seeking software engineer who loves hiking, photography, and trying new restaurants. Looking for someone to share life's adventures with!",
     pictures: [
