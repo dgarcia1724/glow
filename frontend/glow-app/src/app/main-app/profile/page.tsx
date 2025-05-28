@@ -10,14 +10,19 @@ export default function Profile() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <header className="w-full px-6 py-4 border-b border-gray-200">
-        <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-black">Profile</h1>
-          <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-            <FiSettings className="w-6 h-6 text-gray-600" />
-          </button>
+      <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
+        <div className="max-w-md mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-extrabold text-gray-900">Profile</h1>
+            <button
+              className="p-2 text-black hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
+              aria-label="Settings"
+            >
+              <FiSettings className="w-7 h-7" />
+            </button>
+          </div>
         </div>
-      </header>
+      </div>
       <main className="flex-1 flex flex-col justify-center items-center px-6">
         <ProfilePictureWithEdit
           imageUrl={mainPicture?.url || ""}

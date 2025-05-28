@@ -14,9 +14,10 @@ export default function ProfilePictureWithEdit({
 
   return (
     <div
-      className="relative group"
+      className="relative group cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={onEditClick}
     >
       <div className="w-48 h-48 rounded-full overflow-hidden transition-all duration-300">
         <div
@@ -37,7 +38,10 @@ export default function ProfilePictureWithEdit({
       </div>
       <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 z-10">
         <button
-          onClick={onEditClick}
+          onClick={(e) => {
+            e.stopPropagation();
+            onEditClick?.();
+          }}
           className={`px-8 py-3 rounded-full bg-gradient-to-tr text-black font-medium transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-200 text-center cursor-pointer ${
             isHovered
               ? "from-yellow-300 via-yellow-400 to-yellow-200"

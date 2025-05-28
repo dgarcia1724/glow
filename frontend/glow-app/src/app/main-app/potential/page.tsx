@@ -112,7 +112,7 @@ export default function PotentialPage() {
 
       {/* Action Buttons - Sticky */}
       <div className="fixed bottom-24 left-0 right-0 flex justify-between px-8 z-50">
-        <button className="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity cursor-pointer">
+        <button className="w-16 h-16 rounded-full bg-gradient-to-tr from-gray-50 via-gray-100 to-gray-50 text-black flex items-center justify-center shadow-lg hover:from-gray-200 hover:via-gray-300 hover:to-gray-200 transition-all cursor-pointer">
           <svg
             className="w-8 h-8"
             fill="none"
@@ -127,7 +127,7 @@ export default function PotentialPage() {
             />
           </svg>
         </button>
-        <button className="w-16 h-16 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity cursor-pointer">
+        <button className="w-16 h-16 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black flex items-center justify-center shadow-lg hover:from-yellow-300 hover:via-yellow-400 hover:to-yellow-200 transition-all cursor-pointer">
           <svg
             className="w-8 h-8"
             viewBox="0 0 24 24"
