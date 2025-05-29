@@ -29,7 +29,7 @@ export default function Profile() {
       <main className="flex-1 flex flex-col justify-center items-center px-6">
         <ProfilePictureWithEdit
           imageUrl={mainPicture?.url || ""}
-          onEditClick={() => console.log("Edit clicked")}
+          onEditClick={() => router.push("/main-app/profile/edit-profile")}
         />
       </main>
     </div>
