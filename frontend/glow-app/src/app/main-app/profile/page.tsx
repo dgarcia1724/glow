@@ -4,8 +4,10 @@ import React from "react";
 import { FiSettings } from "react-icons/fi";
 import { dummyUser } from "@/data/dummyUser";
 import ProfilePictureWithEdit from "@/components/ProfilePictureWithEdit";
+import { useRouter } from "next/navigation";
 
 export default function Profile() {
+  const router = useRouter();
   const mainPicture = dummyUser.pictures.find((pic) => pic.isMain);
 
   return (
@@ -15,6 +17,7 @@ export default function Profile() {
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-extrabold text-gray-900">Profile</h1>
             <button
+              onClick={() => router.push("/main-app/settings")}
               className="p-2 text-black hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
               aria-label="Settings"
             >
