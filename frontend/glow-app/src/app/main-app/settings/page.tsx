@@ -24,7 +24,16 @@ export default function SettingsPage() {
         </div>
 
         {/* Main content area */}
-        <div className="flex-1">{/* Content will go here */}</div>
+        <div className="flex-1 px-6 pt-8">
+          <div className="max-w-md mx-auto space-y-4">
+            <button className="w-full px-8 py-3 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black font-medium hover:from-yellow-300 hover:via-yellow-400 hover:to-yellow-200 transition-all shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-200 text-center cursor-pointer">
+              Log Out
+            </button>
+            <button className="w-full px-8 py-3 rounded-full bg-black text-white font-medium hover:bg-gray-800 transition-all shadow-lg focus:outline-none focus:ring-4 focus:ring-gray-200 text-center cursor-pointer">
+              Delete Account
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
