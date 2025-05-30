@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { dummyUser } from "@/data/dummyUser";
 
 export default function EditContent() {
   const [photos, setPhotos] = useState<File[]>([]);
@@ -105,6 +106,41 @@ export default function EditContent() {
                   )}
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Core Values Section */}
+        <div className="p-6 border-t border-gray-200">
+          <div className="space-y-6">
+            <h2 className="text-xl font-semibold text-gray-800">
+              My Core Values
+            </h2>
+            <div className="space-y-4">
+              <div className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors">
+                <h3 className="text-sm font-bold text-black">
+                  Religious Beliefs
+                </h3>
+                <p className="text-gray-600 mt-1">
+                  {dummyUser.coreValues.religion}
+                </p>
+              </div>
+              <div className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors">
+                <h3 className="text-sm font-bold text-black">
+                  Political Views
+                </h3>
+                <p className="text-gray-600 mt-1">
+                  {dummyUser.coreValues.politics}
+                </p>
+              </div>
+              <div className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors">
+                <h3 className="text-sm font-bold text-black">
+                  Relationship Type
+                </h3>
+                <p className="text-gray-600 mt-1">
+                  {dummyUser.coreValues.relationshipType}
+                </p>
+              </div>
             </div>
           </div>
         </div>
