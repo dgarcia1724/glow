@@ -1,23 +1,113 @@
-import React from "react";
-import { dummyUser } from "@/data/dummyUser";
+import React, { useState, useRef } from "react";
 
 export default function EditContent() {
+  const [photos, setPhotos] = useState<File[]>([]);
+  const inputRefs = [
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+  ];
+
+  const handlePhotoChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    if (e.target.files && e.target.files[0]) {
+      const newPhotos = [...photos];
+      newPhotos[index] = e.target.files[0];
+      setPhotos(newPhotos);
+    }
+  };
+
+  const handleRemovePhoto = (index: number) => {
+    const newPhotos = [...photos];
+    newPhotos[index] = null as unknown as File;
+    setPhotos(newPhotos);
+  };
+
+  const photoCount = photos.filter(Boolean).length;
+
   return (
-    <div className="flex-1 p-6">
-      <h2 className="text-xl font-semibold mb-4">Edit Profile</h2>
-      {/* Add your edit form fields here */}
-      <div className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Name
-          </label>
-          <input
-            type="text"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-500 focus:ring-yellow-500"
-            defaultValue={dummyUser.firstName}
-          />
+    <div className="flex-1">
+      <div className="max-w-md mx-auto bg-white">
+        {/* Photos Section */}
+        <div className="p-6">
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold text-gray-800">My Photos</h2>
+            <p className="text-sm text-gray-500">{photoCount}/4 photos added</p>
+            <div className="grid grid-cols-2 gap-4 overflow-visible">
+              {[0, 1, 2, 3].map((index) => (
+                <div
+                  key={index}
+                  className="aspect-square border-2 border-dashed border-black/80 rounded-lg flex items-center justify-center cursor-pointer hover:border-yellow-400 transition-colors relative overflow-visible"
+                  onClick={(e) => {
+                    // Only trigger file input if not clicking the X button
+                    if ((e.target as HTMLElement).closest("button")) return;
+                    inputRefs[index].current?.click();
+                  }}
+                >
+                  <input
+                    ref={inputRefs[index]}
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => handlePhotoChange(e, index)}
+                    className="absolute inset-0 w-full h-full opacity-0"
+                    tabIndex={-1}
+                  />
+                  {photos[index] ? (
+                    <div className="w-full h-full rounded-lg overflow-hidden relative">
+                      <img
+                        src={URL.createObjectURL(photos[index])}
+                        alt={`Upload ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleRemovePhoto(index);
+                        }}
+                        className="absolute bottom-0 right-0 w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors border-2 border-black/10 z-30 cursor-pointer pointer-events-auto"
+                      >
+                        <svg
+                          className="w-6 h-6 text-black"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center w-full h-full cursor-pointer">
+                      <svg
+                        className="w-8 h-8 text-gray-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                        />
+                      </svg>
+                      <p className="text-sm text-gray-500">Add photo</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        {/* Add more form fields as needed */}
       </div>
     </div>
   );
