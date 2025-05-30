@@ -105,7 +105,7 @@ export const dummyUser: User = {
   coreValues: {
     religion: "Christian",
     politics: "Right-Leaning",
-    relationshipType: "Long-term relationship",
+    relationshipType: "Long-term",
   },
   bio: "I'm in tech & value relationship built on love & respect. Looking for wifey...",
   pictures: [
