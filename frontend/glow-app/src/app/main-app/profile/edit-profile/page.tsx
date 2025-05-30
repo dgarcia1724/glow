@@ -1,11 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { dummyUser } from "@/data/dummyUser";
+import EditContent from "./components/EditContent";
+import ViewContent from "./components/ViewContent";
 
 export default function EditProfilePage() {
   const router = useRouter();
+  const [selectedTab, setSelectedTab] = useState<"edit" | "view">("edit");
 
   return (
     <div className="fixed inset-0 bg-white z-50">
@@ -39,14 +42,24 @@ export default function EditProfilePage() {
           <div className="grid grid-cols-5 px-6 py-2">
             <div></div>
             <button
-              className="text-lg font-bold text-black hover:text-gray-600 cursor-pointer transition-colors"
+              onClick={() => setSelectedTab("edit")}
+              className={`text-lg font-bold transition-all cursor-pointer ${
+                selectedTab === "edit"
+                  ? "text-black relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-1 after:bg-gradient-to-r after:from-yellow-200 after:via-yellow-300 after:to-yellow-100"
+                  : "text-gray-400 hover:text-gray-600"
+              }`}
               aria-label="Edit"
             >
               Edit
             </button>
             <div></div>
             <button
-              className="text-lg font-bold text-black hover:text-gray-600 cursor-pointer transition-colors"
+              onClick={() => setSelectedTab("view")}
+              className={`text-lg font-bold transition-all cursor-pointer ${
+                selectedTab === "view"
+                  ? "text-black relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-1 after:bg-gradient-to-r after:from-yellow-200 after:via-yellow-300 after:to-yellow-100"
+                  : "text-gray-400 hover:text-gray-600"
+              }`}
               aria-label="View"
             >
               View
@@ -56,7 +69,9 @@ export default function EditProfilePage() {
         </div>
 
         {/* Main content area */}
-        <div className="flex-1">{/* Content will go here */}</div>
+        <div className="flex-1 overflow-y-auto">
+          {selectedTab === "edit" ? <EditContent /> : <ViewContent />}
+        </div>
       </div>
     </div>
   );
