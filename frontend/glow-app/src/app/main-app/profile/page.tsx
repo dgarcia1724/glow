@@ -27,6 +27,9 @@ export default function Profile() {
         </div>
       </div>
       <main className="flex-1 flex flex-col justify-center items-center px-6">
+        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          {dummyUser.firstName}
+        </h2>
         <ProfilePictureWithEdit
           imageUrl={mainPicture?.url || ""}
           onEditClick={() => router.push("/main-app/profile/edit-profile")}
