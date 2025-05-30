@@ -39,13 +39,13 @@ export default function EditProfilePage() {
             </button>
           </div>
           {/* Second Row */}
-          <div className="grid grid-cols-5 px-6 py-2">
+          <div className="grid grid-cols-5 px-6 py-4">
             <div></div>
             <button
               onClick={() => setSelectedTab("edit")}
               className={`text-lg font-bold transition-all cursor-pointer ${
                 selectedTab === "edit"
-                  ? "text-black relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-1 after:bg-gradient-to-r after:from-yellow-200 after:via-yellow-300 after:to-yellow-100"
+                  ? "text-black relative after:absolute after:bottom-[-1rem] after:left-[-1.5rem] after:right-[-1.5rem] after:h-2 after:bg-gradient-to-r after:from-yellow-200 after:via-yellow-300 after:to-yellow-100"
                   : "text-gray-400 hover:text-gray-600"
               }`}
               aria-label="Edit"
@@ -57,7 +57,7 @@ export default function EditProfilePage() {
               onClick={() => setSelectedTab("view")}
               className={`text-lg font-bold transition-all cursor-pointer ${
                 selectedTab === "view"
-                  ? "text-black relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-1 after:bg-gradient-to-r after:from-yellow-200 after:via-yellow-300 after:to-yellow-100"
+                  ? "text-black relative after:absolute after:bottom-[-1rem] after:left-[-1.5rem] after:right-[-1.5rem] after:h-2 after:bg-gradient-to-r after:from-yellow-200 after:via-yellow-300 after:to-yellow-100"
                   : "text-gray-400 hover:text-gray-600"
               }`}
               aria-label="View"
@@ -69,7 +69,7 @@ export default function EditProfilePage() {
         </div>
 
         {/* Main content area */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto mt-8">
           {selectedTab === "edit" ? <EditContent /> : <ViewContent />}
         </div>
       </div>
