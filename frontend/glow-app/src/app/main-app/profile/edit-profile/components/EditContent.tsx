@@ -169,13 +169,23 @@ export default function EditContent() {
           <div className="space-y-6">
             <h2 className="text-xl font-semibold text-gray-800">Basic Info</h2>
             <div className="space-y-4">
-              <div className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors">
+              <div
+                className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
+                onClick={() =>
+                  router.push("/main-app/profile/edit-profile/location")
+                }
+              >
                 <h3 className="text-sm font-bold text-black">Location</h3>
                 <p className="text-gray-600 mt-1">
                   {dummyUser.location.city}, {dummyUser.location.state}
                 </p>
               </div>
-              <div className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors">
+              <div
+                className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
+                onClick={() =>
+                  router.push("/main-app/profile/edit-profile/bio")
+                }
+              >
                 <h3 className="text-sm font-bold text-black">Bio</h3>
                 <p className="text-gray-600 mt-1">{dummyUser.bio}</p>
               </div>
