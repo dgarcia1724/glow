@@ -145,7 +145,14 @@ export default function EditContent() {
                   {dummyUser.coreValues.politics}
                 </p>
               </div>
-              <div className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors">
+              <div
+                className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
+                onClick={() =>
+                  router.push(
+                    "/main-app/profile/edit-profile/relationship-type"
+                  )
+                }
+              >
                 <h3 className="text-sm font-bold text-black">
                   Relationship Type
                 </h3>
