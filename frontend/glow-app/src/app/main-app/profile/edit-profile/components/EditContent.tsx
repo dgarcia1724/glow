@@ -119,7 +119,12 @@ export default function EditContent() {
               My Core Values
             </h2>
             <div className="space-y-4">
-              <div className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors">
+              <div
+                className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
+                onClick={() =>
+                  router.push("/main-app/profile/edit-profile/religion")
+                }
+              >
                 <h3 className="text-sm font-bold text-black">
                   Religious Beliefs
                 </h3>
