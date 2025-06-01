@@ -122,7 +122,7 @@ export default function EditContent() {
               <div
                 className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
                 onClick={() =>
-                  router.push("/main-app/profile/edit-profile/religion")
+                  router.push("/main-app/profile/edit-profile/options/religion")
                 }
               >
                 <h3 className="text-sm font-bold text-black">
@@ -135,7 +135,7 @@ export default function EditContent() {
               <div
                 className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
                 onClick={() =>
-                  router.push("/main-app/profile/edit-profile/politics")
+                  router.push("/main-app/profile/edit-profile/options/politics")
                 }
               >
                 <h3 className="text-sm font-bold text-black">
@@ -149,7 +149,7 @@ export default function EditContent() {
                 className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
                 onClick={() =>
                   router.push(
-                    "/main-app/profile/edit-profile/relationship-type"
+                    "/main-app/profile/edit-profile/options/relationship-type"
                   )
                 }
               >
@@ -172,7 +172,7 @@ export default function EditContent() {
               <div
                 className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
                 onClick={() =>
-                  router.push("/main-app/profile/edit-profile/location")
+                  router.push("/main-app/profile/edit-profile/options/location")
                 }
               >
                 <h3 className="text-sm font-bold text-black">Location</h3>
@@ -183,7 +183,7 @@ export default function EditContent() {
               <div
                 className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
                 onClick={() =>
-                  router.push("/main-app/profile/edit-profile/bio")
+                  router.push("/main-app/profile/edit-profile/options/bio")
                 }
               >
                 <h3 className="text-sm font-bold text-black">Bio</h3>

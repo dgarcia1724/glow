@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
-import TopNav from "../components/TopNav";
+import TopNav from "../../components/TopNav";
 import LocationInput from "@/components/LocationInput";
 
 export default function Location() {

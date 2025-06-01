@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { dummyUser } from "@/data/dummyUser";
-import TopNav from "../components/TopNav";
+import TopNav from "../../components/TopNav";
 
 const RELIGIONS = [
   { emoji: "☸️", text: "Buddhist" },
