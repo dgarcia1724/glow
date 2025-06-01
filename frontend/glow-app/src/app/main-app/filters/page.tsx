@@ -127,7 +127,9 @@ export default function FiltersPage() {
                 <div
                   className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
                   onClick={() =>
-                    router.push("/main-app/filters/relationship-type")
+                    router.push(
+                      "/main-app/filters/filter-options/relationship-type"
+                    )
                   }
                 >
                   <h3 className="text-sm font-bold text-black">
