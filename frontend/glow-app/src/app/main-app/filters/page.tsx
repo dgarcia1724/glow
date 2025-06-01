@@ -104,7 +104,9 @@ export default function FiltersPage() {
               <div className="space-y-4">
                 <div
                   className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
-                  onClick={() => router.push("/main-app/filters/religion")}
+                  onClick={() =>
+                    router.push("/main-app/filters/filter-options/religion")
+                  }
                 >
                   <h3 className="text-sm font-bold text-black">Religion</h3>
                   <p className="text-gray-600 mt-1">
@@ -113,7 +115,9 @@ export default function FiltersPage() {
                 </div>
                 <div
                   className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
-                  onClick={() => router.push("/main-app/filters/politics")}
+                  onClick={() =>
+                    router.push("/main-app/filters/filter-options/politics")
+                  }
                 >
                   <h3 className="text-sm font-bold text-black">Politics</h3>
                   <p className="text-gray-600 mt-1">
