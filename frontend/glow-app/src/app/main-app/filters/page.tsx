@@ -18,7 +18,7 @@ export default function FiltersPage() {
             Dating Filters
           </h1>
           <button
-            onClick={() => router.back()}
+            onClick={() => router.push("/main-app/potential")}
             className="p-2 text-gray-500 hover:text-gray-700 rounded-full hover:bg-gray-100 transition-colors cursor-pointer"
             aria-label="Close filters"
           >
