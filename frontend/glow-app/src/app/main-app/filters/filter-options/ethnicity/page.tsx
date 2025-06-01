@@ -1,0 +1,71 @@
+"use client";
+import React, { useState } from "react";
+import TopNav from "../../components/TopNav";
+
+const ETHNICITIES = [
+  { text: "Black / African Descent" },
+  { text: "East Asian" },
+  { text: "Hispanic / Latino" },
+  { text: "Middle Eastern" },
+  { text: "Native American" },
+  { text: "Pacific Islander" },
+  { text: "South Asian" },
+  { text: "Southeast Asian" },
+  { text: "White / Caucasian" },
+  { text: "Other" },
+];
+
+export default function Ethnicity() {
+  const [selected, setSelected] = useState<string[]>([]);
+
+  const handleSelection = (ethnicity: string) => {
+    setSelected((prev) => {
+      if (prev.includes(ethnicity)) {
+        return prev.filter((item) => item !== ethnicity);
+      }
+      return [...prev, ethnicity];
+    });
+    // TODO: Save selection to backend
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      <TopNav />
+
+      <main className="flex-1 flex flex-col justify-center items-center px-6">
+        <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-6 text-center">
+            What&apos;s your ethnicity?
+          </h1>
+          <div className="w-full max-w-md mx-auto flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
+              {ETHNICITIES.map((ethnicity) => {
+                const isChecked = selected.includes(ethnicity.text);
+                return (
+                  <label
+                    key={ethnicity.text}
+                    className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
+                      isChecked
+                        ? "border-yellow-400 bg-yellow-50"
+                        : "border-black/10 bg-white"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      name="ethnicity"
+                      value={ethnicity.text}
+                      checked={isChecked}
+                      onChange={() => handleSelection(ethnicity.text)}
+                      className="form-checkbox accent-yellow-400 mr-3"
+                    />
+                    <span className="text-lg text-black">{ethnicity.text}</span>
+                  </label>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}

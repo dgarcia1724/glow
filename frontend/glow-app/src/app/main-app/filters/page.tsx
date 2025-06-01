@@ -84,7 +84,9 @@ export default function FiltersPage() {
                 </div>
                 <div
                   className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
-                  onClick={() => router.push("/main-app/filters/ethnicity")}
+                  onClick={() =>
+                    router.push("/main-app/filters/filter-options/ethnicity")
+                  }
                 >
                   <h3 className="text-sm font-bold text-black">Ethnicity</h3>
                   <p className="text-gray-600 mt-1">Not specified</p>
