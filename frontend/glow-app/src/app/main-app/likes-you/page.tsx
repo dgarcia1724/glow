@@ -7,6 +7,22 @@ import Image from "next/image";
 export default function LikesYou() {
   const hasLikes = dummyLikesYou.length > 0;
 
+  const calculateAge = (birthday: string) => {
+    const birthDate = new Date(birthday);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birthDate.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
@@ -117,17 +133,24 @@ export default function LikesYou() {
             {dummyLikesYou.map((user) => (
               <div
                 key={user.id}
-                className="aspect-square relative rounded-lg overflow-hidden"
+                className="flex flex-col bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer"
               >
-                {user.photoURL && (
-                  <Image
-                    src={user.photoURL}
-                    alt={user.displayName || "User"}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
-                  />
-                )}
+                <div className="aspect-square relative rounded-t-lg overflow-hidden">
+                  {user.photoURL && (
+                    <Image
+                      src={user.photoURL}
+                      alt={user.displayName || "User"}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+                    />
+                  )}
+                </div>
+                <div className="px-3 py-2 border-t border-gray-100">
+                  <p className="text-sm font-medium text-black">
+                    {user.firstName}, {calculateAge(user.birthday)}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
