@@ -49,7 +49,7 @@ export default function LikesYou() {
             <div className="relative">
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-yellow-400 cursor-pointer"
               >
                 <span>{selectedFilter}</span>
                 <svg
@@ -77,7 +77,7 @@ export default function LikesYou() {
                         setSelectedFilter(option);
                         setIsDropdownOpen(false);
                       }}
-                      className={`w-full px-4 py-2 text-sm text-left hover:bg-gray-50 ${
+                      className={`w-full px-4 py-2 text-sm text-left hover:bg-gray-50 cursor-pointer ${
                         selectedFilter === option
                           ? "text-yellow-500 font-medium"
                           : "text-gray-700"
