@@ -31,7 +31,7 @@ export default function LikesYouProfile({
           <div className="flex justify-between items-center">
             <button
               onClick={() => router.back()}
-              className="text-gray-700 hover:text-gray-900"
+              className="text-gray-700 hover:text-gray-900 cursor-pointer"
             >
               <svg
                 className="w-6 h-6"
@@ -47,7 +47,9 @@ export default function LikesYouProfile({
                 />
               </svg>
             </button>
-            <h1 className="text-xl font-bold text-gray-900">Profile</h1>
+            <h1 className="text-xl font-bold text-gray-900">
+              {user.firstName}
+            </h1>
             <div className="w-6" /> {/* Spacer for alignment */}
           </div>
         </div>
