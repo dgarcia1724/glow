@@ -3,10 +3,12 @@
 import React, { useState } from "react";
 import { dummyLikesYou } from "@/data/dummyLikesYou";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 type FilterOption = "Recent" | "Your Type" | "Last Active" | "Nearby";
 
 export default function LikesYou() {
+  const router = useRouter();
   const hasLikes = dummyLikesYou.length > 0;
   const [selectedFilter, setSelectedFilter] = useState<FilterOption>("Recent");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -193,6 +195,7 @@ export default function LikesYou() {
             {dummyLikesYou.map((user) => (
               <div
                 key={user.id}
+                onClick={() => router.push(`/main-app/likes-you/${user.id}`)}
                 className="flex flex-col bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer"
               >
                 <div className="aspect-square relative rounded-t-lg overflow-hidden">
