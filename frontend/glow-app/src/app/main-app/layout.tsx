@@ -15,14 +15,14 @@ export default function MainAppLayout({
     <div className="min-h-screen flex flex-col bg-white">
       <main className="flex-1 pb-16">{children}</main>
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200">
+      <nav className="fixed bottom-0 left-0 right-0 bg-black border-t border-gray-800">
         <div className="flex justify-around items-center h-16">
           <Link
             href="/main-app/potential"
             className={`flex flex-col items-center justify-center w-full h-full ${
               pathname === "/main-app/potential"
-                ? "text-yellow-500"
-                : "text-gray-500"
+                ? "text-yellow-300"
+                : "text-gray-400"
             }`}
           >
             <svg
@@ -45,8 +45,8 @@ export default function MainAppLayout({
             href="/main-app/likes-you"
             className={`flex flex-col items-center justify-center w-full h-full ${
               pathname === "/main-app/likes-you"
-                ? "text-yellow-500"
-                : "text-gray-500"
+                ? "text-yellow-300"
+                : "text-gray-400"
             }`}
           >
             <svg
@@ -68,8 +68,8 @@ export default function MainAppLayout({
             href="/main-app/matches"
             className={`flex flex-col items-center justify-center w-full h-full ${
               pathname === "/main-app/matches"
-                ? "text-yellow-500"
-                : "text-gray-500"
+                ? "text-yellow-300"
+                : "text-gray-400"
             }`}
           >
             <svg
@@ -91,8 +91,8 @@ export default function MainAppLayout({
             href="/main-app/profile"
             className={`flex flex-col items-center justify-center w-full h-full ${
               pathname === "/main-app/profile"
-                ? "text-yellow-500"
-                : "text-gray-500"
+                ? "text-yellow-300"
+                : "text-gray-400"
             }`}
           >
             <svg

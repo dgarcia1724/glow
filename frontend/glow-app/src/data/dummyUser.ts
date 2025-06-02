@@ -21,6 +21,7 @@ export interface User {
   firstName: string;
   birthday: string;
   gender: string;
+  ethnicity: string[]; // Added ethnicity field
   location: {
     city: string;
     state: string;
@@ -85,6 +86,7 @@ export const dummyUser: User = {
   firstName: "Danny",
   birthday: "1996-03-15", // This makes him 28 years old
   gender: "Male",
+  ethnicity: ["White / Caucasian"], // Added ethnicity
   location: {
     city: "Seattle",
     state: "Washington",
