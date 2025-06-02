@@ -1,11 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { dummyLikesYou } from "@/data/dummyLikesYou";
 import Image from "next/image";
 
+type FilterOption = "Recent" | "Your Type" | "Last Active" | "Nearby";
+
 export default function LikesYou() {
   const hasLikes = dummyLikesYou.length > 0;
+  const [selectedFilter, setSelectedFilter] = useState<FilterOption>("Recent");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const filterOptions: FilterOption[] = [
+    "Recent",
+    "Your Type",
+    "Last Active",
+    "Nearby",
+  ];
 
   const calculateAge = (birthday: string) => {
     const birthDate = new Date(birthday);
@@ -32,6 +43,55 @@ export default function LikesYou() {
           </div>
         </div>
       </div>
+      {hasLikes && (
+        <div className="sticky top-[73px] z-40 bg-white border-b border-gray-200">
+          <div className="max-w-md mx-auto px-6 py-3">
+            <div className="relative">
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              >
+                <span>{selectedFilter}</span>
+                <svg
+                  className={`w-5 h-5 transition-transform duration-200 ${
+                    isDropdownOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              {isDropdownOpen && (
+                <div className="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg">
+                  {filterOptions.map((option) => (
+                    <button
+                      key={option}
+                      onClick={() => {
+                        setSelectedFilter(option);
+                        setIsDropdownOpen(false);
+                      }}
+                      className={`w-full px-4 py-2 text-sm text-left hover:bg-gray-50 ${
+                        selectedFilter === option
+                          ? "text-yellow-500 font-medium"
+                          : "text-gray-700"
+                      }`}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
       <main className="flex-1 flex flex-col px-6">
         {!hasLikes ? (
           <div
