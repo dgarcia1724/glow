@@ -5,7 +5,7 @@ import { dummyLikesYou } from "@/data/dummyLikesYou";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-type FilterOption = "Recent" | "Your Type" | "Last Active" | "Nearby";
+type FilterOption = "Recent" | "Nearby";
 
 export default function LikesYou() {
   const router = useRouter();
@@ -13,12 +13,7 @@ export default function LikesYou() {
   const [selectedFilter, setSelectedFilter] = useState<FilterOption>("Recent");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const filterOptions: FilterOption[] = [
-    "Recent",
-    "Your Type",
-    "Last Active",
-    "Nearby",
-  ];
+  const filterOptions: FilterOption[] = ["Recent", "Nearby"];
 
   const calculateAge = (birthday: string) => {
     const birthDate = new Date(birthday);
