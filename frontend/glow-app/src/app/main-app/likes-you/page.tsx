@@ -5,15 +5,15 @@ import { dummyLikesYou } from "@/data/dummyLikesYou";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-type FilterOption = "Recent" | "Nearby";
+type FilterOption = "All" | "Your dating filters";
 
 export default function LikesYou() {
   const router = useRouter();
   const hasLikes = dummyLikesYou.length > 0;
-  const [selectedFilter, setSelectedFilter] = useState<FilterOption>("Recent");
+  const [selectedFilter, setSelectedFilter] = useState<FilterOption>("All");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const filterOptions: FilterOption[] = ["Recent", "Nearby"];
+  const filterOptions: FilterOption[] = ["All", "Your dating filters"];
 
   const calculateAge = (birthday: string) => {
     const birthDate = new Date(birthday);
@@ -38,48 +38,72 @@ export default function LikesYou() {
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-extrabold text-gray-900">Likes You</h1>
             {hasLikes && (
-              <div className="relative">
-                <button
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-yellow-400 cursor-pointer"
-                >
-                  <span>{selectedFilter}</span>
-                  <svg
-                    className={`w-5 h-5 ml-2 transition-transform duration-200 ${
-                      isDropdownOpen ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+              <div className="flex items-center gap-2">
+                <div className="relative">
+                  <button
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className="flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-yellow-400 cursor-pointer"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                {isDropdownOpen && (
-                  <div className="absolute right-0 z-50 w-40 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg">
-                    {filterOptions.map((option) => (
-                      <button
-                        key={option}
-                        onClick={() => {
-                          setSelectedFilter(option);
-                          setIsDropdownOpen(false);
-                        }}
-                        className={`w-full px-4 py-2 text-sm text-left hover:bg-gray-50 cursor-pointer ${
-                          selectedFilter === option
-                            ? "text-yellow-500 font-medium"
-                            : "text-gray-700"
-                        }`}
-                      >
-                        {option}
-                      </button>
-                    ))}
+                    <span>{selectedFilter}</span>
+                    <svg
+                      className={`w-5 h-5 ml-2 transition-transform duration-200 ${
+                        isDropdownOpen ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                  {isDropdownOpen && (
+                    <div className="absolute left-0 z-50 w-40 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg">
+                      {filterOptions.map((option) => (
+                        <button
+                          key={option}
+                          onClick={() => {
+                            setSelectedFilter(option);
+                            setIsDropdownOpen(false);
+                          }}
+                          className={`w-full px-4 py-2 text-sm text-left hover:bg-gray-50 cursor-pointer ${
+                            selectedFilter === option
+                              ? "text-yellow-500 font-medium"
+                              : "text-gray-700"
+                          }`}
+                        >
+                          {option}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <button
+                  onClick={() =>
+                    router.push("/main-app/filters?from=likes-you")
+                  }
+                  className="p-2 text-black hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
+                  aria-label="Open filters"
+                >
+                  <div className="flex flex-col space-y-1.5">
+                    <div className="flex items-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-black mr-1" />
+                      <div className="w-4 h-0.5 bg-black" />
+                    </div>
+                    <div className="flex items-center justify-end">
+                      <div className="w-4 h-0.5 bg-black mr-1" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-black" />
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-black mr-1" />
+                      <div className="w-4 h-0.5 bg-black" />
+                    </div>
                   </div>
-                )}
+                </button>
               </div>
             )}
           </div>

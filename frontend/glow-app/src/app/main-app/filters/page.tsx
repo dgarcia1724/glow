@@ -2,11 +2,13 @@
 
 import React from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { dummyUser } from "@/data/dummyUser";
 
-export default function FiltersPage() {
+export default function Filters() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const from = searchParams.get("from") || "potential";
 
   return (
     <div className="fixed inset-0 bg-white z-50">
@@ -18,7 +20,7 @@ export default function FiltersPage() {
             Dating Filters
           </h1>
           <button
-            onClick={() => router.push("/main-app/potential")}
+            onClick={() => router.push(`/main-app/${from}`)}
             className="p-2 text-gray-500 hover:text-gray-700 rounded-full hover:bg-gray-100 transition-colors cursor-pointer"
             aria-label="Close filters"
           >

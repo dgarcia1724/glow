@@ -44,7 +44,7 @@ export default function Matches() {
     <svg
       className={`w-4 h-4 ml-2 transition-transform duration-200 ${
         open ? "rotate-180" : "rotate-0"
-      }`}
+      } cursor-pointer`}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -169,7 +169,7 @@ export default function Matches() {
             {yourTurn.length > 0 && (
               <div className="mb-2">
                 <button
-                  className="flex items-center w-full text-gray-700 font-semibold mb-2 focus:outline-none"
+                  className="flex items-center w-full text-gray-700 font-semibold mb-2 focus:outline-none cursor-pointer"
                   onClick={() => setYourTurnOpen((open) => !open)}
                   aria-expanded={yourTurnOpen}
                   aria-controls="your-turn-section"
@@ -205,7 +205,7 @@ export default function Matches() {
             {theirTurn.length > 0 && (
               <div className="mb-2">
                 <button
-                  className="flex items-center w-full text-gray-700 font-semibold mb-2 focus:outline-none"
+                  className="flex items-center w-full text-gray-700 font-semibold mb-2 focus:outline-none cursor-pointer"
                   onClick={() => setTheirTurnOpen((open) => !open)}
                   aria-expanded={theirTurnOpen}
                   aria-controls="their-turn-section"
