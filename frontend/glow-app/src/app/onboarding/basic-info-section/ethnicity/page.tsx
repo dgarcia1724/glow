@@ -14,6 +14,7 @@ const ETHNICITIES = [
   { text: "Southeast Asian" },
   { text: "White / Caucasian" },
   { text: "Other" },
+  { text: "Prefer not to say" },
 ];
 
 export default function Ethnicity() {
