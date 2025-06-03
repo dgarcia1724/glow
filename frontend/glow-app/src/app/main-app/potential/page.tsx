@@ -12,10 +12,7 @@ export default function PotentialPage() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <PotentialTopNav
-        firstName={user.firstName}
-        lastActive={user.lastActive}
-      />
+      <PotentialTopNav firstName={user.firstName} />
 
       <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
         {/* Core Values Section */}

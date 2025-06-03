@@ -1,16 +1,13 @@
 import React from "react";
-import { getLastActiveText } from "@/utils/timeMappings";
 import { useRouter } from "next/navigation";
 
 interface PotentialTopNavProps {
   firstName: string;
-  lastActive: string;
   onBack?: () => void;
 }
 
 export default function PotentialTopNav({
   firstName,
-  lastActive,
   onBack,
 }: PotentialTopNavProps) {
   const router = useRouter();
@@ -19,28 +16,10 @@ export default function PotentialTopNav({
     <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
       <div className="max-w-md mx-auto px-6 py-4">
         <div className="flex justify-between items-start">
-          <div className="space-y-1">
+          <div>
             <h1 className="text-2xl font-extrabold text-gray-900 truncate">
               {firstName}
             </h1>
-            <div className="flex items-center">
-              <div
-                className={`w-2 h-2 rounded-full mr-2 ${
-                  getLastActiveText(lastActive).isActive
-                    ? "bg-green-500"
-                    : "bg-red-500"
-                }`}
-              />
-              <p
-                className={`text-sm ${
-                  getLastActiveText(lastActive).isActive
-                    ? "text-green-600"
-                    : "text-red-600"
-                }`}
-              >
-                {getLastActiveText(lastActive).text}
-              </p>
-            </div>
           </div>
           <div className="flex space-x-8">
             <button
@@ -64,7 +43,7 @@ export default function PotentialTopNav({
               </svg>
             </button>
             <button
-              onClick={() => router.push("/main-app/filters")}
+              onClick={() => router.push("/main-app/filters?from=potential")}
               className="p-2 text-black hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
               aria-label="Open filters"
             >
