@@ -30,8 +30,56 @@ export default function Filters() {
 
         {/* Main content area */}
         <div className="flex-1 overflow-y-auto">
-          {/* Dating Preferences Section */}
+          {/* Core Values Section */}
           <div className="p-6 border-b border-gray-200">
+            <div className="space-y-6">
+              <h2 className="text-xl font-semibold text-gray-800">
+                Core Values
+              </h2>
+              <div className="space-y-4">
+                <div
+                  className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
+                  onClick={() =>
+                    router.push("/main-app/filters/filter-options/religion")
+                  }
+                >
+                  <h3 className="text-sm font-bold text-black">Religion</h3>
+                  <p className="text-gray-600 mt-1">
+                    {dummyUser.coreValues.religion}
+                  </p>
+                </div>
+                <div
+                  className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
+                  onClick={() =>
+                    router.push("/main-app/filters/filter-options/politics")
+                  }
+                >
+                  <h3 className="text-sm font-bold text-black">Politics</h3>
+                  <p className="text-gray-600 mt-1">
+                    {dummyUser.coreValues.politics}
+                  </p>
+                </div>
+                <div
+                  className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
+                  onClick={() =>
+                    router.push(
+                      "/main-app/filters/filter-options/relationship-type"
+                    )
+                  }
+                >
+                  <h3 className="text-sm font-bold text-black">
+                    Relationship Type
+                  </h3>
+                  <p className="text-gray-600 mt-1">
+                    {dummyUser.coreValues.relationshipType}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Dating Preferences Section */}
+          <div className="p-6">
             <div className="space-y-6">
               <h2 className="text-xl font-semibold text-gray-800">
                 Dating Preferences
@@ -92,54 +140,6 @@ export default function Filters() {
                 >
                   <h3 className="text-sm font-bold text-black">Ethnicity</h3>
                   <p className="text-gray-600 mt-1">Not specified</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Core Values Section */}
-          <div className="p-6">
-            <div className="space-y-6">
-              <h2 className="text-xl font-semibold text-gray-800">
-                Core Values
-              </h2>
-              <div className="space-y-4">
-                <div
-                  className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
-                  onClick={() =>
-                    router.push("/main-app/filters/filter-options/religion")
-                  }
-                >
-                  <h3 className="text-sm font-bold text-black">Religion</h3>
-                  <p className="text-gray-600 mt-1">
-                    {dummyUser.coreValues.religion}
-                  </p>
-                </div>
-                <div
-                  className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
-                  onClick={() =>
-                    router.push("/main-app/filters/filter-options/politics")
-                  }
-                >
-                  <h3 className="text-sm font-bold text-black">Politics</h3>
-                  <p className="text-gray-600 mt-1">
-                    {dummyUser.coreValues.politics}
-                  </p>
-                </div>
-                <div
-                  className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
-                  onClick={() =>
-                    router.push(
-                      "/main-app/filters/filter-options/relationship-type"
-                    )
-                  }
-                >
-                  <h3 className="text-sm font-bold text-black">
-                    Relationship Type
-                  </h3>
-                  <p className="text-gray-600 mt-1">
-                    {dummyUser.coreValues.relationshipType}
-                  </p>
                 </div>
               </div>
             </div>
