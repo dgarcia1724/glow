@@ -12,11 +12,11 @@ const DATING_PREFERENCES = [
 
 export default function DatingPreferences() {
   const router = useRouter();
-  const [preference, setPreference] = useState<string>("");
+  const [selected, setSelected] = useState<string[]>([]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (preference) {
+    if (selected.length > 0) {
       // Save preference selection as needed
       router.push("/onboarding/core-values-section/core-values");
     }
@@ -38,26 +38,35 @@ export default function DatingPreferences() {
           className="w-full max-w-md mx-auto flex flex-col gap-6"
         >
           <div className="flex flex-col gap-4">
-            {DATING_PREFERENCES.map((option) => (
-              <label
-                key={option.text}
-                className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                  preference === option.text
-                    ? "border-yellow-400 bg-yellow-50"
-                    : "border-black/10 bg-white"
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="preference"
-                  value={option.text}
-                  checked={preference === option.text}
-                  onChange={() => setPreference(option.text)}
-                  className="form-radio accent-yellow-400 mr-3"
-                />
-                <span className="text-lg text-black">{option.text}</span>
-              </label>
-            ))}
+            {DATING_PREFERENCES.map((option) => {
+              const isChecked = selected.includes(option.text);
+              return (
+                <label
+                  key={option.text}
+                  className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
+                    isChecked
+                      ? "border-yellow-400 bg-yellow-50"
+                      : "border-black/10 bg-white"
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    name="preference"
+                    value={option.text}
+                    checked={isChecked}
+                    onChange={() => {
+                      setSelected((prev) =>
+                        isChecked
+                          ? prev.filter((item) => item !== option.text)
+                          : [...prev, option.text]
+                      );
+                    }}
+                    className="form-checkbox accent-yellow-400 mr-3"
+                  />
+                  <span className="text-lg text-black">{option.text}</span>
+                </label>
+              );
+            })}
           </div>
         </form>
       </main>
@@ -65,7 +74,7 @@ export default function DatingPreferences() {
         <YellowGradientButton
           type="submit"
           form="dating-preferences-form"
-          disabled={!preference}
+          disabled={selected.length === 0}
         >
           Continue
         </YellowGradientButton>
