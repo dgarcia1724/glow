@@ -1,11 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { dummyMatches } from "@/data/dummyMatches";
 import { dummyConversations, Conversation } from "@/data/dummyMessages";
 import { dummyUser, User } from "@/data/dummyUser";
 
 export default function Matches() {
+  const [openMenuId, setOpenMenuId] = useState<string | null>(null);
+
   // Find conversations for the current user
   const conversations: Conversation[] = dummyConversations
     .filter((conv: Conversation) => conv.participants.includes(dummyUser.uid))
@@ -21,6 +23,12 @@ export default function Matches() {
       (m: User) =>
         m.uid === conv.participants.find((id: string) => id !== dummyUser.uid)
     );
+  };
+
+  const handleUnmatch = (matchId: string) => {
+    // TODO: Implement unmatch functionality
+    console.log("Unmatch with:", matchId);
+    setOpenMenuId(null);
   };
 
   const hasMatches = conversations.length > 0;
@@ -141,7 +149,7 @@ export default function Matches() {
               return (
                 <div
                   key={match.uid}
-                  className="flex items-center py-4 px-3 hover:bg-gray-50 transition-colors duration-150 cursor-pointer"
+                  className="flex items-center py-4 px-3 hover:bg-gray-50 transition-colors duration-150 cursor-pointer relative group"
                 >
                   <img
                     src={match.photoURL || ""}
@@ -170,6 +178,63 @@ export default function Matches() {
                         {conv.lastMessage.content}
                       </div>
                     </div>
+                  </div>
+
+                  {/* Three dots menu */}
+                  <div className="relative">
+                    <button
+                      onClick={() =>
+                        setOpenMenuId(
+                          openMenuId === match.uid ? null : match.uid
+                        )
+                      }
+                      className="p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
+                    >
+                      <svg
+                        className="w-5 h-5 text-gray-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                        />
+                      </svg>
+                    </button>
+
+                    {/* Dropdown menu */}
+                    {openMenuId === match.uid && (
+                      <>
+                        <div
+                          className="fixed inset-0 z-40"
+                          onClick={() => setOpenMenuId(null)}
+                        />
+                        <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                          <button
+                            onClick={() => handleUnmatch(match.uid)}
+                            className="w-full px-4 py-3 text-left text-red-600 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer flex items-center"
+                          >
+                            <svg
+                              className="w-5 h-5 mr-2"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M6 18L18 6M6 6l12 12"
+                              />
+                            </svg>
+                            Unmatch
+                          </button>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               );
