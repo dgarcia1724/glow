@@ -16,6 +16,7 @@ export default function WantToDate() {
       ? dummyUser.datingPreferences.lookingFor
       : []
   );
+  const [isNonNegotiable, setIsNonNegotiable] = useState<boolean>(false);
 
   const handleSelection = (preference: string) => {
     if (preference === "Everyone") {
@@ -26,11 +27,30 @@ export default function WantToDate() {
         if (prev.includes(preference)) {
           return newSelection.filter((p) => p !== preference);
         } else {
-          return [...newSelection, preference];
+          const updatedSelection = [...newSelection, preference];
+          // Check if all regular options are selected
+          const regularOptions = DATING_PREFERENCES.filter(
+            (v) => v.text !== "Everyone"
+          ).map((v) => v.text);
+          const allRegularSelected = regularOptions.every((opt) =>
+            updatedSelection.includes(opt)
+          );
+
+          if (allRegularSelected) {
+            return ["Everyone"];
+          }
+          return updatedSelection;
         }
       });
     }
     // TODO: Save selection to backend
+  };
+
+  const handleNonNegotiableChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setIsNonNegotiable(e.target.checked);
+    // TODO: Save non-negotiable preference to backend
   };
 
   return (
@@ -52,20 +72,33 @@ export default function WantToDate() {
                       ? "border-yellow-400 bg-yellow-50"
                       : "border-black/10 bg-white"
                   }`}
-                  onClick={() => handleSelection(option.text)}
                 >
                   <input
                     type="checkbox"
                     name="preference"
                     value={option.text}
                     checked={selected.includes(option.text)}
-                    onChange={() => {}}
+                    onChange={() => handleSelection(option.text)}
                     className="form-checkbox accent-yellow-400 mr-3"
                   />
                   <span className="text-lg text-black">{option.text}</span>
                 </label>
               ))}
             </div>
+
+            {!selected.includes("Everyone") && (
+              <div className="w-full px-4 mt-4">
+                <label className="flex items-center space-x-3 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
+                  <input
+                    type="checkbox"
+                    checked={isNonNegotiable}
+                    onChange={handleNonNegotiableChange}
+                    className="form-checkbox h-5 w-5 text-yellow-400 rounded border-gray-300 focus:ring-yellow-400 cursor-pointer"
+                  />
+                  <span className="text-gray-700">Non-negotiable for me</span>
+                </label>
+              </div>
+            )}
           </div>
         </div>
       </main>
