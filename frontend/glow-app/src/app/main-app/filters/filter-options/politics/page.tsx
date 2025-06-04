@@ -27,7 +27,19 @@ export default function Politics() {
         if (prev.includes(view)) {
           return newSelection.filter((v) => v !== view);
         } else {
-          return [...newSelection, view];
+          const updatedSelection = [...newSelection, view];
+          // Check if all regular options are selected
+          const regularOptions = POLITICAL_VIEWS.filter(
+            (v) => v.text !== "Open to all"
+          ).map((v) => v.text);
+          const allRegularSelected = regularOptions.every((opt) =>
+            updatedSelection.includes(opt)
+          );
+
+          if (allRegularSelected) {
+            return ["Open to all"];
+          }
+          return updatedSelection;
         }
       });
     }
