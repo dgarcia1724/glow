@@ -27,7 +27,17 @@ export default function RelationshipType() {
         if (prev.includes(type)) {
           return newSelection.filter((t) => t !== type);
         } else {
-          return [...newSelection, type];
+          const updatedSelection = [...newSelection, type];
+          // Check if all three main options are selected
+          const mainOptions = ["Long-term", "Short-term", "Casual"];
+          const allMainSelected = mainOptions.every((opt) =>
+            updatedSelection.includes(opt)
+          );
+
+          if (allMainSelected) {
+            return ["Open to Anything"];
+          }
+          return updatedSelection;
         }
       });
     }
