@@ -4,17 +4,17 @@ import TopNav from "../../components/TopNav";
 import { dummyUser } from "@/data/dummyUser";
 
 const RELIGIONS = [
-  { text: "Buddhist" },
-  { text: "Catholic" },
-  { text: "Christian" },
-  { text: "Hindu" },
-  { text: "Jewish" },
-  { text: "Muslim" },
-  { text: "Spiritual but not religious" },
-  { text: "Agnostic" },
-  { text: "Atheist" },
-  { text: "Other" },
-  { text: "Open to all" },
+  { emoji: "☸️", text: "Buddhist" },
+  { emoji: "✝️", text: "Catholic" },
+  { emoji: "✝️", text: "Christian" },
+  { emoji: "🕉️", text: "Hindu" },
+  { emoji: "✡️", text: "Jewish" },
+  { emoji: "☪️", text: "Muslim" },
+  { emoji: "✨", text: "Spiritual but not religious" },
+  { emoji: "🤔", text: "Agnostic" },
+  { emoji: "⚛️", text: "Atheist" },
+  { emoji: "💫", text: "Other" },
+  { emoji: "❤️", text: "Open to all" },
 ];
 
 export default function Religion() {
@@ -74,6 +74,7 @@ export default function Religion() {
                     onChange={() => handleSelection(religion.text)}
                     className="form-checkbox accent-yellow-400 mr-3"
                   />
+                  <span className="text-xl mr-3">{religion.emoji}</span>
                   <span className="text-lg text-black">{religion.text}</span>
                 </label>
               ))}
