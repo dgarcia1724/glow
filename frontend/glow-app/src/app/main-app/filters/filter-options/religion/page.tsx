@@ -32,7 +32,19 @@ export default function Religion() {
         if (prev.includes(religion)) {
           return newSelection.filter((r) => r !== religion);
         } else {
-          return [...newSelection, religion];
+          const updatedSelection = [...newSelection, religion];
+          // Check if all regular options are selected
+          const regularOptions = RELIGIONS.filter(
+            (r) => r.text !== "Open to all"
+          ).map((r) => r.text);
+          const allRegularSelected = regularOptions.every((opt) =>
+            updatedSelection.includes(opt)
+          );
+
+          if (allRegularSelected) {
+            return ["Open to all"];
+          }
+          return updatedSelection;
         }
       });
     }

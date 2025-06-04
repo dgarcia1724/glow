@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 import { dummyUser } from "@/data/dummyUser";
 import TopNav from "../../components/TopNav";
 
@@ -12,15 +11,26 @@ const DATING_PREFERENCES = [
 ];
 
 export default function WantToDate() {
-  const router = useRouter();
-  const [selected, setSelected] = useState<string>(
-    dummyUser.datingPreferences.lookingFor[0] || ""
+  const [selected, setSelected] = useState<string[]>(
+    Array.isArray(dummyUser.datingPreferences.lookingFor)
+      ? dummyUser.datingPreferences.lookingFor
+      : []
   );
 
   const handleSelection = (preference: string) => {
-    setSelected(preference);
+    if (preference === "Everyone") {
+      setSelected(["Everyone"]);
+    } else {
+      setSelected((prev) => {
+        const newSelection = prev.filter((p) => p !== "Everyone");
+        if (prev.includes(preference)) {
+          return newSelection.filter((p) => p !== preference);
+        } else {
+          return [...newSelection, preference];
+        }
+      });
+    }
     // TODO: Save selection to backend
-    router.push("/main-app/filters");
   };
 
   return (
@@ -38,19 +48,19 @@ export default function WantToDate() {
                 <label
                   key={option.text}
                   className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                    selected === option.text
+                    selected.includes(option.text)
                       ? "border-yellow-400 bg-yellow-50"
                       : "border-black/10 bg-white"
                   }`}
                   onClick={() => handleSelection(option.text)}
                 >
                   <input
-                    type="radio"
+                    type="checkbox"
                     name="preference"
                     value={option.text}
-                    checked={selected === option.text}
+                    checked={selected.includes(option.text)}
                     onChange={() => {}}
-                    className="form-radio accent-yellow-400 mr-3"
+                    className="form-checkbox accent-yellow-400 mr-3"
                   />
                   <span className="text-lg text-black">{option.text}</span>
                 </label>
