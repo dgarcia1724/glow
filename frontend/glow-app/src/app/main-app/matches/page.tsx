@@ -1,15 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { dummyMatches } from "@/data/dummyMatches";
 import { dummyConversations, Conversation } from "@/data/dummyMessages";
 import { dummyUser, User } from "@/data/dummyUser";
 
 export default function Matches() {
   // Find conversations for the current user
-  const conversations: Conversation[] = dummyConversations.filter(
-    (conv: Conversation) => conv.participants.includes(dummyUser.uid)
-  );
+  const conversations: Conversation[] = dummyConversations
+    .filter((conv: Conversation) => conv.participants.includes(dummyUser.uid))
+    .sort(
+      (a, b) =>
+        new Date(b.lastMessage.timestamp).getTime() -
+        new Date(a.lastMessage.timestamp).getTime()
+    );
 
   // Helper to get the match user for a conversation
   const getMatch = (conv: Conversation): User | undefined => {
@@ -19,52 +23,14 @@ export default function Matches() {
     );
   };
 
-  // Determine whose turn it is (last message sender)
-  const yourTurn: { match: User; conv: Conversation }[] = [];
-  const theirTurn: { match: User; conv: Conversation }[] = [];
-  conversations.forEach((conv: Conversation) => {
-    const match = getMatch(conv);
-    if (!match) return;
-    const lastMsg = conv.lastMessage;
-    if (lastMsg.senderId !== dummyUser.uid) {
-      yourTurn.push({ match, conv });
-    } else {
-      theirTurn.push({ match, conv });
-    }
-  });
-
-  const hasMatches = yourTurn.length > 0 || theirTurn.length > 0;
-
-  // State for expand/collapse
-  const [yourTurnOpen, setYourTurnOpen] = useState(true);
-  const [theirTurnOpen, setTheirTurnOpen] = useState(true);
-
-  // Chevron SVG
-  const Chevron = ({ open }: { open: boolean }) => (
-    <svg
-      className={`w-4 h-4 ml-2 transition-transform duration-200 ${
-        open ? "rotate-180" : "rotate-0"
-      } cursor-pointer`}
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M19 9l-7 7-7-7"
-      />
-    </svg>
-  );
+  const hasMatches = conversations.length > 0;
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
-        <div className="max-w-md mx-auto px-6 py-4">
+        <div className="max-w-md mx-auto px-6 py-6">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-extrabold text-gray-900">Matches</h1>
+            <h1 className="text-2xl font-extrabold text-gray-900">Messages</h1>
           </div>
         </div>
       </div>
@@ -161,83 +127,53 @@ export default function Matches() {
               </svg>
             </div>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-black mb-8 leading-tight text-center">
-              No matches yet
+              No messages yet
             </h1>
           </div>
         ) : (
           <div className="w-full max-w-md mx-auto mt-2">
-            {yourTurn.length > 0 && (
-              <div className="mb-2">
-                <button
-                  className="flex items-center w-full text-gray-700 font-semibold mb-2 focus:outline-none cursor-pointer"
-                  onClick={() => setYourTurnOpen((open) => !open)}
-                  aria-expanded={yourTurnOpen}
-                  aria-controls="your-turn-section"
+            {conversations.map((conv) => {
+              const match = getMatch(conv);
+              if (!match) return null;
+
+              const isYourMessage = conv.lastMessage.senderId === dummyUser.uid;
+
+              return (
+                <div
+                  key={match.uid}
+                  className="flex items-center py-4 px-3 hover:bg-gray-50 transition-colors duration-150 cursor-pointer"
                 >
-                  Your turn ({yourTurn.length})
-                  <Chevron open={yourTurnOpen} />
-                </button>
-                <div id="your-turn-section">
-                  {yourTurnOpen &&
-                    yourTurn.map(({ match, conv }) => (
-                      <div
-                        key={match.uid}
-                        className="flex items-center py-3 border-b border-gray-100"
-                      >
-                        <img
-                          src={match.photoURL || ""}
-                          alt={match.displayName || "Match"}
-                          className="w-12 h-12 rounded-full object-cover mr-4"
-                        />
-                        <div className="flex-1 min-w-0">
-                          <div className="font-semibold text-lg text-black leading-tight">
-                            {match.firstName}
-                          </div>
-                          <div className="text-gray-500 truncate text-sm">
-                            {conv.lastMessage.content}
-                          </div>
-                        </div>
+                  <img
+                    src={match.photoURL || ""}
+                    alt={match.displayName || "Match"}
+                    className="w-14 h-14 rounded-full object-cover mr-4"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex justify-between items-center mb-1">
+                      <div className="font-semibold text-lg text-black leading-tight">
+                        {match.firstName}
                       </div>
-                    ))}
-                </div>
-              </div>
-            )}
-            {theirTurn.length > 0 && (
-              <div className="mb-2">
-                <button
-                  className="flex items-center w-full text-gray-700 font-semibold mb-2 focus:outline-none cursor-pointer"
-                  onClick={() => setTheirTurnOpen((open) => !open)}
-                  aria-expanded={theirTurnOpen}
-                  aria-controls="their-turn-section"
-                >
-                  Their turn ({theirTurn.length})
-                  <Chevron open={theirTurnOpen} />
-                </button>
-                <div id="their-turn-section">
-                  {theirTurnOpen &&
-                    theirTurn.map(({ match, conv }) => (
-                      <div
-                        key={match.uid}
-                        className="flex items-center py-3 border-b border-gray-100"
-                      >
-                        <img
-                          src={match.photoURL || ""}
-                          alt={match.displayName || "Match"}
-                          className="w-12 h-12 rounded-full object-cover mr-4"
-                        />
-                        <div className="flex-1 min-w-0">
-                          <div className="font-semibold text-lg text-black leading-tight">
-                            {match.firstName}
-                          </div>
-                          <div className="text-gray-500 truncate text-sm">
-                            {conv.lastMessage.content}
-                          </div>
-                        </div>
+                      <div className="text-sm text-gray-500">
+                        {new Date(
+                          conv.lastMessage.timestamp
+                        ).toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
                       </div>
-                    ))}
+                    </div>
+                    <div className="flex items-center">
+                      {isYourMessage && (
+                        <span className="text-gray-500 mr-2">You: </span>
+                      )}
+                      <div className="text-gray-600 text-base truncate">
+                        {conv.lastMessage.content}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            })}
           </div>
         )}
       </main>
