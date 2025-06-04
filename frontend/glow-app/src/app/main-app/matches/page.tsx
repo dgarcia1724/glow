@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { dummyMatches } from "@/data/dummyMatches";
 import { dummyConversations, Conversation } from "@/data/dummyMessages";
 import { dummyUser, User } from "@/data/dummyUser";
 
 export default function Matches() {
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
+  const router = useRouter();
 
   // Find conversations for the current user
   const conversations: Conversation[] = dummyConversations
@@ -143,13 +145,12 @@ export default function Matches() {
             {conversations.map((conv) => {
               const match = getMatch(conv);
               if (!match) return null;
-
               const isYourMessage = conv.lastMessage.senderId === dummyUser.uid;
-
               return (
                 <div
                   key={match.uid}
                   className="flex items-center py-4 px-3 hover:bg-gray-50 transition-colors duration-150 cursor-pointer relative group"
+                  onClick={() => router.push(`/main-app/matches/${match.uid}`)}
                 >
                   <img
                     src={match.photoURL || ""}
@@ -183,11 +184,12 @@ export default function Matches() {
                   {/* Three dots menu */}
                   <div className="relative">
                     <button
-                      onClick={() =>
+                      onClick={(e) => {
+                        e.stopPropagation();
                         setOpenMenuId(
                           openMenuId === match.uid ? null : match.uid
-                        )
-                      }
+                        );
+                      }}
                       className="p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
                     >
                       <svg
@@ -210,11 +212,17 @@ export default function Matches() {
                       <>
                         <div
                           className="fixed inset-0 z-40"
-                          onClick={() => setOpenMenuId(null)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setOpenMenuId(null);
+                          }}
                         />
                         <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
                           <button
-                            onClick={() => handleUnmatch(match.uid)}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleUnmatch(match.uid);
+                            }}
                             className="w-full px-4 py-3 text-left text-red-600 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer flex items-center"
                           >
                             <svg
