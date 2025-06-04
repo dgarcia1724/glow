@@ -40,7 +40,7 @@ export default function Matches() {
       <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="max-w-md mx-auto px-6 py-6">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-extrabold text-gray-900">Messages</h1>
+            <h1 className="text-2xl font-extrabold text-gray-900">Matches</h1>
           </div>
         </div>
       </div>
