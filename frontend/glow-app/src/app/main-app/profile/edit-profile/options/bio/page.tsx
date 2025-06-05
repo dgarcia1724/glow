@@ -40,10 +40,10 @@ export default function Bio() {
               onChange={handleBioChange}
               placeholder="Talk about your interests, beliefs, and what you're looking for..."
               className="w-full border-2 border-black/80 focus:border-yellow-400 outline-none text-lg py-3 px-4 placeholder-gray-400 mb-2 transition-colors bg-transparent text-black rounded-lg min-h-[150px] resize-none"
-              maxLength={400}
+              maxLength={150}
             />
             <p className="text-sm text-gray-500 text-right">
-              {charCount}/400 characters
+              {charCount}/150 characters
             </p>
           </form>
         </div>
