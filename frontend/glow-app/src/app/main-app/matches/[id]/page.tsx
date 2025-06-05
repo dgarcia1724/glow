@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { dummyMatches } from "@/data/dummyMatches";
+import Chat from "./components/Chat";
+import Profile from "./components/Profile";
 
 export default function MatchChatPage() {
   const router = useRouter();
@@ -140,9 +142,7 @@ export default function MatchChatPage() {
         </div>
       </div>
       {/* Main content area */}
-      <div className="flex-1 overflow-y-auto mt-8">
-        {/* Leave blank for now */}
-      </div>
+      {selectedTab === "chat" ? <Chat /> : <Profile />}
     </div>
   );
 }
