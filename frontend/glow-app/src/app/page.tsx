@@ -57,11 +57,11 @@ export default function Welcome() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-64 sm:mb-48">
-          <YellowGradientButton href="/onboarding/welcome">
+          <YellowGradientButton href="/sign-up">
             Create Account
           </YellowGradientButton>
           <a
-            href="/about"
+            href="/sign-in"
             className="px-8 py-3 rounded-full border border-white/30 text-white font-medium hover:bg-white/10 transition-colors backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-yellow-200 text-center"
           >
             Sign In
