@@ -18,7 +18,7 @@ export default function PotentialTopNav({
       {/* Glow's Daily 10 Section */}
       <div className="max-w-md mx-auto px-6 py-3 border-b border-gray-100">
         <Link
-          href="/main-app/daily-10"
+          href="/main-app/potential/daily-10"
           className="flex items-center justify-center space-x-2 text-gray-800 hover:text-yellow-500 transition-colors"
         >
           <svg
