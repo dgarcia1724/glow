@@ -28,7 +28,7 @@ export default function DatingPreferences() {
         {/* Title section */}
         <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8 mt-16">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
-            Who do you want to date?
+            Who do you want to meet?
           </h1>
         </div>
         {/* Dating preferences form */}
