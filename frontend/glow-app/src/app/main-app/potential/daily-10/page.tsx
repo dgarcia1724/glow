@@ -29,7 +29,25 @@ export default function Daily10() {
     <div className="min-h-screen flex flex-col bg-white">
       <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="max-w-md mx-auto px-6 py-4">
-          <div className="flex justify-center items-center">
+          <div className="flex justify-between items-center">
+            <button
+              onClick={() => router.push("/main-app/potential")}
+              className="text-gray-700 hover:text-gray-900 cursor-pointer"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
             <div className="flex items-center space-x-2">
               <svg
                 className="w-6 h-6 text-yellow-500"
@@ -48,6 +66,7 @@ export default function Daily10() {
                 Glow&apos;s Daily 10
               </h1>
             </div>
+            <div className="w-6" /> {/* Spacer for alignment */}
           </div>
         </div>
       </div>
