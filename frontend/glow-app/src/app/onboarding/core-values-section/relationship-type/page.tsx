@@ -8,6 +8,7 @@ const RELATIONSHIP_TYPES = [
   { emoji: "🔥", text: "Short-term" },
   { emoji: "😈", text: "Casual" },
   { emoji: "🤔", text: "Open to Anything" },
+  { emoji: "💛", text: "Friendship" },
 ];
 
 export default function RelationshipType() {
