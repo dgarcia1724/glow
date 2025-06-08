@@ -10,9 +10,43 @@ const DATING_PREFERENCES = [
   { text: "Everyone" },
 ];
 
+const SPECIFIC_OPTIONS = ["Men", "Women", "Nonbinary"];
+
 export default function DatingPreferences() {
   const router = useRouter();
   const [selected, setSelected] = useState<string[]>([]);
+
+  const handlePreferenceChange = (option: string) => {
+    if (option === "Everyone") {
+      // If "Everyone" is selected, clear other selections
+      setSelected(["Everyone"]);
+    } else {
+      setSelected((prev) => {
+        // Remove "Everyone" if it was selected
+        const withoutEveryone = prev.filter((item) => item !== "Everyone");
+
+        // Toggle the current option
+        let newSelection;
+        if (withoutEveryone.includes(option)) {
+          newSelection = withoutEveryone.filter((item) => item !== option);
+        } else {
+          newSelection = [...withoutEveryone, option];
+        }
+
+        // Check if all specific options are selected
+        const hasAllSpecificOptions = SPECIFIC_OPTIONS.every((opt) =>
+          newSelection.includes(opt)
+        );
+
+        // If all specific options are selected, switch to "Everyone"
+        if (hasAllSpecificOptions) {
+          return ["Everyone"];
+        }
+
+        return newSelection;
+      });
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,6 +64,7 @@ export default function DatingPreferences() {
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
             Who do you want to meet?
           </h1>
+          <p className="text-gray-600 text-center">Select all that apply</p>
         </div>
         {/* Dating preferences form */}
         <form
@@ -54,13 +89,7 @@ export default function DatingPreferences() {
                     name="preference"
                     value={option.text}
                     checked={isChecked}
-                    onChange={() => {
-                      setSelected((prev) =>
-                        isChecked
-                          ? prev.filter((item) => item !== option.text)
-                          : [...prev, option.text]
-                      );
-                    }}
+                    onChange={() => handlePreferenceChange(option.text)}
                     className="form-checkbox accent-yellow-400 mr-3"
                   />
                   <span className="text-lg text-black">{option.text}</span>
