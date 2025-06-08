@@ -9,6 +9,7 @@ const POLITICAL_VIEWS = [
   { color: "bg-purple-400", text: "Moderate" },
   { color: "bg-rose-400", text: "Right-Leaning" },
   { color: "bg-red-700", text: "Conservative" },
+  { color: "bg-gray-400", text: "Not political" },
 ];
 
 export default function Politics() {
