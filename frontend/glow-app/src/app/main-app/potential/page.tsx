@@ -124,6 +124,22 @@ export default function PotentialPage() {
             />
           </svg>
         </button>
+        <button className="w-16 h-16 rounded-full bg-black text-yellow-300 flex items-center justify-center shadow-lg hover:bg-gray-800 transition-all cursor-pointer">
+          <svg
+            className="w-8 h-8"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10L12 2Z"
+              fill="currentColor"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              transform="rotate(0 12 12)"
+            />
+          </svg>
+        </button>
         <button className="w-16 h-16 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black flex items-center justify-center shadow-lg hover:from-yellow-300 hover:via-yellow-400 hover:to-yellow-200 transition-all cursor-pointer">
           <svg
             className="w-8 h-8"
