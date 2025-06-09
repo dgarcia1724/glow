@@ -15,29 +15,6 @@ export default function PotentialTopNav({
 
   return (
     <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
-      {/* Glow's Daily 10 Section */}
-      <div className="max-w-md mx-auto px-6 py-3 border-b border-gray-100">
-        <Link
-          href="/main-app/potential/daily-10"
-          className="flex items-center justify-center space-x-2 text-gray-800 hover:text-yellow-500 transition-colors"
-        >
-          <svg
-            className="w-5 h-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10L12 2Z"
-              fill="currentColor"
-              stroke="currentColor"
-              strokeWidth="0.5"
-            />
-          </svg>
-          <span className="font-semibold">Glow&apos;s Daily 10</span>
-        </Link>
-      </div>
-
       {/* Existing Navigation */}
       <div className="max-w-md mx-auto px-6 py-4">
         <div className="flex justify-between items-start">
