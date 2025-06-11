@@ -1,7 +1,34 @@
 import Image from "next/image";
 import YellowGradientButton from "@/components/YellowGradientButton";
+import { signInWithGoogle, signUpWithEmail } from "@/lib/firebase";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+      router.push("/onboarding/welcome");
+    } catch (error) {
+      setError("Failed to sign in with Google");
+    }
+  };
+
+  const handleEmailSignUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await signUpWithEmail(email, password);
+      router.push("/onboarding/welcome");
+    } catch (error) {
+      setError("Failed to create account");
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-8 relative">
       <Image
@@ -19,8 +46,17 @@ export default function SignUp() {
       <main className="max-w-md w-full flex flex-col items-center justify-center text-center space-y-8 bg-black/40 p-8 rounded-2xl backdrop-blur-sm">
         <h1 className="text-3xl font-bold text-white">Create Account</h1>
 
+        {error && (
+          <div className="w-full p-3 bg-red-500/20 border border-red-500 rounded-lg text-red-200">
+            {error}
+          </div>
+        )}
+
         {/* Google Sign In Button */}
-        <button className="w-full flex items-center justify-center gap-2 bg-black text-white font-medium py-3 rounded-full text-base shadow hover:opacity-90 transition-opacity cursor-pointer">
+        <button
+          onClick={handleGoogleSignIn}
+          className="w-full flex items-center justify-center gap-2 bg-black text-white font-medium py-3 rounded-full text-base shadow hover:opacity-90 transition-opacity cursor-pointer"
+        >
           <svg
             width="18"
             height="18"
@@ -54,11 +90,13 @@ export default function SignUp() {
           <div className="flex-1 h-px bg-white/20"></div>
         </div>
 
-        <form className="w-full space-y-4">
+        <form onSubmit={handleEmailSignUp} className="w-full space-y-4">
           <div>
             <input
               type="email"
               placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-yellow-200"
             />
           </div>
@@ -66,13 +104,17 @@ export default function SignUp() {
             <input
               type="password"
               placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-yellow-200"
             />
           </div>
 
-          <YellowGradientButton href="/onboarding/welcome" className="w-full">
-            Create Account
-          </YellowGradientButton>
+          <button type="submit" className="w-full">
+            <YellowGradientButton className="w-full">
+              Create Account
+            </YellowGradientButton>
+          </button>
         </form>
 
         <p className="text-white/70">
