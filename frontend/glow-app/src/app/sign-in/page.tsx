@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import YellowGradientButton from "@/components/YellowGradientButton";
 import { signInWithGoogle, signInWithEmail } from "@/lib/firebase";
