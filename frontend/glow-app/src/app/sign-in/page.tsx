@@ -14,9 +14,32 @@ export default function SignIn() {
 
   const handleGoogleSignIn = async () => {
     try {
-      await signInWithGoogle();
-      router.push("/main-app/potential");
+      const result = await signInWithGoogle();
+      const token = await result.user.getIdToken();
+
+      // Verify token with auth service
+      const response = await fetch("http://localhost:8081/auth/verify", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Token verification failed");
+      }
+
+      const userData = await response.json();
+
+      // Check if user needs onboarding (you can add your own logic here)
+      const needsOnboarding = !userData.onboardingCompleted; // You'll need to add this field to your auth service response
+
+      if (needsOnboarding) {
+        router.push("/onboarding/welcome");
+      } else {
+        router.push("/main-app/potential");
+      }
     } catch (error) {
+      console.error("Sign in error:", error);
       setError("Failed to sign in with Google");
     }
   };
@@ -24,9 +47,32 @@ export default function SignIn() {
   const handleEmailSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await signInWithEmail(email, password);
-      router.push("/main-app/potential");
+      const result = await signInWithEmail(email, password);
+      const token = await result.user.getIdToken();
+
+      // Verify token with auth service
+      const response = await fetch("http://localhost:8081/auth/verify", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Token verification failed");
+      }
+
+      const userData = await response.json();
+
+      // Check if user needs onboarding
+      const needsOnboarding = !userData.onboardingCompleted;
+
+      if (needsOnboarding) {
+        router.push("/onboarding/welcome");
+      } else {
+        router.push("/main-app/potential");
+      }
     } catch (error) {
+      console.error("Sign in error:", error);
       setError("Invalid email or password");
     }
   };
