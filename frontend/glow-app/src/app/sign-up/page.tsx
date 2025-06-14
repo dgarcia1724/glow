@@ -18,7 +18,14 @@ export default function SignUp() {
       await signInWithGoogle();
       router.push("/onboarding/welcome");
     } catch (error) {
-      setError("Failed to sign in with Google");
+      if (
+        error instanceof FirebaseError &&
+        error.code === "auth/invalid-email"
+      ) {
+        setError("Please enter a valid email address");
+      } else {
+        setError("Failed to sign in with Google");
+      }
     }
   };
 
@@ -28,11 +35,14 @@ export default function SignUp() {
       await signUpWithEmail(email, password);
       router.push("/onboarding/welcome");
     } catch (error) {
-      if (
-        error instanceof FirebaseError &&
-        error.code === "auth/weak-password"
-      ) {
-        setError("Password should be at least 6 characters long");
+      if (error instanceof FirebaseError) {
+        if (error.code === "auth/weak-password") {
+          setError("Password should be at least 6 characters long");
+        } else if (error.code === "auth/invalid-email") {
+          setError("Please enter a valid email address");
+        } else {
+          setError("Failed to create account");
+        }
       } else {
         setError("Failed to create account");
       }
