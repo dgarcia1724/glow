@@ -49,19 +49,28 @@ export default function SignIn() {
     try {
       const result = await signInWithEmail(email, password);
       const token = await result.user.getIdToken();
+      console.log("Firebase token:", token);
 
       // Verify token with auth service
       const response = await fetch("http://localhost:8081/auth/verify", {
+        method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
+        credentials: "include",
+        mode: "cors",
       });
 
       if (!response.ok) {
-        throw new Error("Token verification failed");
+        const errorText = await response.text();
+        console.error("Auth service error:", errorText);
+        throw new Error(`Token verification failed: ${errorText}`);
       }
 
       const userData = await response.json();
+      console.log("Auth service response:", userData);
 
       // Check if user needs onboarding
       const needsOnboarding = !userData.onboardingCompleted;
