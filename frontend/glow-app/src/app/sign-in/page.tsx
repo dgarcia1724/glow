@@ -112,11 +112,9 @@ export default function SignIn() {
             />
           </div>
 
-          <button type="submit" className="w-full">
-            <YellowGradientButton className="w-full">
-              Sign In
-            </YellowGradientButton>
-          </button>
+          <YellowGradientButton type="submit" className="w-full">
+            Sign In
+          </YellowGradientButton>
         </form>
 
         <p className="text-white/70">

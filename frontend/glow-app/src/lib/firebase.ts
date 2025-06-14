@@ -29,9 +29,6 @@ const googleProvider = new GoogleAuthProvider();
 export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
-    const idToken = await result.user.getIdToken();
-    // Send token to your backend
-    await sendTokenToBackend(idToken);
     return result;
   } catch (error) {
     console.error("Error signing in with Google:", error);
@@ -42,9 +39,6 @@ export const signInWithGoogle = async () => {
 export const signInWithEmail = async (email: string, password: string) => {
   try {
     const result = await signInWithEmailAndPassword(auth, email, password);
-    const idToken = await result.user.getIdToken();
-    // Send token to your backend
-    await sendTokenToBackend(idToken);
     return result;
   } catch (error) {
     console.error("Error signing in with email:", error);
@@ -55,9 +49,6 @@ export const signInWithEmail = async (email: string, password: string) => {
 export const signUpWithEmail = async (email: string, password: string) => {
   try {
     const result = await createUserWithEmailAndPassword(auth, email, password);
-    const idToken = await result.user.getIdToken();
-    // Send token to your backend
-    await sendTokenToBackend(idToken);
     return result;
   } catch (error) {
     console.error("Error signing up with email:", error);
@@ -70,30 +61,6 @@ export const logout = async () => {
     await signOut(auth);
   } catch (error) {
     console.error("Error signing out:", error);
-    throw error;
-  }
-};
-
-const sendTokenToBackend = async (idToken: string) => {
-  try {
-    const response = await fetch(
-      "http://localhost:8080/api/auth/verify-token",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ token: idToken }),
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error("Failed to verify token with backend");
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error("Error sending token to backend:", error);
     throw error;
   }
 };

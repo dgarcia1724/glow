@@ -5,6 +5,7 @@ import YellowGradientButton from "@/components/YellowGradientButton";
 import { signInWithGoogle, signUpWithEmail } from "@/lib/firebase";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { FirebaseError } from "firebase/app";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -27,7 +28,14 @@ export default function SignUp() {
       await signUpWithEmail(email, password);
       router.push("/onboarding/welcome");
     } catch (error) {
-      setError("Failed to create account");
+      if (
+        error instanceof FirebaseError &&
+        error.code === "auth/weak-password"
+      ) {
+        setError("Password should be at least 6 characters long");
+      } else {
+        setError("Failed to create account");
+      }
     }
   };
 
@@ -112,11 +120,9 @@ export default function SignUp() {
             />
           </div>
 
-          <button type="submit" className="w-full">
-            <YellowGradientButton className="w-full">
-              Create Account
-            </YellowGradientButton>
-          </button>
+          <YellowGradientButton type="submit" className="w-full">
+            Create Account
+          </YellowGradientButton>
         </form>
 
         <p className="text-white/70">
