@@ -40,6 +40,10 @@ export default function SignUp() {
           setError("Password should be at least 6 characters long");
         } else if (error.code === "auth/invalid-email") {
           setError("Please enter a valid email address");
+        } else if (error.code === "auth/email-already-in-use") {
+          setError(
+            "An account with this email already exists. Please sign in instead."
+          );
         } else {
           setError("Failed to create account");
         }
