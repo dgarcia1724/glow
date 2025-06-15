@@ -25,9 +25,6 @@ export default function Bio() {
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
             Add your bio (optional)
           </h1>
-          <p className="text-lg text-gray-600 text-center">
-            Tell us who you are — in your own words.
-          </p>
         </div>
         {/* Bio form */}
         <form
@@ -37,7 +34,7 @@ export default function Bio() {
         >
           <textarea
             onChange={handleBioChange}
-            placeholder="I'm a nurse who runs marathons, collects vinyl, and makes killer guac."
+            placeholder="I'm a nurse. I love food, the gym & Netflix. Looking for a long-term relationship :)"
             className="w-full border-2 border-black/80 focus:border-yellow-400 outline-none text-lg py-3 px-4 placeholder-gray-400 mb-2 transition-colors bg-transparent text-black rounded-lg min-h-[150px] resize-none"
             maxLength={150}
           />
@@ -46,16 +43,10 @@ export default function Bio() {
           </p>
         </form>
       </main>
-      <div className="w-full px-0 pb-8 flex flex-col items-center gap-4">
+      <div className="w-full px-0 pb-8 flex flex-col items-center">
         <YellowGradientButton type="submit" form="bio-form">
           Continue
         </YellowGradientButton>
-        <button
-          onClick={() => router.push("/onboarding/bio-and-pics-section/pics")}
-          className="text-gray-500 hover:text-gray-700 font-medium cursor-pointer"
-        >
-          Skip for now
-        </button>
       </div>
     </div>
   );

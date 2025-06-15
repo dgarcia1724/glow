@@ -105,9 +105,7 @@ export default function BasicInfo() {
             </svg>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-black mb-8 leading-tight text-center">
-            Add basic info for
-            <br />
-            accurate match making
+            Add basic info
           </h1>
         </div>
       </main>

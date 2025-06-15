@@ -105,8 +105,6 @@ export default function Done() {
             </svg>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-black mb-8 leading-tight text-center">
-            Thanks for sharing!
-            <br />
             Enjoy Glow :)
           </h1>
         </div>

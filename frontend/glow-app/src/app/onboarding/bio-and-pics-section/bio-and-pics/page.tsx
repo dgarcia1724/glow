@@ -106,8 +106,6 @@ export default function BioAndPics() {
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-black mb-8 leading-tight text-center">
             Final steps!
-            <br />
-            Add bio & pics
           </h1>
         </div>
       </main>

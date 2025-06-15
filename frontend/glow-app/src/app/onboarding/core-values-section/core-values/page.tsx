@@ -106,8 +106,6 @@ export default function CoreValues() {
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-black mb-8 leading-tight text-center">
             Share your core values
-            <br />
-            for meaningful connections
           </h1>
         </div>
       </main>
