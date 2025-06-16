@@ -42,7 +42,10 @@ public class UserProfile {
 
     private LocalDate birthDate;
 
+    @Column(name = "location_city", length = 100)
     private String locationCity;
+
+    @Column(name = "location_state", length = 2)
     private String locationState;
 
     @Enumerated(EnumType.STRING)
