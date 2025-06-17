@@ -1,4 +1,4 @@
-package glow.profile_service.model;
+package glow.profile_service.model.onboarding;
 
 public enum RelationshipType {
     LONG_TERM_DATING,
