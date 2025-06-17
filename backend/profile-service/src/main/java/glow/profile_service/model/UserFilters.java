@@ -1,11 +1,16 @@
 package glow.profile_service.model;
 
+import glow.profile_service.model.onboarding.Religion;
+import glow.profile_service.model.onboarding.Politics;
+import glow.profile_service.model.onboarding.RelationshipType;
+import glow.profile_service.model.onboarding.Seeking;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -39,4 +44,28 @@ public class UserFilters {
     @Min(1)
     @Max(100)
     private int maxDistance; // in miles
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "religion_filters", joinColumns = @JoinColumn(name = "filter_id"))
+    @Column(name = "religion")
+    @Enumerated(EnumType.STRING)
+    private List<Religion> religionFilters;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "politics_filters", joinColumns = @JoinColumn(name = "filter_id"))
+    @Column(name = "politics")
+    @Enumerated(EnumType.STRING)
+    private List<Politics> politicsFilters;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "relationship_type_filters", joinColumns = @JoinColumn(name = "filter_id"))
+    @Column(name = "relationship_type")
+    @Enumerated(EnumType.STRING)
+    private List<RelationshipType> relationshipTypeFilters;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "seeking_filters", joinColumns = @JoinColumn(name = "filter_id"))
+    @Column(name = "seeking")
+    @Enumerated(EnumType.STRING)
+    private List<Seeking> seekingFilters;
 }
