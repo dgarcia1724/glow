@@ -54,6 +54,7 @@ export default function Birthday() {
   const [year, setYear] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [showAgeError, setShowAgeError] = useState(false);
+  const [showMaxAgeError, setShowMaxAgeError] = useState(false);
 
   // Helper to pad month/day
   const pad = (val: string) => val.padStart(2, "0");
@@ -66,10 +67,18 @@ export default function Birthday() {
 
     if (age < 18) {
       setShowAgeError(true);
+      setShowMaxAgeError(false);
+      return;
+    }
+
+    if (age > 100) {
+      setShowMaxAgeError(true);
+      setShowAgeError(false);
       return;
     }
 
     setShowAgeError(false);
+    setShowMaxAgeError(false);
     setShowModal(true);
   };
 
@@ -142,9 +151,10 @@ export default function Birthday() {
                 if (val.length <= 4) {
                   // Only allow years between 1900 and current year
                   const currentYear = new Date().getFullYear();
+                  const minYear = currentYear - 100; // Minimum year for 100 years old
                   if (
                     val === "" ||
-                    (val.length === 4 && +val >= 1900 && +val <= currentYear)
+                    (val.length === 4 && +val >= minYear && +val <= currentYear)
                   ) {
                     setYear(val);
                   } else if (val.length < 4) {
@@ -158,6 +168,11 @@ export default function Birthday() {
           {showAgeError && (
             <p className="text-red-500 text-sm mt-2">
               You must be at least 18 years old to use this app.
+            </p>
+          )}
+          {showMaxAgeError && (
+            <p className="text-red-500 text-sm mt-2">
+              You must be less than 100 years old to use this app.
             </p>
           )}
         </form>
