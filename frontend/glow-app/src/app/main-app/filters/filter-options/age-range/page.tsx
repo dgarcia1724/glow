@@ -10,7 +10,6 @@ export default function AgeRange() {
   const [maxAge, setMaxAge] = useState<number>(
     dummyUser.datingPreferences.ageRange.max
   );
-  const [isNonNegotiable, setIsNonNegotiable] = useState<boolean>(false);
 
   const handleMinAgeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newMinAge = Number(e.target.value);
@@ -26,13 +25,6 @@ export default function AgeRange() {
       setMaxAge(newMaxAge);
       // TODO: Save max age to backend
     }
-  };
-
-  const handleNonNegotiableChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setIsNonNegotiable(e.target.checked);
-    // TODO: Save non-negotiable preference to backend
   };
 
   return (
@@ -81,18 +73,6 @@ export default function AgeRange() {
                   />
                 </div>
               </div>
-            </div>
-
-            <div className="w-full px-4 mt-4">
-              <label className="flex items-center space-x-3 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-colors">
-                <input
-                  type="checkbox"
-                  checked={isNonNegotiable}
-                  onChange={handleNonNegotiableChange}
-                  className="form-checkbox h-5 w-5 text-yellow-400 rounded border-gray-300 focus:ring-yellow-400 cursor-pointer"
-                />
-                <span className="text-gray-700">Non-negotiable for me</span>
-              </label>
             </div>
           </div>
         </div>
