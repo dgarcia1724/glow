@@ -18,9 +18,12 @@ export default function Location() {
 
       <main className="flex-1 flex flex-col justify-center items-center px-6">
         <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-6 text-center">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
             Where are you located?
           </h1>
+          <p className="text-sm text-gray-600 text-center mb-6">
+            Only city, state will appear on your profile
+          </p>
           <div className="w-full max-w-md mx-auto flex flex-col gap-6">
             <LocationInput
               onLocationSelect={handleLocationSelect}
