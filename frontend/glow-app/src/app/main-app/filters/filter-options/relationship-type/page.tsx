@@ -7,6 +7,7 @@ const RELATIONSHIP_TYPES = [
   { emoji: "💍", text: "Long-term" },
   { emoji: "🔥", text: "Short-term" },
   { emoji: "😈", text: "Casual" },
+  { emoji: "💛", text: "Friendship" },
   { emoji: "🤔", text: "Open to Anything" },
 ];
 
@@ -28,8 +29,13 @@ export default function RelationshipType() {
           return newSelection.filter((t) => t !== type);
         } else {
           const updatedSelection = [...newSelection, type];
-          // Check if all three main options are selected
-          const mainOptions = ["Long-term", "Short-term", "Casual"];
+          // Check if all four main options are selected
+          const mainOptions = [
+            "Long-term",
+            "Short-term",
+            "Casual",
+            "Friendship",
+          ];
           const allMainSelected = mainOptions.every((opt) =>
             updatedSelection.includes(opt)
           );
