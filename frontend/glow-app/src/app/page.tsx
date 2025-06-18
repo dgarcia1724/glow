@@ -52,7 +52,7 @@ export default function Welcome() {
             </span>
           </h1>
           <p className="text-white text-xl sm:text-2xl font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-            Core values first. Dating or friendships.
+            Core values first. Dating & friendship.
           </p>
         </div>
 

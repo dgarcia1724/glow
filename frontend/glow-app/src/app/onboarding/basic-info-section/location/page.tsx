@@ -24,6 +24,9 @@ export default function Location() {
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
             Where are you located?
           </h1>
+          <p className="text-sm text-gray-600 text-center">
+            Only city, state will appear on your profile
+          </p>
         </div>
         {/* Location form */}
         <form
