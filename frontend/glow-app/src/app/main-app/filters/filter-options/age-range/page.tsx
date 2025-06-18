@@ -60,7 +60,7 @@ export default function AgeRange() {
                   <input
                     type="range"
                     min="18"
-                    max="130"
+                    max="100"
                     value={minAge}
                     onChange={handleMinAgeChange}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-yellow-400"
@@ -74,7 +74,7 @@ export default function AgeRange() {
                   <input
                     type="range"
                     min="18"
-                    max="130"
+                    max="100"
                     value={maxAge}
                     onChange={handleMaxAgeChange}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-yellow-400"
