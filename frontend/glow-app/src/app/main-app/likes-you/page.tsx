@@ -5,15 +5,24 @@ import { dummyLikesYou } from "@/data/dummyLikesYou";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-type FilterOption = "All" | "Your dating filters";
+type FilterOption =
+  | "New"
+  | "Matches your filters"
+  | "Nearby"
+  | "Recently active";
 
 export default function LikesYou() {
   const router = useRouter();
   const hasLikes = dummyLikesYou.length > 0;
-  const [selectedFilter, setSelectedFilter] = useState<FilterOption>("All");
+  const [selectedFilter, setSelectedFilter] = useState<FilterOption>("Recent");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const filterOptions: FilterOption[] = ["All", "Your dating filters"];
+  const filterOptions: FilterOption[] = [
+    "New",
+    "Matches your filters",
+    "Nearby",
+    "Recently active",
+  ];
 
   const calculateAge = (birthday: string) => {
     const birthDate = new Date(birthday);
