@@ -106,7 +106,7 @@ export default function LikeModal({
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               placeholder="Say something nice..."
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-200 focus:border-yellow-300 resize-none text-gray-900"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-fuchsia-200 focus:border-fuchsia-300 resize-none text-gray-900"
               rows={4}
               maxLength={150}
             />
@@ -126,7 +126,7 @@ export default function LikeModal({
           </button>
           <button
             onClick={handleSend}
-            className="flex-1 py-3 px-4 rounded-lg bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black font-medium hover:from-yellow-300 hover:via-yellow-400 hover:to-yellow-200 transition-all shadow-lg cursor-pointer"
+            className="flex-1 py-3 px-4 rounded-lg bg-gradient-to-tr from-fuchsia-400 via-fuchsia-300 to-fuchsia-500 text-black font-medium hover:from-fuchsia-500 hover:via-fuchsia-400 hover:to-fuchsia-600 transition-all shadow-lg cursor-pointer"
           >
             {likeType === "superlike" ? "Send spark" : "Send like"}
           </button>
