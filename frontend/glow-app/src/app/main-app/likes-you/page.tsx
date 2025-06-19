@@ -14,7 +14,7 @@ type FilterOption =
 export default function LikesYou() {
   const router = useRouter();
   const hasLikes = dummyLikesYou.length > 0;
-  const [selectedFilter, setSelectedFilter] = useState<FilterOption>("Recent");
+  const [selectedFilter, setSelectedFilter] = useState<FilterOption>("New");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const filterOptions: FilterOption[] = [
@@ -51,7 +51,7 @@ export default function LikesYou() {
                 <div className="relative">
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-yellow-400 cursor-pointer"
+                    className="flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-fuchsia-400 cursor-pointer"
                   >
                     <span>{selectedFilter}</span>
                     <svg
@@ -81,7 +81,7 @@ export default function LikesYou() {
                           }}
                           className={`w-full px-4 py-2 text-sm text-left hover:bg-gray-50 cursor-pointer ${
                             selectedFilter === option
-                              ? "text-yellow-500 font-medium"
+                              ? "text-fuchsia-500 font-medium"
                               : "text-gray-700"
                           }`}
                         >
@@ -147,9 +147,9 @@ export default function LikesYou() {
                     y2="22"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stopColor="#FDE047" />
-                    <stop offset="0.5" stopColor="#FEF08A" />
-                    <stop offset="1" stopColor="#FEF9C3" />
+                    <stop stopColor="#E879F9" />
+                    <stop offset="0.5" stopColor="#F0ABFC" />
+                    <stop offset="1" stopColor="#A855F7" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -175,9 +175,9 @@ export default function LikesYou() {
                     y2="22"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stopColor="#FDE047" />
-                    <stop offset="0.5" stopColor="#FEF08A" />
-                    <stop offset="1" stopColor="#FEF9C3" />
+                    <stop stopColor="#E879F9" />
+                    <stop offset="0.5" stopColor="#F0ABFC" />
+                    <stop offset="1" stopColor="#A855F7" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -203,9 +203,9 @@ export default function LikesYou() {
                     y2="22"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stopColor="#FDE047" />
-                    <stop offset="0.5" stopColor="#FEF08A" />
-                    <stop offset="1" stopColor="#FEF9C3" />
+                    <stop stopColor="#E879F9" />
+                    <stop offset="0.5" stopColor="#F0ABFC" />
+                    <stop offset="1" stopColor="#A855F7" />
                   </linearGradient>
                 </defs>
               </svg>
