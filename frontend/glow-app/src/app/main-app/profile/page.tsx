@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FiSettings } from "react-icons/fi";
+import { FiSettings, FiShield } from "react-icons/fi";
 import { dummyUser } from "@/data/dummyUser";
 import ProfilePictureWithEdit from "@/components/ProfilePictureWithEdit";
 import { useRouter } from "next/navigation";
@@ -32,13 +32,22 @@ export default function Profile() {
         <div className="max-w-md mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-extrabold text-gray-900">Profile</h1>
-            <button
-              onClick={() => router.push("/main-app/profile/settings")}
-              className="p-2 text-black hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
-              aria-label="Settings"
-            >
-              <FiSettings className="w-7 h-7" />
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => router.push("/main-app/profile/safety")}
+                className="p-2 text-black hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
+                aria-label="Safety"
+              >
+                <FiShield className="w-7 h-7" />
+              </button>
+              <button
+                onClick={() => router.push("/main-app/profile/settings")}
+                className="p-2 text-black hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
+                aria-label="Settings"
+              >
+                <FiSettings className="w-7 h-7" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
