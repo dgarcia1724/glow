@@ -6,6 +6,7 @@ import Image from "next/image";
 import { coreValueEmojis } from "@/utils/emojiMappings";
 import PotentialTopNav from "@/components/PotentialTopNav";
 import LikeModal from "@/components/LikeModal";
+import BlockModal from "@/components/BlockModal";
 
 export default function PotentialPage() {
   // For now, we'll just use the first user
@@ -14,6 +15,7 @@ export default function PotentialPage() {
   // Modal state
   const [showLikeModal, setShowLikeModal] = useState(false);
   const [likeType, setLikeType] = useState<"like" | "superlike">("like");
+  const [showBlockModal, setShowBlockModal] = useState(false);
 
   const handleLikeClick = (type: "like" | "superlike") => {
     setLikeType(type);
@@ -28,6 +30,20 @@ export default function PotentialPage() {
 
   const handleCloseModal = () => {
     setShowLikeModal(false);
+  };
+
+  const handleBlockClick = () => {
+    setShowBlockModal(true);
+  };
+
+  const handleBlockConfirm = () => {
+    // Handle blocking user
+    console.log(`Blocking ${user.firstName}`);
+    setShowBlockModal(false);
+  };
+
+  const handleCloseBlockModal = () => {
+    setShowBlockModal(false);
   };
 
   return (
@@ -135,7 +151,10 @@ export default function PotentialPage() {
 
           {/* Action Buttons */}
           <div className="space-y-3 pt-4">
-            <button className="w-full py-3 px-4 rounded-lg border-2 border-gray-300 bg-white text-gray-700 font-medium hover:bg-gray-50 transition-colors cursor-pointer">
+            <button
+              className="w-full py-3 px-4 rounded-lg border-2 border-gray-300 bg-white text-gray-700 font-medium hover:bg-gray-50 transition-colors cursor-pointer"
+              onClick={handleBlockClick}
+            >
               Block
             </button>
             <button className="w-full py-3 px-4 rounded-lg border-2 border-red-300 bg-white text-red-600 font-medium hover:bg-red-50 transition-colors cursor-pointer">
@@ -233,6 +252,16 @@ export default function PotentialPage() {
           onClose={handleCloseModal}
           onSend={handleSendLike}
           likeType={likeType}
+          userName={user.firstName}
+        />
+      )}
+
+      {/* Block Modal */}
+      {showBlockModal && (
+        <BlockModal
+          isOpen={showBlockModal}
+          onClose={handleCloseBlockModal}
+          onConfirm={handleBlockConfirm}
           userName={user.firstName}
         />
       )}

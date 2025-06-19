@@ -108,10 +108,10 @@ export default function LikeModal({
               placeholder="Say something nice..."
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-200 focus:border-yellow-300 resize-none text-gray-900"
               rows={4}
-              maxLength={500}
+              maxLength={150}
             />
             <div className="text-xs text-gray-500 text-right">
-              {comment.length}/500
+              {comment.length}/150
             </div>
           </div>
         </div>

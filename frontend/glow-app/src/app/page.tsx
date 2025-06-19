@@ -18,7 +18,7 @@ export default function Welcome() {
 
       <main className="max-w-4xl w-full flex flex-col min-h-screen">
         <div className="flex-1 flex flex-col items-center justify-center text-center space-y-8">
-          <h1 className="text-4xl sm:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] flex items-center justify-center gap-2 py-4">
+          <h1 className="text-4xl sm:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-tr from-fuchsia-400 via-fuchsia-300 to-fuchsia-500 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] flex items-center justify-center gap-2 py-4">
             <svg
               className="w-12 h-12 sm:w-16 sm:h-16"
               viewBox="0 0 24 24"
@@ -41,9 +41,9 @@ export default function Welcome() {
                   y2="22"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stopColor="#FDE047" />
-                  <stop offset="0.5" stopColor="#FEF08A" />
-                  <stop offset="1" stopColor="#FEF9C3" />
+                  <stop stopColor="#E879F9" />
+                  <stop offset="0.5" stopColor="#F0ABFC" />
+                  <stop offset="1" stopColor="#A855F7" />
                 </linearGradient>
               </defs>
             </svg>
