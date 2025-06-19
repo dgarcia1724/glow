@@ -31,7 +31,9 @@ export default function EmailNotificationsPage() {
           >
             <ArrowLeftIcon className="w-6 h-6" />
           </button>
-          <h1 className="text-xl font-semibold text-gray-900">Email</h1>
+          <h1 className="text-xl font-semibold text-gray-900">
+            Email Notifications
+          </h1>
           <div className="w-10" /> {/* Spacer for balance */}
         </div>
 

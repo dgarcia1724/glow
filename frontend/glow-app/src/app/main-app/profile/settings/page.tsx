@@ -95,7 +95,9 @@ export default function SettingsPage() {
               <div className="bg-gray-50 rounded-xl p-4">
                 <button
                   onClick={() =>
-                    router.push("/main-app/settings/email-notifications")
+                    router.push(
+                      "/main-app/profile/settings/email-notifications"
+                    )
                   }
                   className="w-full flex items-center justify-between hover:bg-gray-100 rounded-lg p-2 transition-colors cursor-pointer"
                 >
