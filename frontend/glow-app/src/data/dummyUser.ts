@@ -44,7 +44,7 @@ export interface User {
   coreValues: {
     religion: string;
     politics: string;
-    relationshipType: string;
+    relationshipType: string[];
   };
 
   // Bio and Pictures
@@ -107,7 +107,7 @@ export const dummyUser: User = {
   coreValues: {
     religion: "Christian",
     politics: "Right-Leaning",
-    relationshipType: "Long-term",
+    relationshipType: ["Long-term"],
   },
   bio: "I'm in tech & value relationship built on love & respect. Looking for wifey...",
   pictures: [
