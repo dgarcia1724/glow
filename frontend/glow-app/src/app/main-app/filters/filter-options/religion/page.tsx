@@ -74,7 +74,7 @@ export default function Religion() {
                   key={religion.text}
                   className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
                     selected.includes(religion.text)
-                      ? "border-yellow-400 bg-yellow-50"
+                      ? "border-fuchsia-400 bg-fuchsia-50"
                       : "border-black/10 bg-white"
                   }`}
                 >
@@ -84,7 +84,7 @@ export default function Religion() {
                     value={religion.text}
                     checked={selected.includes(religion.text)}
                     onChange={() => handleSelection(religion.text)}
-                    className="form-checkbox accent-yellow-400 mr-3"
+                    className="form-checkbox accent-fuchsia-400 mr-3"
                   />
                   <span className="text-xl mr-3">{religion.emoji}</span>
                   <span className="text-lg text-black">{religion.text}</span>
@@ -99,7 +99,7 @@ export default function Religion() {
                     type="checkbox"
                     checked={isNonNegotiable}
                     onChange={handleNonNegotiableChange}
-                    className="form-checkbox h-5 w-5 text-yellow-400 rounded border-gray-300 focus:ring-yellow-400 cursor-pointer"
+                    className="form-checkbox h-5 w-5 text-fuchsia-400 rounded border-gray-300 focus:ring-fuchsia-400 cursor-pointer"
                   />
                   <span className="text-gray-700">Non-negotiable</span>
                   <div className="relative group">
