@@ -42,7 +42,7 @@ export default function Gender() {
                 key={option.text}
                 className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
                   selectedGender === option.text
-                    ? "border-yellow-400 bg-yellow-50"
+                    ? "border-fuchsia-400 bg-fuchsia-50"
                     : "border-black/10 bg-white"
                 }`}
               >
@@ -52,7 +52,7 @@ export default function Gender() {
                   value={option.text}
                   checked={selectedGender === option.text}
                   onChange={() => setSelectedGender(option.text)}
-                  className="form-radio accent-yellow-400 mr-3"
+                  className="form-radio accent-fuchsia-400 mr-3"
                 />
                 <span className="text-lg text-black">{option.text}</span>
               </label>
