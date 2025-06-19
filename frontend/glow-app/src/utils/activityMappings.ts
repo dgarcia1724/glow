@@ -1,21 +1,23 @@
 export const activityStatusMappings: Record<
   string,
-  { emoji: string; text: string }
+  { emoji: string; text: string; className?: string }
 > = {
   recentlyActive: {
     emoji: "🟢",
     text: "Recently active",
+    className: "text-green-700",
   },
   newHere: {
-    emoji: "🆕",
-    text: "New here",
+    emoji: "",
+    text: "Just joined",
+    className: "bg-black text-white px-2 py-1 rounded-full text-xs",
   },
 };
 
 export const getActivityStatus = (
   lastActive: string,
   createdAt: string
-): { emoji: string; text: string } => {
+): { emoji: string; text: string; className?: string } => {
   const now = new Date();
   const lastActiveDate = new Date(lastActive);
   const createdDate = new Date(createdAt);
@@ -33,6 +35,6 @@ export const getActivityStatus = (
   } else if (isRecentlyActive) {
     return activityStatusMappings.recentlyActive;
   } else {
-    return { emoji: "", text: "" };
+    return { emoji: "", text: "", className: "" };
   }
 };

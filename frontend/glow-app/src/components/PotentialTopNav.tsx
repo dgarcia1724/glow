@@ -1,17 +1,22 @@
 import React from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { getActivityStatus } from "@/utils/activityMappings";
 
 interface PotentialTopNavProps {
   firstName: string;
+  lastActive: string;
+  createdAt: string;
   onBack?: () => void;
 }
 
 export default function PotentialTopNav({
   firstName,
+  lastActive,
+  createdAt,
   onBack,
 }: PotentialTopNavProps) {
   const router = useRouter();
+  const activityStatus = getActivityStatus(lastActive, createdAt);
 
   return (
     <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
@@ -22,6 +27,16 @@ export default function PotentialTopNav({
             <h1 className="text-2xl font-extrabold text-gray-900 truncate">
               {firstName}
             </h1>
+            {activityStatus.text && (
+              <div
+                className={`flex items-center mt-1 text-sm ${
+                  activityStatus.className || "text-gray-600"
+                }`}
+              >
+                <span className="mr-1">{activityStatus.emoji}</span>
+                <span>{activityStatus.text}</span>
+              </div>
+            )}
           </div>
           <div className="flex space-x-8">
             <button

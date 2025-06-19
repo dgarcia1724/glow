@@ -38,7 +38,7 @@ export const dummyUsers: User[] = [
     },
     coreValues: {
       religion: "Spiritual but not religious",
-      politics: "Liberal",
+      politics: "Moderate",
       relationshipType: "Casual",
     },
     bio: "Adventure-seeking software engineer who loves hiking, photography, and trying new restaurants. Looking for someone to share life's adventures with!",
@@ -62,9 +62,9 @@ export const dummyUsers: User[] = [
         order: 3,
       },
     ],
-    createdAt: "2024-03-15T10:00:00Z",
-    updatedAt: "2024-03-15T10:00:00Z",
-    lastActive: "2024-03-15T10:00:00Z",
+    createdAt: "2025-06-18T10:00:00Z",
+    updatedAt: "2025-06-11T10:00:00Z",
+    lastActive: "2025-06-11T10:00:00Z",
   },
   {
     id: 2,
