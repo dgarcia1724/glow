@@ -18,7 +18,7 @@ export default function PotentialPage() {
         createdAt={user.createdAt}
       />
 
-      <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden pb-32">
         {/* Core Values Section */}
         <div className="p-6 pb-2">
           <div className="space-y-4">
@@ -112,11 +112,21 @@ export default function PotentialPage() {
               />
             </div>
           )}
+
+          {/* Action Buttons */}
+          <div className="space-y-3 pt-4">
+            <button className="w-full py-3 px-4 rounded-lg border-2 border-gray-300 bg-white text-gray-700 font-medium hover:bg-gray-50 transition-colors cursor-pointer">
+              Block
+            </button>
+            <button className="w-full py-3 px-4 rounded-lg border-2 border-red-300 bg-white text-red-600 font-medium hover:bg-red-50 transition-colors cursor-pointer">
+              Report
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Action Buttons - Sticky */}
-      <div className="fixed bottom-24 left-0 right-0 flex justify-between px-8 z-50">
+      <div className="fixed bottom-24 left-0 right-0 flex justify-between px-8">
         <button className="w-16 h-16 rounded-full bg-gradient-to-tr from-gray-50 via-gray-100 to-gray-50 text-black flex items-center justify-center shadow-lg hover:from-gray-200 hover:via-gray-300 hover:to-gray-200 transition-all cursor-pointer">
           <svg
             className="w-8 h-8"
@@ -129,6 +139,45 @@ export default function PotentialPage() {
               strokeLinejoin="round"
               strokeWidth={2}
               d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        <button className="w-16 h-16 rounded-full bg-black text-white flex items-center justify-center shadow-lg hover:bg-gray-800 transition-all cursor-pointer">
+          <svg
+            className="w-8 h-8"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <linearGradient
+                id="yellowGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop
+                  offset="0%"
+                  style={{ stopColor: "#fef3c7", stopOpacity: 1 }}
+                />
+                <stop
+                  offset="50%"
+                  style={{ stopColor: "#fde047", stopOpacity: 1 }}
+                />
+                <stop
+                  offset="100%"
+                  style={{ stopColor: "#fefce8", stopOpacity: 1 }}
+                />
+              </linearGradient>
+            </defs>
+            <path
+              d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10L12 2Z"
+              fill="url(#yellowGradient)"
+              stroke="url(#yellowGradient)"
+              strokeWidth="0.5"
+              transform="rotate(0 12 12)"
             />
           </svg>
         </button>
