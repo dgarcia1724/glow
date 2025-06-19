@@ -10,7 +10,7 @@ export const activityStatusMappings: Record<
   newHere: {
     emoji: "",
     text: "Just joined",
-    className: "bg-black text-white pl-2 pr-3 py-1 rounded-full text-xs",
+    className: "bg-black text-white px-2 py-1 rounded-full text-xs",
   },
 };
 
