@@ -1,14 +1,34 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { dummyUsers } from "@/data/dummyUsers";
 import Image from "next/image";
 import { coreValueEmojis } from "@/utils/emojiMappings";
 import PotentialTopNav from "@/components/PotentialTopNav";
+import LikeModal from "@/components/LikeModal";
 
 export default function PotentialPage() {
   // For now, we'll just use the first user
   const user = dummyUsers[0];
+
+  // Modal state
+  const [showLikeModal, setShowLikeModal] = useState(false);
+  const [likeType, setLikeType] = useState<"like" | "superlike">("like");
+
+  const handleLikeClick = (type: "like" | "superlike") => {
+    setLikeType(type);
+    setShowLikeModal(true);
+  };
+
+  const handleSendLike = (type: "like" | "superlike", comment: string) => {
+    // Handle sending like/super like with comment
+    console.log(`Sending ${type} to ${user.firstName} with comment:`, comment);
+    setShowLikeModal(false);
+  };
+
+  const handleCloseModal = () => {
+    setShowLikeModal(false);
+  };
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -143,7 +163,10 @@ export default function PotentialPage() {
           </svg>
         </button>
 
-        <button className="w-16 h-16 rounded-full bg-black text-white flex items-center justify-center shadow-lg hover:bg-gray-800 transition-all cursor-pointer">
+        <button
+          className="w-16 h-16 rounded-full bg-black text-white flex items-center justify-center shadow-lg hover:bg-gray-800 transition-all cursor-pointer"
+          onClick={() => handleLikeClick("superlike")}
+        >
           <svg
             className="w-8 h-8"
             viewBox="0 0 24 24"
@@ -182,7 +205,10 @@ export default function PotentialPage() {
           </svg>
         </button>
 
-        <button className="w-16 h-16 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black flex items-center justify-center shadow-lg hover:from-yellow-300 hover:via-yellow-400 hover:to-yellow-200 transition-all cursor-pointer">
+        <button
+          className="w-16 h-16 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black flex items-center justify-center shadow-lg hover:from-yellow-300 hover:via-yellow-400 hover:to-yellow-200 transition-all cursor-pointer"
+          onClick={() => handleLikeClick("like")}
+        >
           <svg
             className="w-8 h-8"
             viewBox="0 0 24 24"
@@ -199,6 +225,17 @@ export default function PotentialPage() {
           </svg>
         </button>
       </div>
+
+      {/* Like Modal */}
+      {showLikeModal && (
+        <LikeModal
+          isOpen={showLikeModal}
+          onClose={handleCloseModal}
+          onSend={handleSendLike}
+          likeType={likeType}
+          userName={user.firstName}
+        />
+      )}
     </div>
   );
 }
