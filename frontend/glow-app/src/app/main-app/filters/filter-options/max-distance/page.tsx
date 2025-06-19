@@ -43,7 +43,7 @@ export default function MaxDistance() {
                 max="100"
                 value={distance}
                 onChange={handleDistanceChange}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-yellow-400"
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-fuchsia-400"
               />
               <div className="flex justify-between text-sm text-gray-500 mt-1">
                 <span>1 mi</span>
@@ -57,7 +57,7 @@ export default function MaxDistance() {
                   type="checkbox"
                   checked={isNonNegotiable}
                   onChange={handleNonNegotiableChange}
-                  className="form-checkbox h-5 w-5 text-yellow-400 rounded border-gray-300 focus:ring-yellow-400 cursor-pointer"
+                  className="form-checkbox h-5 w-5 text-fuchsia-400 rounded border-gray-300 focus:ring-fuchsia-400 cursor-pointer"
                 />
                 <span className="text-gray-700">Non-negotiable</span>
                 <div className="relative group">
