@@ -21,7 +21,7 @@ export default function MainAppLayout({
             href="/main-app/potential"
             className={`flex flex-col items-center justify-center w-full h-full ${
               pathname === "/main-app/potential"
-                ? "text-yellow-300"
+                ? "text-fuchsia-400"
                 : "text-gray-400"
             }`}
           >
@@ -45,7 +45,7 @@ export default function MainAppLayout({
             href="/main-app/likes-you"
             className={`flex flex-col items-center justify-center w-full h-full ${
               pathname === "/main-app/likes-you"
-                ? "text-yellow-300"
+                ? "text-fuchsia-400"
                 : "text-gray-400"
             }`}
           >
@@ -68,7 +68,7 @@ export default function MainAppLayout({
             href="/main-app/matches"
             className={`flex flex-col items-center justify-center w-full h-full ${
               pathname === "/main-app/matches"
-                ? "text-yellow-300"
+                ? "text-fuchsia-400"
                 : "text-gray-400"
             }`}
           >
@@ -91,7 +91,7 @@ export default function MainAppLayout({
             href="/main-app/profile"
             className={`flex flex-col items-center justify-center w-full h-full ${
               pathname === "/main-app/profile"
-                ? "text-yellow-300"
+                ? "text-fuchsia-400"
                 : "text-gray-400"
             }`}
           >
