@@ -154,7 +154,7 @@ export default function SignIn() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-yellow-200"
+              className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
             />
           </div>
           <div>
@@ -163,7 +163,7 @@ export default function SignIn() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-yellow-200"
+              className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
             />
           </div>
 
@@ -174,7 +174,10 @@ export default function SignIn() {
 
         <p className="text-white/70">
           Don&apos;t have an account?{" "}
-          <a href="/sign-up" className="text-yellow-200 hover:text-yellow-100">
+          <a
+            href="/sign-up"
+            className="text-fuchsia-400 hover:text-fuchsia-300"
+          >
             Sign up
           </a>
         </p>

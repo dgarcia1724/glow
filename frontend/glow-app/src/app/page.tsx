@@ -62,7 +62,7 @@ export default function Welcome() {
           </YellowGradientButton>
           <a
             href="/sign-in"
-            className="px-8 py-3 rounded-full border border-white/30 text-white font-medium hover:bg-white/10 transition-colors backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-yellow-200 text-center"
+            className="px-8 py-3 rounded-full border border-white/30 text-white font-medium hover:bg-white/10 transition-colors backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-fuchsia-400 text-center"
           >
             Sign In
           </a>
