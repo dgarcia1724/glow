@@ -122,7 +122,7 @@ export default function Birthday() {
                 if (val.length <= 2 && (+val <= 12 || val === ""))
                   setMonth(val);
               }}
-              className="text-center text-2xl sm:text-3xl font-bold border-b-2 border-black/80 focus:border-yellow-400 outline-none py-3 w-1/3 bg-transparent text-black"
+              className="text-center text-2xl sm:text-3xl font-bold border-b-2 border-black/80 focus:border-fuchsia-400 outline-none py-3 w-1/3 bg-transparent text-black"
             />
             <input
               type="text"
@@ -136,7 +136,7 @@ export default function Birthday() {
                 const val = e.target.value.replace(/\D/g, "");
                 if (val.length <= 2 && (+val <= 31 || val === "")) setDay(val);
               }}
-              className="text-center text-2xl sm:text-3xl font-bold border-b-2 border-black/80 focus:border-yellow-400 outline-none py-3 w-1/3 bg-transparent text-black"
+              className="text-center text-2xl sm:text-3xl font-bold border-b-2 border-black/80 focus:border-fuchsia-400 outline-none py-3 w-1/3 bg-transparent text-black"
             />
             <input
               type="text"
@@ -162,7 +162,7 @@ export default function Birthday() {
                   }
                 }
               }}
-              className="text-center text-2xl sm:text-3xl font-bold border-b-2 border-black/80 focus:border-yellow-400 outline-none py-3 w-1/3 bg-transparent text-black"
+              className="text-center text-2xl sm:text-3xl font-bold border-b-2 border-black/80 focus:border-fuchsia-400 outline-none py-3 w-1/3 bg-transparent text-black"
             />
           </div>
           {showAgeError && (
