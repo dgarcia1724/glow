@@ -68,4 +68,22 @@ public class UserFilters {
     @Column(name = "seeking")
     @Enumerated(EnumType.STRING)
     private List<Seeking> seekingFilters;
+
+    @Column(name = "non_negotiable_religion")
+    private boolean nonNegotiableReligion;
+
+    @Column(name = "non_negotiable_politics")
+    private boolean nonNegotiablePolitics;
+
+    @Column(name = "non_negotiable_relationship_type")
+    private boolean nonNegotiableRelationshipType;
+
+    @Column(name = "non_negotiable_seeking")
+    private boolean nonNegotiableSeeking;
+
+    @Column(name = "non_negotiable_max_distance")
+    private boolean nonNegotiableMaxDistance;
+
+    @Column(name = "non_negotiable_age_range")
+    private boolean nonNegotiableAgeRange;
 }
