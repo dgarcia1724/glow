@@ -10,7 +10,7 @@ export default function Welcome() {
         fill
         priority
         quality={100}
-        className="object-cover object-top sm:object-bottom -z-10"
+        className="object-cover object-top sm:object-bottom lg:[object-position:center_75%] -z-10"
       />
 
       {/* Dark overlay for better text readability */}
