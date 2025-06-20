@@ -163,19 +163,8 @@ export default function LikesYouProfile({
           onClick={() => router.push("/main-app/likes-you")}
           className="w-16 h-16 rounded-full bg-gradient-to-tr from-fuchsia-400 via-fuchsia-300 to-fuchsia-500 text-black flex items-center justify-center shadow-lg hover:from-fuchsia-500 hover:via-fuchsia-400 hover:to-fuchsia-600 transition-all cursor-pointer"
         >
-          <svg
-            className="w-8 h-8"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10L12 2Z"
-              fill="currentColor"
-              stroke="currentColor"
-              strokeWidth="0.5"
-              transform="rotate(0 12 12)"
-            />
+          <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
           </svg>
         </button>
       </div>
