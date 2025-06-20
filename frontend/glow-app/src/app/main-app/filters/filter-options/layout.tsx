@@ -10,7 +10,7 @@ export default function FilterOptionsLayout({
   return (
     <div className="fixed inset-0 bg-white z-50">
       <div className="h-full flex flex-col">
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 overflow-y-auto">{children}</main>
       </div>
     </div>
   );
