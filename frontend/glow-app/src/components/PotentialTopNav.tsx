@@ -24,7 +24,11 @@ export default function PotentialTopNav({
     <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
       {/* Existing Navigation */}
       <div className="max-w-md mx-auto px-6 py-4">
-        <div className="flex justify-between items-start">
+        <div
+          className={`flex justify-between ${
+            activityStatus.text ? "items-start" : "items-center"
+          }`}
+        >
           <div>
             <h1 className="text-2xl font-extrabold text-gray-900 truncate">
               <span className="font-extrabold">{firstName}</span>

@@ -62,9 +62,9 @@ export const dummyUsers: User[] = [
         order: 3,
       },
     ],
-    createdAt: "2025-06-21T10:00:00Z",
-    updatedAt: "2025-06-21T10:00:00Z",
-    lastActive: "2025-06-21T10:00:00Z",
+    createdAt: "2025-06-1T10:00:00Z",
+    updatedAt: "2025-06-1T10:00:00Z",
+    lastActive: "2025-06-1T10:00:00Z",
   },
   {
     id: 2,

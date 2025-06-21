@@ -61,10 +61,6 @@ export default function PotentialPage() {
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-gray-800">Core Values</h2>
             <div className="flex flex-wrap gap-2">
-              <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
-                {coreValueEmojis[user.coreValues.religion]}{" "}
-                {user.coreValues.religion}
-              </div>
               <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
                 <div
                   className={`w-4 h-4 rounded-full mr-2 ${
@@ -82,6 +78,10 @@ export default function PotentialPage() {
                   }`}
                 />
                 {user.coreValues.politics}
+              </div>
+              <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
+                {coreValueEmojis[user.coreValues.religion]}{" "}
+                {user.coreValues.religion}
               </div>
             </div>
           </div>
