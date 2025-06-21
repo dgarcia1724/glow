@@ -4,6 +4,7 @@ import { getActivityStatus } from "@/utils/activityMappings";
 
 interface PotentialTopNavProps {
   firstName: string;
+  age: number;
   lastActive: string;
   createdAt: string;
   onBack?: () => void;
@@ -11,6 +12,7 @@ interface PotentialTopNavProps {
 
 export default function PotentialTopNav({
   firstName,
+  age,
   lastActive,
   createdAt,
   onBack,
@@ -25,7 +27,8 @@ export default function PotentialTopNav({
         <div className="flex justify-between items-start">
           <div>
             <h1 className="text-2xl font-extrabold text-gray-900 truncate">
-              {firstName}
+              <span className="font-extrabold">{firstName}</span>
+              <span className="font-light">, {age}</span>
             </h1>
             {activityStatus.text && (
               <div
@@ -34,7 +37,9 @@ export default function PotentialTopNav({
                 }`}
               >
                 <span className="mr-1">{activityStatus.emoji}</span>
-                <span>{activityStatus.text}</span>
+                <span className="inline-block w-fit">
+                  {activityStatus.text}
+                </span>
               </div>
             )}
           </div>

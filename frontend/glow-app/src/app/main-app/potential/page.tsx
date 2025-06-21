@@ -50,6 +50,7 @@ export default function PotentialPage() {
     <div className="min-h-screen bg-gray-100">
       <PotentialTopNav
         firstName={user.firstName}
+        age={new Date().getFullYear() - new Date(user.birthday).getFullYear()}
         lastActive={user.lastActive}
         createdAt={user.createdAt}
       />

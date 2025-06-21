@@ -3,14 +3,16 @@ export const activityStatusMappings: Record<
   { emoji: string; text: string; className?: string }
 > = {
   recentlyActive: {
-    emoji: "🟢",
-    text: "Recently active",
-    className: "text-green-700",
+    emoji: "",
+    text: "Active today",
+    className:
+      "bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-medium w-24 text-center",
   },
   newHere: {
     emoji: "",
-    text: "Just joined",
-    className: "bg-black text-white px-2 py-1 rounded-full text-xs",
+    text: "New here",
+    className:
+      "bg-orange-400 text-white px-3 py-1 rounded-full text-xs font-medium w-20 text-center",
   },
 };
 
