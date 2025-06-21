@@ -63,7 +63,7 @@ export default function Pics() {
             {[0, 1, 2, 3].map((index) => (
               <div
                 key={index}
-                className="aspect-square border-2 border-dashed border-black/80 rounded-lg flex items-center justify-center cursor-pointer hover:border-fuchsia-400 transition-colors relative overflow-visible"
+                className="aspect-square border-2 border-dashed border-black/80 rounded-lg flex items-center justify-center cursor-pointer hover:border-teal-300 transition-colors relative overflow-visible"
                 onClick={(e) => {
                   // Only trigger file input if not clicking the X button
                   if ((e.target as HTMLElement).closest("button")) return;

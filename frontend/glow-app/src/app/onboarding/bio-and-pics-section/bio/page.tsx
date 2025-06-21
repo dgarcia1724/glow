@@ -35,7 +35,7 @@ export default function Bio() {
           <textarea
             onChange={handleBioChange}
             placeholder="I'm a nurse. I love food, the gym & Netflix. Looking for a long-term relationship :)"
-            className="w-full border-2 border-black/80 focus:border-fuchsia-400 outline-none text-lg py-3 px-4 placeholder-gray-400 mb-2 transition-colors bg-transparent text-black rounded-lg min-h-[150px] resize-none"
+            className="w-full border-2 border-black/80 focus:border-teal-300 outline-none text-lg py-3 px-4 placeholder-gray-400 mb-2 transition-colors bg-transparent text-black rounded-lg min-h-[150px] resize-none"
             maxLength={150}
           />
           <p className="text-sm text-gray-500 text-right">

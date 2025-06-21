@@ -81,7 +81,7 @@ export default function RelationshipType() {
                   key={type.text}
                   className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
                     selected.includes(type.text)
-                      ? "border-fuchsia-400 bg-fuchsia-50"
+                      ? "border-teal-300 bg-teal-50"
                       : isDisabled(type.text)
                       ? "border-gray-200 bg-gray-100 cursor-not-allowed opacity-50"
                       : "border-black/10 bg-white"
@@ -94,7 +94,7 @@ export default function RelationshipType() {
                     checked={selected.includes(type.text)}
                     onChange={() => handleSelection(type.text)}
                     disabled={isDisabled(type.text)}
-                    className="form-checkbox accent-fuchsia-400 mr-3"
+                    className="form-checkbox accent-teal-300 mr-3"
                   />
                   <span className="text-xl mr-3">{type.emoji}</span>
                   <span className="text-lg text-black">{type.text}</span>
