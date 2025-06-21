@@ -164,11 +164,11 @@ export default function PotentialPage() {
         </div>
       </div>
 
-      {/* Action Buttons - Sticky */}
-      <div className="fixed bottom-24 left-0 right-0 flex justify-between px-8">
-        <button className="w-16 h-16 rounded-full bg-gradient-to-tr from-gray-50 via-gray-100 to-gray-50 text-black flex items-center justify-center shadow-lg hover:from-gray-200 hover:via-gray-300 hover:to-gray-200 transition-all cursor-pointer">
+      {/* Action Buttons - Fixed Bottom */}
+      <div className="fixed bottom-24 left-0 right-0 flex justify-center gap-64 px-8">
+        <button className="w-16 h-16 rounded-full bg-gradient-to-tr from-rose-300 via-rose-200 to-rose-400 text-black flex items-center justify-center shadow-lg hover:from-rose-400 hover:via-rose-300 hover:to-rose-500 transition-all cursor-pointer">
           <svg
-            className="w-8 h-8"
+            className="w-10 h-10 font-bold"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -176,50 +176,8 @@ export default function PotentialPage() {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
+              strokeWidth={3}
               d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-
-        <button
-          className="w-16 h-16 rounded-full bg-black text-white flex items-center justify-center shadow-lg hover:bg-gray-800 transition-all cursor-pointer"
-          onClick={() => handleLikeClick("superlike")}
-        >
-          <svg
-            className="w-8 h-8"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <linearGradient
-                id="yellowGradient"
-                x1="0%"
-                y1="0%"
-                x2="100%"
-                y2="100%"
-              >
-                <stop
-                  offset="0%"
-                  style={{ stopColor: "#fef3c7", stopOpacity: 1 }}
-                />
-                <stop
-                  offset="50%"
-                  style={{ stopColor: "#fde047", stopOpacity: 1 }}
-                />
-                <stop
-                  offset="100%"
-                  style={{ stopColor: "#fefce8", stopOpacity: 1 }}
-                />
-              </linearGradient>
-            </defs>
-            <path
-              d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10L12 2Z"
-              fill="url(#yellowGradient)"
-              stroke="url(#yellowGradient)"
-              strokeWidth="0.5"
-              transform="rotate(0 12 12)"
             />
           </svg>
         </button>
