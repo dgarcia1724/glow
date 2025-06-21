@@ -19,7 +19,7 @@ export default function YellowGradientButton({
   disabled = false,
 }: YellowGradientButtonProps) {
   const baseClass =
-    "px-8 py-3 rounded-full bg-gradient-to-tr from-fuchsia-400 via-fuchsia-300 to-fuchsia-500 text-black font-medium hover:from-fuchsia-500 hover:via-fuchsia-400 hover:to-fuchsia-600 transition-all shadow-lg focus:outline-none focus:ring-4 focus:ring-fuchsia-200 text-center cursor-pointer " +
+    "px-8 py-3 rounded-full bg-gradient-to-tr from-teal-300 via-teal-200 to-teal-400 text-black font-medium hover:from-teal-400 hover:via-teal-300 hover:to-teal-500 transition-all shadow-lg focus:outline-none focus:ring-4 focus:ring-teal-200 text-center cursor-pointer " +
     className;
 
   if (href) {
