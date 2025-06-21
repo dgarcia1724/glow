@@ -165,7 +165,7 @@ export default function PotentialPage() {
       </div>
 
       {/* Action Buttons - Fixed Bottom */}
-      <div className="fixed bottom-24 left-0 right-0 flex justify-center gap-64 px-8">
+      <div className="fixed bottom-24 left-0 right-0 flex justify-center gap-48 sm:gap-64 px-8">
         <button className="w-16 h-16 rounded-full bg-gradient-to-tr from-rose-300 via-rose-200 to-rose-400 text-black flex items-center justify-center shadow-lg hover:from-rose-400 hover:via-rose-300 hover:to-rose-500 transition-all cursor-pointer">
           <svg
             className="w-10 h-10 font-bold"
