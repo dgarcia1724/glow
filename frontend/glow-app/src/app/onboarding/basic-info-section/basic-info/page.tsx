@@ -41,9 +41,9 @@ export default function BasicInfo() {
                   y2="22"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stopColor="#FDE047" />
-                  <stop offset="0.5" stopColor="#FEF08A" />
-                  <stop offset="1" stopColor="#FEF9C3" />
+                  <stop stopColor="#5EEAD4" />
+                  <stop offset="0.5" stopColor="#99F6E4" />
+                  <stop offset="1" stopColor="#2DD4BF" />
                 </linearGradient>
               </defs>
             </svg>
@@ -69,9 +69,9 @@ export default function BasicInfo() {
                   y2="22"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stopColor="#FDE047" />
-                  <stop offset="0.5" stopColor="#FEF08A" />
-                  <stop offset="1" stopColor="#FEF9C3" />
+                  <stop stopColor="#5EEAD4" />
+                  <stop offset="0.5" stopColor="#99F6E4" />
+                  <stop offset="1" stopColor="#2DD4BF" />
                 </linearGradient>
               </defs>
             </svg>
@@ -97,9 +97,9 @@ export default function BasicInfo() {
                   y2="22"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stopColor="#FDE047" />
-                  <stop offset="0.5" stopColor="#FEF08A" />
-                  <stop offset="1" stopColor="#FEF9C3" />
+                  <stop stopColor="#5EEAD4" />
+                  <stop offset="0.5" stopColor="#99F6E4" />
+                  <stop offset="1" stopColor="#2DD4BF" />
                 </linearGradient>
               </defs>
             </svg>

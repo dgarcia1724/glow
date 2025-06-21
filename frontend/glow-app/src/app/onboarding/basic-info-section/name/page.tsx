@@ -31,7 +31,7 @@ export default function Name() {
             type="text"
             placeholder="First name (required)"
             required
-            className="w-full border-b-2 border-black/80 focus:border-fuchsia-400 outline-none text-lg py-3 placeholder-gray-400 mb-2 transition-colors bg-transparent text-black"
+            className="w-full border-b-2 border-black/80 focus:border-teal-300 outline-none text-lg py-3 placeholder-gray-400 mb-2 transition-colors bg-transparent text-black"
           />
         </form>
       </main>
