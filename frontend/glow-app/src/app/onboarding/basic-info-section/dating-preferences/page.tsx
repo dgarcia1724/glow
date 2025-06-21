@@ -80,7 +80,7 @@ export default function DatingPreferences() {
                   key={option.text}
                   className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
                     isChecked
-                      ? "border-fuchsia-400 bg-fuchsia-50"
+                      ? "border-teal-300 bg-teal-50"
                       : "border-black/10 bg-white"
                   }`}
                 >
@@ -90,7 +90,7 @@ export default function DatingPreferences() {
                     value={option.text}
                     checked={isChecked}
                     onChange={() => handlePreferenceChange(option.text)}
-                    className="form-checkbox accent-fuchsia-400 mr-3"
+                    className="form-checkbox accent-teal-300 mr-3"
                   />
                   <span className="text-lg text-black">{option.text}</span>
                 </label>
