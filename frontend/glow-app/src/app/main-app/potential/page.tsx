@@ -83,14 +83,6 @@ export default function PotentialPage() {
                 />
                 {user.coreValues.politics}
               </div>
-              {user.coreValues.relationshipType.map((type) => (
-                <div
-                  key={type}
-                  className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap"
-                >
-                  {coreValueEmojis[type]} {type}
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -104,6 +96,23 @@ export default function PotentialPage() {
             className="object-cover"
             priority
           />
+        </div>
+
+        {/* Relationship Type Section */}
+        <div className="p-6 pb-2">
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold text-gray-800">Looking For</h2>
+            <div className="flex flex-wrap gap-2">
+              {user.coreValues.relationshipType.map((type) => (
+                <div
+                  key={type}
+                  className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap"
+                >
+                  {coreValueEmojis[type]} {type}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Age and Location */}
