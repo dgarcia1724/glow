@@ -4,9 +4,10 @@ import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
 const RELATIONSHIP_TYPES = [
-  { emoji: "💍", text: "Long-term Dating" },
   { emoji: "💛", text: "Friendship" },
-  { emoji: "🔥", text: "Short-term Dating" },
+  { emoji: "💍", text: "Long-term Relationship" },
+  { emoji: "🔥", text: "Short-term Relationship" },
+  { emoji: "💼", text: "Networking" },
   { emoji: "😈", text: "Casual Dating" },
   { emoji: "🤔", text: "Open to Anything" },
 ];

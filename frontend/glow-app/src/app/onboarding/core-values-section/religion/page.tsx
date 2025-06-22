@@ -24,7 +24,7 @@ export default function Religion() {
     e.preventDefault();
     if (selected) {
       // Save selection as needed
-      router.push("/onboarding/core-values-section/politics");
+      router.push("/onboarding/bio-and-pics-section/bio-and-pics");
     }
   };
 

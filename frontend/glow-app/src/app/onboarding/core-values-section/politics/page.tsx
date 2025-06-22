@@ -20,7 +20,7 @@ export default function Politics() {
     e.preventDefault();
     if (selected) {
       // Save selection as needed
-      router.push("/onboarding/core-values-section/relationship-type");
+      router.push("/onboarding/core-values-section/religion");
     }
   };
 

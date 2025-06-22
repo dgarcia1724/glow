@@ -8,7 +8,7 @@ export default function CoreValues() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push("/onboarding/core-values-section/religion");
+    router.push("/onboarding/core-values-section/politics");
   };
 
   return (
