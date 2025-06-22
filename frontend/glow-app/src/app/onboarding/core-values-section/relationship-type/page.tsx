@@ -4,11 +4,9 @@ import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
 const RELATIONSHIP_TYPES = [
-  { emoji: "💛", text: "Friendship" },
   { emoji: "💍", text: "Long-term Relationship" },
+  { emoji: "💛", text: "Friendship" },
   { emoji: "🔥", text: "Short-term Relationship" },
-  { emoji: "💼", text: "Networking" },
-  { emoji: "😈", text: "Casual Dating" },
   { emoji: "🤔", text: "Open to Anything" },
 ];
 
@@ -34,9 +32,22 @@ export default function RelationshipType() {
         if (selected.includes(typeText)) {
           setSelected(selected.filter((item) => item !== typeText));
         } else {
-          // Add new selection if under limit of 2
-          if (selected.length < 2) {
-            setSelected([...selected, typeText]);
+          // Add new selection
+          const newSelected = [...selected, typeText];
+
+          // If all other options (excluding "Open to Anything") are selected,
+          // automatically select "Open to Anything" and deselect others
+          const otherOptions = RELATIONSHIP_TYPES.filter(
+            (type) => type.text !== "Open to Anything"
+          ).map((type) => type.text);
+          const allOthersSelected = otherOptions.every((option) =>
+            newSelected.includes(option)
+          );
+
+          if (allOthersSelected) {
+            setSelected(["Open to Anything"]);
+          } else {
+            setSelected(newSelected);
           }
         }
       }
@@ -57,7 +68,7 @@ export default function RelationshipType() {
     e.preventDefault();
     if (selected.length > 0) {
       // Save selection as needed
-      router.push("/onboarding/bio-and-pics-section/bio-and-pics");
+      router.push("/onboarding/basic-info-section/dating-preferences");
     }
   };
 
@@ -68,9 +79,6 @@ export default function RelationshipType() {
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-6 text-center">
             What is your relationship type?
           </h1>
-          <p className="text-gray-600 text-center mb-6">
-            Select up to 2 options.
-          </p>
           <form
             id="relationship-form"
             onSubmit={handleSubmit}

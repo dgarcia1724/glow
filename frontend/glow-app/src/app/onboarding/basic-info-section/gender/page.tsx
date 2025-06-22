@@ -17,7 +17,7 @@ export default function Gender() {
     e.preventDefault();
     if (selectedGender) {
       // Here you would typically save the gender to your state management or backend
-      router.push("/onboarding/basic-info-section/dating-preferences");
+      router.push("/onboarding/core-values-section/relationship-type");
     }
   };
 
