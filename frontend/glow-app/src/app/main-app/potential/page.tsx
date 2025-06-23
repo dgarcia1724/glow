@@ -118,35 +118,36 @@ export default function PotentialPage() {
         {/* User Info */}
         <div className="p-6 space-y-6">
           {/* About Me Section */}
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-gray-800">About Me</h2>
+          {(user.jobTitle || user.education || user.bio) && (
+            <div className="space-y-4">
+              <h2 className="text-xl font-semibold text-gray-800">About Me</h2>
 
-            {/* Job Title */}
-            {user.jobTitle && (
               <div className="flex flex-wrap gap-2">
-                <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
-                  <span className="mr-2">💼</span>
-                  {user.jobTitle}
-                </div>
-              </div>
-            )}
+                {/* Job Title */}
+                {user.jobTitle && (
+                  <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
+                    <span className="mr-2">💼</span>
+                    {user.jobTitle}
+                  </div>
+                )}
 
-            {/* Education */}
-            {user.education && (
-              <div className="flex flex-wrap gap-2">
-                <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
-                  <span className="mr-2">🎓</span>
-                  {user.education}
-                </div>
+                {/* Education */}
+                {user.education && (
+                  <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
+                    <span className="mr-2">🎓</span>
+                    {user.education}
+                  </div>
+                )}
               </div>
-            )}
 
-            {/* Bio */}
-            <div className="space-y-2">
-              <h3 className="text-lg font-medium text-gray-700">Bio</h3>
-              <p className="text-gray-600">{user.bio}</p>
+              {/* Bio */}
+              {user.bio && (
+                <div className="space-y-2">
+                  <p className="text-gray-600">{user.bio}</p>
+                </div>
+              )}
             </div>
-          </div>
+          )}
 
           {/* Second Photo */}
           {user.pictures[1] && (

@@ -39,11 +39,11 @@ export const dummyUsers: User[] = [
     coreValues: {
       religion: "Spiritual but not religious",
       politics: "Moderate",
-      relationshipType: ["Long-term", "Short-term"],
+      relationshipType: ["Long-term", "Short-term", "Friendship"],
     },
     jobTitle: "Nurse",
     education: "UCLA 🐻",
-    bio: "Adventure-seeking software engineer who loves hiking, photography, and trying new restaurants. Looking for someone to share life's adventures with!",
+    bio: "I love spontaneous road trips, rom-coms, and iced coffee even in winter. Looking for something real, someone who can make me laugh & talk about life. Bonus points if you're kind, curious, and down for sushi.",
     pictures: [
       {
         id: "pic_1",

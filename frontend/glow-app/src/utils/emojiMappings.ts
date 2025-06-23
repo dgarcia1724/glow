@@ -11,6 +11,7 @@ export const coreValueEmojis: Record<string, string> = {
   Other: "💫",
   "Long-term": "💍",
   "Short-term": "🔥",
-  Casual: "😈",
+  Casual: "🥂",
+  Friendship: "💛",
   "Open to Anything": "🤔",
 };
