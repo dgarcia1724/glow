@@ -47,6 +47,10 @@ export interface User {
     relationshipType: string[];
   };
 
+  // About Me
+  jobTitle?: string;
+  education?: string;
+
   // Bio and Pictures
   bio: string;
   pictures: {
@@ -109,6 +113,8 @@ export const dummyUser: User = {
     politics: "Right-Leaning",
     relationshipType: ["Long-term"],
   },
+  jobTitle: "Software Engineer",
+  education: "Bachelor's Degree in Computer Science",
   bio: "I'm in tech & value relationship built on love & respect. Looking for wifey...",
   pictures: [
     {

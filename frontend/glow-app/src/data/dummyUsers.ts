@@ -41,6 +41,8 @@ export const dummyUsers: User[] = [
       politics: "Moderate",
       relationshipType: ["Long-term", "Short-term"],
     },
+    jobTitle: "Nurse",
+    education: "UCLA 🐻",
     bio: "Adventure-seeking software engineer who loves hiking, photography, and trying new restaurants. Looking for someone to share life's adventures with!",
     pictures: [
       {

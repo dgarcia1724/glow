@@ -117,10 +117,31 @@ export default function PotentialPage() {
 
         {/* User Info */}
         <div className="p-6 space-y-6">
-          {/* Bio Section */}
+          {/* About Me Section */}
           <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-gray-800">Bio</h2>
-            <p className="text-gray-700 text-lg">{user.bio}</p>
+            <h2 className="text-xl font-semibold text-gray-800">About Me</h2>
+
+            {/* Job Title */}
+            {user.jobTitle && (
+              <div className="space-y-2">
+                <h3 className="text-lg font-medium text-gray-700">Job Title</h3>
+                <p className="text-gray-600">{user.jobTitle}</p>
+              </div>
+            )}
+
+            {/* Education */}
+            {user.education && (
+              <div className="space-y-2">
+                <h3 className="text-lg font-medium text-gray-700">Education</h3>
+                <p className="text-gray-600">{user.education}</p>
+              </div>
+            )}
+
+            {/* Bio */}
+            <div className="space-y-2">
+              <h3 className="text-lg font-medium text-gray-700">Bio</h3>
+              <p className="text-gray-600">{user.bio}</p>
+            </div>
           </div>
 
           {/* Second Photo */}

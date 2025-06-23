@@ -4,9 +4,10 @@ import YellowGradientButton from "@/components/YellowGradientButton";
 import { useRouter } from "next/navigation";
 
 const RELATIONSHIP_TYPES = [
-  { emoji: "💍", text: "Long-term Relationship" },
+  { emoji: "💍", text: "Long-term" },
+  { emoji: "🔥", text: "Short-term" },
+  { emoji: "🥂", text: "Casual" },
   { emoji: "💛", text: "Friendship" },
-  { emoji: "🔥", text: "Short-term Relationship" },
   { emoji: "🤔", text: "Open to Anything" },
 ];
 
@@ -77,7 +78,7 @@ export default function RelationshipType() {
       <main className="flex-1 flex flex-col justify-center items-center px-6">
         <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-6 text-center">
-            What is your relationship type?
+            What are you looking for?
           </h1>
           <form
             id="relationship-form"
