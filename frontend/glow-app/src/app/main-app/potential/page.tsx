@@ -123,17 +123,21 @@ export default function PotentialPage() {
 
             {/* Job Title */}
             {user.jobTitle && (
-              <div className="space-y-2">
-                <h3 className="text-lg font-medium text-gray-700">Job Title</h3>
-                <p className="text-gray-600">{user.jobTitle}</p>
+              <div className="flex flex-wrap gap-2">
+                <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
+                  <span className="mr-2">💼</span>
+                  {user.jobTitle}
+                </div>
               </div>
             )}
 
             {/* Education */}
             {user.education && (
-              <div className="space-y-2">
-                <h3 className="text-lg font-medium text-gray-700">Education</h3>
-                <p className="text-gray-600">{user.education}</p>
+              <div className="flex flex-wrap gap-2">
+                <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
+                  <span className="mr-2">🎓</span>
+                  {user.education}
+                </div>
               </div>
             )}
 
