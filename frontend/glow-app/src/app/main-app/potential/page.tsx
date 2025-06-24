@@ -7,6 +7,7 @@ import { coreValueEmojis } from "@/utils/emojiMappings";
 import PotentialTopNav from "@/components/PotentialTopNav";
 import LikeModal from "@/components/LikeModal";
 import BlockModal from "@/components/BlockModal";
+import SparkModal from "@/components/SparkModal";
 
 export default function PotentialPage() {
   // For now, we'll just use the first user
@@ -16,6 +17,7 @@ export default function PotentialPage() {
   const [showLikeModal, setShowLikeModal] = useState(false);
   const [likeType, setLikeType] = useState<"like" | "superlike">("like");
   const [showBlockModal, setShowBlockModal] = useState(false);
+  const [showSparkModal, setShowSparkModal] = useState(false);
 
   const handleLikeClick = (type: "like" | "superlike") => {
     setLikeType(type);
@@ -30,6 +32,20 @@ export default function PotentialPage() {
 
   const handleCloseModal = () => {
     setShowLikeModal(false);
+  };
+
+  const handleSparkClick = () => {
+    setShowSparkModal(true);
+  };
+
+  const handleSendSpark = (comment: string) => {
+    // Handle sending spark with comment
+    console.log(`Sending spark to ${user.firstName} with comment:`, comment);
+    setShowSparkModal(false);
+  };
+
+  const handleCloseSparkModal = () => {
+    setShowSparkModal(false);
   };
 
   const handleBlockClick = () => {
@@ -122,30 +138,29 @@ export default function PotentialPage() {
             <div className="space-y-4">
               <h2 className="text-xl font-semibold text-gray-800">About Me</h2>
 
-              <div className="flex flex-wrap gap-2">
-                {/* Job Title */}
-                {user.jobTitle && (
-                  <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
-                    <span className="mr-2">💼</span>
-                    {user.jobTitle}
-                  </div>
-                )}
+              {/* Job Title and Education bubbles */}
+              {(user.jobTitle || user.education) && (
+                <div className="flex flex-wrap gap-2">
+                  {/* Job Title */}
+                  {user.jobTitle && (
+                    <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
+                      <span className="mr-2">💼</span>
+                      {user.jobTitle}
+                    </div>
+                  )}
 
-                {/* Education */}
-                {user.education && (
-                  <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
-                    <span className="mr-2">🎓</span>
-                    {user.education}
-                  </div>
-                )}
-              </div>
-
-              {/* Bio */}
-              {user.bio && (
-                <div className="space-y-2">
-                  <p className="text-gray-600">{user.bio}</p>
+                  {/* Education */}
+                  {user.education && (
+                    <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
+                      <span className="mr-2">🎓</span>
+                      {user.education}
+                    </div>
+                  )}
                 </div>
               )}
+
+              {/* Bio */}
+              {user.bio && <p className="text-gray-600">{user.bio}</p>}
             </div>
           )}
 
@@ -200,7 +215,7 @@ export default function PotentialPage() {
       </div>
 
       {/* Action Buttons - Fixed Bottom */}
-      <div className="fixed bottom-24 left-0 right-0 flex justify-center gap-48 sm:gap-64 px-8">
+      <div className="fixed bottom-24 left-0 right-0 flex justify-center gap-16 sm:gap-22  px-8">
         <button className="w-16 h-16 rounded-full bg-gradient-to-tr from-rose-300 via-rose-200 to-rose-400 text-black flex items-center justify-center shadow-lg hover:from-rose-400 hover:via-rose-300 hover:to-rose-500 transition-all cursor-pointer">
           <svg
             className="w-10 h-10 font-bold"
@@ -213,6 +228,26 @@ export default function PotentialPage() {
               strokeLinejoin="round"
               strokeWidth={3}
               d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        <button
+          className="w-14 h-14 rounded-full bg-black text-yellow-300 flex items-center justify-center shadow-lg hover:bg-gray-900 transition-all cursor-pointer"
+          onClick={handleSparkClick}
+        >
+          <svg
+            className="w-7 h-7"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10L12 2Z"
+              fill="currentColor"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              transform="rotate(0 12 12)"
             />
           </svg>
         </button>
@@ -244,6 +279,16 @@ export default function PotentialPage() {
           isOpen={showBlockModal}
           onClose={handleCloseBlockModal}
           onConfirm={handleBlockConfirm}
+          userName={user.firstName}
+        />
+      )}
+
+      {/* Spark Modal */}
+      {showSparkModal && (
+        <SparkModal
+          isOpen={showSparkModal}
+          onClose={handleCloseSparkModal}
+          onSend={handleSendSpark}
           userName={user.firstName}
         />
       )}

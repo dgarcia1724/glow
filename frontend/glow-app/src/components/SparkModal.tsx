@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
 
-interface LikeModalProps {
+interface SparkModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSend: (type: "like" | "superlike", comment: string) => void;
-  likeType: "like" | "superlike";
+  onSend: (comment: string) => void;
   userName: string;
 }
 
-export default function LikeModal({
+export default function SparkModal({
   isOpen,
   onClose,
   onSend,
-  likeType,
   userName,
-}: LikeModalProps) {
+}: SparkModalProps) {
   const [comment, setComment] = useState("");
 
   // Reset comment when modal opens/closes
@@ -45,7 +43,7 @@ export default function LikeModal({
   }, [isOpen, onClose]);
 
   const handleSend = () => {
-    onSend(likeType, comment);
+    onSend(comment);
   };
 
   const handleClose = () => {
@@ -67,9 +65,7 @@ export default function LikeModal({
         <div className="p-6 pb-4 border-b border-gray-100">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold text-gray-800">
-              {likeType === "superlike"
-                ? `Send spark to ${userName}`
-                : `Send like to ${userName}`}
+              Send spark to {userName}
             </h2>
             <button
               onClick={handleClose}
@@ -128,7 +124,7 @@ export default function LikeModal({
             onClick={handleSend}
             className="flex-1 py-3 px-4 rounded-lg bg-gradient-to-tr from-teal-300 via-teal-200 to-teal-400 text-black font-medium hover:from-teal-400 hover:via-teal-300 hover:to-teal-500 transition-all shadow-lg cursor-pointer"
           >
-            {likeType === "superlike" ? "Send spark" : "Send like"}
+            Send spark
           </button>
         </div>
       </div>
