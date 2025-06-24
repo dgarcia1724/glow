@@ -26,41 +26,43 @@ export default function Politics() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <main className="flex-1 flex flex-col justify-center items-center px-6">
-        <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-6 text-center">
+      <main className="flex-1 flex flex-col justify-start items-center px-6 pt-8">
+        {/* Title section */}
+        <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8 mt-16">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
             What are your political views?
           </h1>
-          <form
-            id="politics-form"
-            onSubmit={handleSubmit}
-            className="w-full max-w-md mx-auto flex flex-col gap-6"
-          >
-            <div className="flex flex-col gap-4">
-              {POLITICAL_VIEWS.map((view) => (
-                <label
-                  key={view.text}
-                  className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                    selected === view.text
-                      ? "border-teal-300 bg-teal-50"
-                      : "border-black/10 bg-white"
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name="politics"
-                    value={view.text}
-                    checked={selected === view.text}
-                    onChange={() => setSelected(view.text)}
-                    className="form-radio accent-teal-300 mr-3"
-                  />
-                  <div className={`w-6 h-6 rounded-full ${view.color} mr-3`} />
-                  <span className="text-lg text-black">{view.text}</span>
-                </label>
-              ))}
-            </div>
-          </form>
         </div>
+        {/* Politics form */}
+        <form
+          id="politics-form"
+          onSubmit={handleSubmit}
+          className="w-full max-w-md mx-auto flex flex-col gap-6"
+        >
+          <div className="flex flex-col gap-4">
+            {POLITICAL_VIEWS.map((view) => (
+              <label
+                key={view.text}
+                className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
+                  selected === view.text
+                    ? "border-teal-300 bg-teal-50"
+                    : "border-black/10 bg-white"
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="politics"
+                  value={view.text}
+                  checked={selected === view.text}
+                  onChange={() => setSelected(view.text)}
+                  className="form-radio accent-teal-300 mr-3"
+                />
+                <div className={`w-6 h-6 rounded-full ${view.color} mr-3`} />
+                <span className="text-lg text-black">{view.text}</span>
+              </label>
+            ))}
+          </div>
+        </form>
       </main>
       <div className="w-full px-0 pb-8 flex flex-col items-center">
         <YellowGradientButton

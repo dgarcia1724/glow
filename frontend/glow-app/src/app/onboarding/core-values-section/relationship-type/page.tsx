@@ -75,44 +75,46 @@ export default function RelationshipType() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <main className="flex-1 flex flex-col justify-center items-center px-6">
-        <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8">
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-6 text-center">
+      <main className="flex-1 flex flex-col justify-start items-center px-6 pt-8">
+        {/* Title section */}
+        <div className="w-full max-w-md mx-auto flex flex-col items-center mb-8 mt-16">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
             What are you looking for?
           </h1>
-          <form
-            id="relationship-form"
-            onSubmit={handleSubmit}
-            className="w-full max-w-md mx-auto flex flex-col gap-6"
-          >
-            <div className="flex flex-col gap-4">
-              {RELATIONSHIP_TYPES.map((type) => (
-                <label
-                  key={type.text}
-                  className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                    selected.includes(type.text)
-                      ? "border-teal-300 bg-teal-50"
-                      : isDisabled(type.text)
-                      ? "border-gray-200 bg-gray-100 cursor-not-allowed opacity-50"
-                      : "border-black/10 bg-white"
-                  }`}
-                >
-                  <input
-                    type="checkbox"
-                    name="relationship"
-                    value={type.text}
-                    checked={selected.includes(type.text)}
-                    onChange={() => handleSelection(type.text)}
-                    disabled={isDisabled(type.text)}
-                    className="form-checkbox accent-teal-300 mr-3"
-                  />
-                  <span className="text-xl mr-3">{type.emoji}</span>
-                  <span className="text-lg text-black">{type.text}</span>
-                </label>
-              ))}
-            </div>
-          </form>
         </div>
+        {/* Relationship form */}
+        <form
+          id="relationship-form"
+          onSubmit={handleSubmit}
+          className="w-full max-w-md mx-auto flex flex-col gap-6"
+        >
+          <div className="flex flex-col gap-4">
+            {RELATIONSHIP_TYPES.map((type) => (
+              <label
+                key={type.text}
+                className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
+                  selected.includes(type.text)
+                    ? "border-teal-300 bg-teal-50"
+                    : isDisabled(type.text)
+                    ? "border-gray-200 bg-gray-100 cursor-not-allowed opacity-50"
+                    : "border-black/10 bg-white"
+                }`}
+              >
+                <input
+                  type="checkbox"
+                  name="relationship"
+                  value={type.text}
+                  checked={selected.includes(type.text)}
+                  onChange={() => handleSelection(type.text)}
+                  disabled={isDisabled(type.text)}
+                  className="form-checkbox accent-teal-300 mr-3"
+                />
+                <span className="text-xl mr-3">{type.emoji}</span>
+                <span className="text-lg text-black">{type.text}</span>
+              </label>
+            ))}
+          </div>
+        </form>
       </main>
       <div className="w-full px-0 pb-8 flex flex-col items-center">
         <YellowGradientButton

@@ -41,7 +41,7 @@ export default function Religion() {
         <form
           id="religion-form"
           onSubmit={handleSubmit}
-          className="w-full max-w-md mx-auto flex flex-col gap-6 mb-8"
+          className="w-full max-w-md mx-auto flex flex-col gap-6"
         >
           <div className="flex flex-col gap-4">
             {RELIGIONS.map((religion) => (

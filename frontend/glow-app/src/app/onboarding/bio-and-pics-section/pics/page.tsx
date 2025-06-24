@@ -50,7 +50,6 @@ export default function Pics() {
           <h1 className="text-2xl sm:text-3xl font-extrabold text-black mb-2 text-center">
             Add your pics
           </h1>
-
           <p className="text-sm text-gray-500">{photoCount}/4 photos added</p>
         </div>
         {/* Photos form */}
