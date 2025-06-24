@@ -122,7 +122,7 @@ export default function SparkModal({
           </button>
           <button
             onClick={handleSend}
-            className="flex-1 py-3 px-4 rounded-lg bg-gradient-to-tr from-teal-300 via-teal-200 to-teal-400 text-black font-medium hover:from-teal-400 hover:via-teal-300 hover:to-teal-500 transition-all shadow-lg cursor-pointer"
+            className="flex-1 py-3 px-4 rounded-lg bg-black text-yellow-300 font-medium hover:bg-gray-900 transition-all shadow-lg cursor-pointer"
           >
             Send spark
           </button>
