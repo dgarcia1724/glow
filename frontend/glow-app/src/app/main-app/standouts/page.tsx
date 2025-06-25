@@ -126,7 +126,40 @@ export default function StandoutsPage() {
             </h1>
           </div>
         ) : (
-          <div className="flex-1 overflow-x-auto">
+          <div className="flex-1 flex flex-col justify-center items-center">
+            <div className="text-center">
+              <h2 className="text-xl font-semibold text-gray-700 mb-2">
+                Your Standouts
+              </h2>
+              <p className="text-gray-500">
+                Scroll horizontally to view all your standout matches
+              </p>
+            </div>
+          </div>
+        )}
+      </main>
+
+      {/* Sticky Horizontal Scroll at Bottom */}
+      {hasStandouts && (
+        <div className="fixed bottom-16 left-0 right-0 bg-white border-t border-gray-200 z-40">
+          <div className="overflow-x-auto">
+            <style jsx>{`
+              .overflow-x-auto::-webkit-scrollbar {
+                height: 20px;
+              }
+              .overflow-x-auto::-webkit-scrollbar-track {
+                background: #f3f4f6;
+                border-radius: 8px;
+              }
+              .overflow-x-auto::-webkit-scrollbar-thumb {
+                background: #9ca3af;
+                border-radius: 8px;
+                border: 2px solid #f3f4f6;
+              }
+              .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+                background: #6b7280;
+              }
+            `}</style>
             <div className="flex gap-4 px-6 py-6 min-w-max">
               {dummyStandouts.map((user) => (
                 <div
@@ -138,34 +171,42 @@ export default function StandoutsPage() {
                   <div className="p-6 space-y-4">
                     {/* Name and Age */}
                     <div className="flex items-center justify-between">
-                      <h2 className="text-2xl font-bold text-gray-900">
-                        {user.firstName}, {calculateAge(user.birthday)}
+                      <h2 className="text-2xl font-extrabold text-gray-900 truncate">
+                        <span className="font-extrabold">{user.firstName}</span>
+                        <span className="font-light">
+                          , {calculateAge(user.birthday)}
+                        </span>
                       </h2>
                     </div>
 
                     {/* Core Values */}
-                    <div className="flex flex-wrap gap-2">
-                      <div className="px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50 text-gray-700 text-sm font-medium flex items-center">
-                        <div
-                          className={`w-3 h-3 rounded-full mr-2 ${
-                            user.coreValues.politics === "Liberal"
-                              ? "bg-blue-700"
-                              : user.coreValues.politics === "Left-Leaning"
-                              ? "bg-sky-400"
-                              : user.coreValues.politics === "Moderate"
-                              ? "bg-purple-400"
-                              : user.coreValues.politics === "Right-Leaning"
-                              ? "bg-rose-400"
-                              : user.coreValues.politics === "Conservative"
-                              ? "bg-red-700"
-                              : ""
-                          }`}
-                        />
-                        {user.coreValues.politics}
-                      </div>
-                      <div className="px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50 text-gray-700 text-sm font-medium">
-                        {coreValueEmojis[user.coreValues.religion]}{" "}
-                        {user.coreValues.religion}
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-semibold text-gray-800">
+                        Core Values
+                      </h3>
+                      <div className="flex flex-wrap gap-2">
+                        <div className="px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50 text-gray-700 text-sm font-medium flex items-center">
+                          <div
+                            className={`w-3 h-3 rounded-full mr-2 ${
+                              user.coreValues.politics === "Liberal"
+                                ? "bg-blue-700"
+                                : user.coreValues.politics === "Left-Leaning"
+                                ? "bg-sky-400"
+                                : user.coreValues.politics === "Moderate"
+                                ? "bg-purple-400"
+                                : user.coreValues.politics === "Right-Leaning"
+                                ? "bg-rose-400"
+                                : user.coreValues.politics === "Conservative"
+                                ? "bg-red-700"
+                                : ""
+                            }`}
+                          />
+                          {user.coreValues.politics}
+                        </div>
+                        <div className="px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50 text-gray-700 text-sm font-medium">
+                          {coreValueEmojis[user.coreValues.religion]}{" "}
+                          {user.coreValues.religion}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -184,8 +225,8 @@ export default function StandoutsPage() {
               ))}
             </div>
           </div>
-        )}
-      </main>
+        </div>
+      )}
     </div>
   );
 }
