@@ -2,63 +2,29 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import { dummyStandouts } from "@/data/dummyStandouts";
+import Image from "next/image";
 
 export default function StandoutsPage() {
   const router = useRouter();
 
-  // Dummy data for standouts
-  const dummyStandouts = [
-    {
-      id: 1,
-      firstName: "Sarah",
-      age: 25,
-      photoURL:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
-      category: "Trending",
-    },
-    {
-      id: 2,
-      firstName: "Emma",
-      age: 23,
-      photoURL:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-      category: "Featured",
-    },
-    {
-      id: 3,
-      firstName: "Olivia",
-      age: 27,
-      photoURL:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face",
-      category: "Rising Stars",
-    },
-    {
-      id: 4,
-      firstName: "Ava",
-      age: 24,
-      photoURL:
-        "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400&h=400&fit=crop&crop=face",
-      category: "Most Popular",
-    },
-    {
-      id: 5,
-      firstName: "Isabella",
-      age: 26,
-      photoURL:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-      category: "Trending",
-    },
-    {
-      id: 6,
-      firstName: "Sophia",
-      age: 22,
-      photoURL:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face",
-      category: "Featured",
-    },
-  ];
-
   const hasStandouts = dummyStandouts.length > 0;
+
+  const calculateAge = (birthday: string) => {
+    const birthDate = new Date(birthday);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birthDate.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -88,7 +54,8 @@ export default function StandoutsPage() {
           </div>
         </div>
       </div>
-      <main className="flex-1 flex flex-col px-6">
+
+      <main className="flex-1 flex flex-col">
         {!hasStandouts ? (
           <div
             className="flex flex-col justify-center items-center text-center"
@@ -158,31 +125,37 @@ export default function StandoutsPage() {
             </h1>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-6">
-            {dummyStandouts.map((user) => (
-              <div
-                key={user.id}
-                onClick={() => router.push(`/main-app/standouts/${user.id}`)}
-                className="flex flex-col bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer"
-              >
-                <div className="aspect-square relative rounded-t-lg overflow-hidden">
-                  <img
-                    src={user.photoURL}
-                    alt={user.firstName}
-                    className="object-cover w-full h-full"
-                  />
-                  <div className="absolute top-2 right-2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full font-medium">
-                    🔥
+          <div className="flex-1 overflow-x-auto">
+            <div className="flex gap-4 px-6 py-6 min-w-max">
+              {dummyStandouts.map((user) => (
+                <div
+                  key={user.id}
+                  onClick={() => router.push(`/main-app/standouts/${user.id}`)}
+                  className="w-80 h-[80vh] bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer flex-shrink-0 overflow-hidden flex flex-col"
+                >
+                  {/* Main Photo */}
+                  <div className="relative h-4/5 w-full">
+                    <Image
+                      src={user.photoURL || ""}
+                      alt={user.firstName}
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+
+                  {/* Profile Info */}
+                  <div className="p-6">
+                    {/* Name and Age */}
+                    <div className="flex items-center justify-between">
+                      <h2 className="text-2xl font-bold text-gray-900">
+                        {user.firstName}, {calculateAge(user.birthday)}
+                      </h2>
+                    </div>
                   </div>
                 </div>
-                <div className="px-3 py-2 border-t border-gray-100">
-                  <p className="text-sm font-medium text-black">
-                    {user.firstName}, {user.age}
-                  </p>
-                  <p className="text-xs text-gray-500">{user.category}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         )}
       </main>
