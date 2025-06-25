@@ -4,6 +4,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { dummyStandouts } from "@/data/dummyStandouts";
 import Image from "next/image";
+import { coreValueEmojis } from "@/utils/emojiMappings";
 
 export default function StandoutsPage() {
   const router = useRouter();
@@ -133,8 +134,44 @@ export default function StandoutsPage() {
                   onClick={() => router.push(`/main-app/standouts/${user.id}`)}
                   className="w-80 h-[80vh] bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer flex-shrink-0 overflow-hidden flex flex-col"
                 >
+                  {/* Profile Info */}
+                  <div className="p-6 space-y-4">
+                    {/* Name and Age */}
+                    <div className="flex items-center justify-between">
+                      <h2 className="text-2xl font-bold text-gray-900">
+                        {user.firstName}, {calculateAge(user.birthday)}
+                      </h2>
+                    </div>
+
+                    {/* Core Values */}
+                    <div className="flex flex-wrap gap-2">
+                      <div className="px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50 text-gray-700 text-sm font-medium flex items-center">
+                        <div
+                          className={`w-3 h-3 rounded-full mr-2 ${
+                            user.coreValues.politics === "Liberal"
+                              ? "bg-blue-700"
+                              : user.coreValues.politics === "Left-Leaning"
+                              ? "bg-sky-400"
+                              : user.coreValues.politics === "Moderate"
+                              ? "bg-purple-400"
+                              : user.coreValues.politics === "Right-Leaning"
+                              ? "bg-rose-400"
+                              : user.coreValues.politics === "Conservative"
+                              ? "bg-red-700"
+                              : ""
+                          }`}
+                        />
+                        {user.coreValues.politics}
+                      </div>
+                      <div className="px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50 text-gray-700 text-sm font-medium">
+                        {coreValueEmojis[user.coreValues.religion]}{" "}
+                        {user.coreValues.religion}
+                      </div>
+                    </div>
+                  </div>
+
                   {/* Main Photo */}
-                  <div className="relative h-4/5 w-full">
+                  <div className="relative flex-1 w-full">
                     <Image
                       src={user.photoURL || ""}
                       alt={user.firstName}
@@ -142,16 +179,6 @@ export default function StandoutsPage() {
                       className="object-cover"
                       priority
                     />
-                  </div>
-
-                  {/* Profile Info */}
-                  <div className="p-6">
-                    {/* Name and Age */}
-                    <div className="flex items-center justify-between">
-                      <h2 className="text-2xl font-bold text-gray-900">
-                        {user.firstName}, {calculateAge(user.birthday)}
-                      </h2>
-                    </div>
                   </div>
                 </div>
               ))}
