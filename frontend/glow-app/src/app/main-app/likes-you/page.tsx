@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { dummyLikesYou } from "@/data/dummyLikesYou";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { coreValueEmojis } from "@/utils/emojiMappings";
 
 type FilterOption =
   | "New"
@@ -215,28 +216,65 @@ export default function LikesYou() {
             </h1>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 py-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-6">
             {dummyLikesYou.map((user) => (
               <div
                 key={user.id}
                 onClick={() => router.push(`/main-app/likes-you/${user.id}`)}
-                className="flex flex-col bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer"
+                className="flex flex-col bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer overflow-hidden"
               >
-                <div className="aspect-square relative rounded-t-lg overflow-hidden">
+                {/* Profile Info */}
+                <div className="p-4 space-y-3">
+                  {/* Name and Age */}
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-base font-extrabold text-gray-900 truncate">
+                      <span className="font-extrabold">{user.firstName}</span>
+                      <span className="font-light">
+                        , {calculateAge(user.birthday)}
+                      </span>
+                    </h2>
+                  </div>
+
+                  {/* Core Values */}
+                  <div className="space-y-2">
+                    <div className="flex flex-wrap gap-2">
+                      <div className="px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50 text-gray-700 text-sm font-medium flex items-center">
+                        <div
+                          className={`w-3 h-3 rounded-full mr-2 ${
+                            user.coreValues.politics === "Liberal"
+                              ? "bg-blue-700"
+                              : user.coreValues.politics === "Left-Leaning"
+                              ? "bg-sky-400"
+                              : user.coreValues.politics === "Moderate"
+                              ? "bg-purple-400"
+                              : user.coreValues.politics === "Right-Leaning"
+                              ? "bg-rose-400"
+                              : user.coreValues.politics === "Conservative"
+                              ? "bg-red-700"
+                              : ""
+                          }`}
+                        />
+                        {user.coreValues.politics}
+                      </div>
+                      <div className="px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50 text-gray-700 text-sm font-medium">
+                        {coreValueEmojis[user.coreValues.religion]}{" "}
+                        {user.coreValues.religion}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Main Photo */}
+                <div className="aspect-square relative overflow-hidden">
                   {user.photoURL && (
                     <Image
                       src={user.photoURL}
                       alt={user.displayName || "User"}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     />
                   )}
-                </div>
-                <div className="px-3 py-2 border-t border-gray-100">
-                  <p className="text-sm font-medium text-black">
-                    {user.firstName}, {calculateAge(user.birthday)}
-                  </p>
                 </div>
               </div>
             ))}
