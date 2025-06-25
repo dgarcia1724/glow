@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -10,6 +10,20 @@ export default function MainAppLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Don't render navigation until client-side hydration is complete
+  if (!mounted) {
+    return (
+      <div className="min-h-screen flex flex-col bg-white">
+        <main className="flex-1 pb-16">{children}</main>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
