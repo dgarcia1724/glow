@@ -29,7 +29,7 @@ export default function StandoutsPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
+      <div className="sticky top-0 z-50 bg-white">
         <div className="max-w-md mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-extrabold text-gray-900">Standouts</h1>
