@@ -165,7 +165,7 @@ export default function StandoutsPage() {
                 <div
                   key={user.id}
                   onClick={() => router.push(`/main-app/standouts/${user.id}`)}
-                  className="w-80 h-[80vh] bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer flex-shrink-0 overflow-hidden flex flex-col"
+                  className="w-96 h-[80vh] bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer flex-shrink-0 overflow-hidden flex flex-col"
                 >
                   {/* Profile Info */}
                   <div className="p-6 space-y-4">
