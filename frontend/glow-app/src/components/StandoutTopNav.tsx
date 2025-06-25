@@ -20,23 +20,45 @@ export default function StandoutTopNav({
   const router = useRouter();
   const activityStatus = getActivityStatus(lastActive, createdAt);
 
+  const handleBack = () => {
+    if (onBack) {
+      onBack();
+    } else {
+      router.push("/main-app/standouts");
+    }
+  };
+
   return (
     <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
       {/* Existing Navigation */}
       <div className="max-w-md mx-auto px-6 py-4">
-        <div
-          className={`flex justify-between ${
-            activityStatus.text ? "items-start" : "items-center"
-          }`}
-        >
-          <div>
+        <div className="flex justify-between items-center">
+          <button
+            onClick={handleBack}
+            className="text-gray-700 hover:text-gray-900 cursor-pointer"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <div className="text-center">
             <h1 className="text-2xl font-extrabold text-gray-900 truncate">
               <span className="font-extrabold">{firstName}</span>
               <span className="font-light">, {age}</span>
             </h1>
             {activityStatus.text && (
               <div
-                className={`flex items-center mt-1 text-sm ${
+                className={`flex items-center justify-center mt-1 text-sm ${
                   activityStatus.className || "text-gray-600"
                 }`}
               >
@@ -47,48 +69,7 @@ export default function StandoutTopNav({
               </div>
             )}
           </div>
-          <div className="flex space-x-8">
-            <button
-              onClick={onBack}
-              className="p-2 text-black hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
-              aria-label="Go back"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-7 h-7"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
-                />
-              </svg>
-            </button>
-            <button
-              onClick={() => router.push("/main-app/filters?from=standout")}
-              className="p-2 text-black hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
-              aria-label="Open filters"
-            >
-              <div className="flex flex-col space-y-1.5">
-                <div className="flex items-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-black mr-1" />
-                  <div className="w-4 h-0.5 bg-black" />
-                </div>
-                <div className="flex items-center justify-end">
-                  <div className="w-4 h-0.5 bg-black mr-1" />
-                  <div className="w-1.5 h-1.5 rounded-full bg-black" />
-                </div>
-                <div className="flex items-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-black mr-1" />
-                  <div className="w-4 h-0.5 bg-black" />
-                </div>
-              </div>
-            </button>
-          </div>
+          <div className="w-6" /> {/* Spacer for alignment */}
         </div>
       </div>
     </div>
