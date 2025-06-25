@@ -39,8 +39,10 @@ export const dummyMatches: User[] = [
     coreValues: {
       religion: "Spiritual but not religious",
       politics: "Liberal",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Adventure Photographer",
+    education: "University of Colorado",
     bio: "Adventure photographer who loves hiking and rock climbing. Looking for someone to share outdoor adventures with!",
     pictures: [
       {
@@ -92,8 +94,10 @@ export const dummyMatches: User[] = [
     coreValues: {
       religion: "Buddhist",
       politics: "Moderate",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "UX Designer",
+    education: "Emily Carr University",
     bio: "UX designer who loves art galleries and trying new restaurants. Looking for someone creative and adventurous!",
     pictures: [
       {
@@ -145,8 +149,10 @@ export const dummyMatches: User[] = [
     coreValues: {
       religion: "Christian",
       politics: "Liberal",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Environmental Lawyer",
+    education: "University of Toronto",
     bio: "Environmental lawyer who loves hiking and reading. Looking for someone to share intellectual conversations with!",
     pictures: [
       {
@@ -198,8 +204,10 @@ export const dummyMatches: User[] = [
     coreValues: {
       religion: "Muslim",
       politics: "Moderate",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Software Engineer",
+    education: "McGill University",
     bio: "Software engineer who loves coding and playing the piano. Looking for someone to share tech talks and music with!",
     pictures: [
       {
@@ -251,8 +259,10 @@ export const dummyMatches: User[] = [
     coreValues: {
       religion: "Buddhist",
       politics: "Liberal",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Financial Analyst",
+    education: "University of Calgary",
     bio: "Financial analyst who loves skiing and trying new restaurants. Looking for someone to share life's adventures with!",
     pictures: [
       {

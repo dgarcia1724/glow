@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import YellowGradientButton from "@/components/YellowGradientButton";
 
 export default function StandoutsPage() {
   const router = useRouter();
@@ -68,9 +67,23 @@ export default function StandoutsPage() {
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-extrabold text-gray-900">Standouts</h1>
             {hasStandouts && (
-              <YellowGradientButton className="px-6 py-2 text-sm">
-                Sparks
-              </YellowGradientButton>
+              <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-black text-yellow-300 shadow-lg hover:bg-gray-900 transition-all cursor-pointer">
+                <svg
+                  className="w-5 h-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10L12 2Z"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    strokeWidth="0.5"
+                    transform="rotate(0 12 12)"
+                  />
+                </svg>
+                <span className="text-sm font-medium">Sparks (1)</span>
+              </button>
             )}
           </div>
         </div>

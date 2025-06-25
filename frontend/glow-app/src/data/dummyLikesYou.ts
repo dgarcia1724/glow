@@ -39,8 +39,10 @@ export const dummyLikesYou: User[] = [
     coreValues: {
       religion: "Buddhist",
       politics: "Moderate",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Software Engineer",
+    education: "UC Berkeley",
     bio: "Software engineer who loves hiking and photography. Looking for someone to share adventures with!",
     pictures: [
       {
@@ -92,8 +94,10 @@ export const dummyLikesYou: User[] = [
     coreValues: {
       religion: "Hindu",
       politics: "Liberal",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Doctor",
+    education: "University of Washington",
     bio: "Doctor by day, amateur chef by night. Love exploring new restaurants and weekend getaways.",
     pictures: [
       {
@@ -145,8 +149,10 @@ export const dummyLikesYou: User[] = [
     coreValues: {
       religion: "Christian",
       politics: "Moderate",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Marketing Executive",
+    education: "Columbia University",
     bio: "Marketing executive who loves art galleries and trying new restaurants. Looking for someone to share life's adventures with!",
     pictures: [
       {
@@ -198,8 +204,10 @@ export const dummyLikesYou: User[] = [
     coreValues: {
       religion: "Muslim",
       politics: "Liberal",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Architect",
+    education: "Illinois Institute of Technology",
     bio: "Architect with a passion for travel and photography. Looking for someone to explore the world with!",
     pictures: [
       {
@@ -251,8 +259,10 @@ export const dummyLikesYou: User[] = [
     coreValues: {
       religion: "Catholic",
       politics: "Moderate",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Elementary School Teacher",
+    education: "University of Miami",
     bio: "Elementary school teacher who loves dancing and beach days. Looking for someone to share life's simple pleasures with!",
     pictures: [
       {
@@ -304,8 +314,10 @@ export const dummyLikesYou: User[] = [
     coreValues: {
       religion: "Buddhist",
       politics: "Liberal",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Graphic Designer",
+    education: "ArtCenter College of Design",
     bio: "Graphic designer who loves art galleries and trying new restaurants. Looking for someone creative and adventurous!",
     pictures: [
       {
@@ -357,8 +369,10 @@ export const dummyLikesYou: User[] = [
     coreValues: {
       religion: "Christian",
       politics: "Moderate",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Medical Researcher",
+    education: "Harvard University",
     bio: "Medical researcher who loves hiking and reading. Looking for someone to share intellectual conversations with!",
     pictures: [
       {
@@ -410,8 +424,10 @@ export const dummyLikesYou: User[] = [
     coreValues: {
       religion: "Hindu",
       politics: "Liberal",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Data Scientist",
+    education: "University of Texas",
     bio: "Data scientist who loves yoga and trying new restaurants. Looking for someone to share life's adventures with!",
     pictures: [
       {
@@ -463,8 +479,10 @@ export const dummyLikesYou: User[] = [
     coreValues: {
       religion: "Buddhist",
       politics: "Liberal",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Environmental Scientist",
+    education: "Oregon State University",
     bio: "Environmental scientist who loves hiking and photography. Looking for someone to explore nature with!",
     pictures: [
       {
@@ -516,8 +534,10 @@ export const dummyLikesYou: User[] = [
     coreValues: {
       religion: "Spiritual but not religious",
       politics: "Moderate",
-      relationshipType: "Long-term",
+      relationshipType: ["Long-term"],
     },
+    jobTitle: "Marine Biologist",
+    education: "University of Hawaii",
     bio: "Marine biologist who loves surfing and beach days. Looking for someone to share ocean adventures with!",
     pictures: [
       {

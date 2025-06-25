@@ -39,8 +39,10 @@ export const dummyUsers: User[] = [
     coreValues: {
       religion: "Spiritual but not religious",
       politics: "Liberal",
-      relationshipType: "Casual",
+      relationshipType: ["Casual"],
     },
+    jobTitle: "Software Engineer",
+    education: "Stanford University",
     bio: "Adventure-seeking software engineer who loves hiking, photography, and trying new restaurants. Looking for someone to share life's adventures with!",
     pictures: [
       {
@@ -104,8 +106,10 @@ export const dummyUsers: User[] = [
     coreValues: {
       religion: "Atheist",
       politics: "Liberal",
-      relationshipType: "Short-term relationship",
+      relationshipType: ["Short-term relationship"],
     },
+    jobTitle: "Art Gallery Curator",
+    education: "NYU",
     bio: "Art gallery curator by day, amateur chef by night. Love exploring museums, trying new recipes, and weekend getaways to the beach.",
     pictures: [
       {
@@ -169,8 +173,10 @@ export const dummyUsers: User[] = [
     coreValues: {
       religion: "Christian",
       politics: "Conservative",
-      relationshipType: "Long-term relationship",
+      relationshipType: ["Long-term relationship"],
     },
+    jobTitle: "Elementary School Teacher",
+    education: "University of Washington",
     bio: "Elementary school teacher who loves hiking, yoga, and reading. Looking for someone who shares my values and enjoys outdoor adventures.",
     pictures: [
       {

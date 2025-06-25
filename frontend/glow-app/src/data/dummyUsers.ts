@@ -108,6 +108,8 @@ export const dummyUsers: User[] = [
       politics: "Liberal",
       relationshipType: ["Short-term"],
     },
+    jobTitle: "Art Gallery Curator",
+    education: "NYU",
     bio: "Art gallery curator by day, amateur chef by night. Love exploring museums, trying new recipes, and weekend getaways to the beach.",
     pictures: [
       {
@@ -173,6 +175,8 @@ export const dummyUsers: User[] = [
       politics: "Conservative",
       relationshipType: ["Long-term"],
     },
+    jobTitle: "Elementary School Teacher",
+    education: "University of Washington",
     bio: "Elementary school teacher who loves hiking, yoga, and reading. Looking for someone who shares my values and enjoys outdoor adventures.",
     pictures: [
       {
