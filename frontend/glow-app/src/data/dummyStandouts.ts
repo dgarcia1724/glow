@@ -10,8 +10,8 @@ export const dummyStandouts: User[] = [
     photoURL:
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
     authProvider: "google",
-    lastSignInTime: "2024-03-15T14:30:00.000Z",
-    creationTime: "2024-02-01T10:00:00.000Z",
+    lastSignInTime: "2025-06-25T14:30:00.000Z",
+    creationTime: "2025-06-25T10:00:00.000Z",
     version: 1,
     status: "ACTIVE",
     roles: ["ROLE_USER"],
@@ -64,9 +64,9 @@ export const dummyStandouts: User[] = [
         order: 3,
       },
     ],
-    createdAt: "2024-02-01T10:00:00Z",
-    updatedAt: "2024-03-15T14:30:00Z",
-    lastActive: "2024-03-15T14:30:00Z",
+    createdAt: "2025-06-25T10:00:00Z",
+    updatedAt: "2025-06-25T14:30:00Z",
+    lastActive: "2025-06-25T14:30:00Z",
   },
   {
     id: 102,

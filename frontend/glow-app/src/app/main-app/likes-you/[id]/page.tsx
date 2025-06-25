@@ -1,70 +1,96 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import { useRouter, useParams } from "next/navigation";
 import { dummyLikesYou } from "@/data/dummyLikesYou";
 import Image from "next/image";
 import { coreValueEmojis } from "@/utils/emojiMappings";
-import { useRouter } from "next/navigation";
+import StandoutTopNav from "@/components/StandoutTopNav";
+import BlockModal from "@/components/BlockModal";
+import SparkModal from "@/components/SparkModal";
 
-export default function LikesYouProfile({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default function LikesYouProfile() {
   const router = useRouter();
-  const resolvedParams = React.use(params);
-  const user = dummyLikesYou.find((u) => u.id.toString() === resolvedParams.id);
+  const params = useParams();
+  const id = params.id as string;
 
+  // Modal state - moved before conditional return
+  const [showBlockModal, setShowBlockModal] = useState(false);
+  const [showSparkModal, setShowSparkModal] = useState(false);
+
+  // Find the user by ID
+  const user = dummyLikesYou.find((u) => u.id.toString() === id);
+
+  // If user not found, redirect to likes-you page
   if (!user) {
-    return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <p className="text-gray-700">User not found</p>
-      </div>
-    );
+    router.push("/main-app/likes-you");
+    return null;
   }
+
+  const handleSparkClick = () => {
+    setShowSparkModal(true);
+  };
+
+  const handleSendSpark = (comment: string) => {
+    // Handle sending spark with comment
+    console.log(`Sending spark to ${user.firstName} with comment:`, comment);
+    setShowSparkModal(false);
+  };
+
+  const handleCloseSparkModal = () => {
+    setShowSparkModal(false);
+  };
+
+  const handleBlockClick = () => {
+    setShowBlockModal(true);
+  };
+
+  const handleBlockConfirm = () => {
+    // Handle blocking user
+    console.log(`Blocking ${user.firstName}`);
+    setShowBlockModal(false);
+  };
+
+  const handleCloseBlockModal = () => {
+    setShowBlockModal(false);
+  };
+
+  const handleBack = () => {
+    router.push("/main-app/likes-you");
+  };
+
+  const calculateAge = (birthday: string) => {
+    const birthDate = new Date(birthday);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birthDate.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
+  };
 
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* Top Navigation */}
-      <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
-        <div className="max-w-md mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <button
-              onClick={() => router.back()}
-              className="text-gray-700 hover:text-gray-900 cursor-pointer"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            <h1 className="text-xl font-bold text-gray-900">
-              {user.firstName}
-            </h1>
-            <div className="w-6" /> {/* Spacer for alignment */}
-          </div>
-        </div>
-      </div>
+      <StandoutTopNav
+        firstName={user.firstName}
+        age={calculateAge(user.birthday)}
+        lastActive={user.lastActive}
+        createdAt={user.createdAt}
+        onBack={handleBack}
+      />
 
-      <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden pb-32">
         {/* Core Values Section */}
         <div className="p-6 pb-2">
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-gray-800">Core Values</h2>
             <div className="flex flex-wrap gap-2">
-              <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
-                {coreValueEmojis[user.coreValues.religion]}{" "}
-                {user.coreValues.religion}
-              </div>
               <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
                 <div
                   className={`w-4 h-4 rounded-full mr-2 ${
@@ -84,8 +110,8 @@ export default function LikesYouProfile({
                 {user.coreValues.politics}
               </div>
               <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap">
-                {coreValueEmojis[user.coreValues.relationshipType]}{" "}
-                {user.coreValues.relationshipType}
+                {coreValueEmojis[user.coreValues.religion]}{" "}
+                {user.coreValues.religion}
               </div>
             </div>
           </div>
@@ -94,7 +120,7 @@ export default function LikesYouProfile({
         {/* Main Photo */}
         <div className="relative h-[500px] w-full">
           <Image
-            src={user.photoURL}
+            src={user.photoURL || ""}
             alt={user.displayName || user.firstName}
             fill
             className="object-cover"
@@ -102,51 +128,111 @@ export default function LikesYouProfile({
           />
         </div>
 
-        {/* Age and Location */}
-        <div className="p-6 pb-0 flex flex-wrap gap-2">
-          <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
-            <span className="mr-2">🎂</span>
-            {new Date().getFullYear() - new Date(user.birthday).getFullYear()}
-          </div>
-          <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
-            <span className="mr-2">📍</span>
-            {user.location.city}, {user.location.state}
+        {/* Relationship Type Section */}
+        <div className="p-6 pb-2">
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold text-gray-800">Looking For</h2>
+            <div className="flex flex-wrap gap-2">
+              {user.coreValues.relationshipType.map((type) => (
+                <div
+                  key={type}
+                  className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap"
+                >
+                  {coreValueEmojis[type]} {type}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* User Info */}
         <div className="p-6 space-y-6">
-          {/* Bio Section */}
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-gray-800">Bio</h2>
-            <p className="text-gray-700 text-lg">{user.bio}</p>
-          </div>
+          {/* About Me Section */}
+          {(user.jobTitle || user.education || user.bio) && (
+            <div className="space-y-4">
+              <h2 className="text-xl font-semibold text-gray-800">About Me</h2>
 
-          {/* Additional Photos */}
-          {user.pictures?.slice(1).map((picture, index) => (
-            <div
-              key={picture.id}
-              className="relative h-[400px] w-full rounded-lg overflow-hidden"
-            >
+              {/* Job Title and Education bubbles */}
+              {(user.jobTitle || user.education) && (
+                <div className="flex flex-wrap gap-2">
+                  {/* Job Title */}
+                  {user.jobTitle && (
+                    <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
+                      <span className="mr-2">💼</span>
+                      {user.jobTitle}
+                    </div>
+                  )}
+
+                  {/* Education */}
+                  {user.education && (
+                    <div className="px-3 py-1.5 rounded-full border-2 border-black/10 bg-white text-black text-sm font-medium whitespace-nowrap flex items-center">
+                      <span className="mr-2">🎓</span>
+                      {user.education}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Bio */}
+              {user.bio && <p className="text-gray-600">{user.bio}</p>}
+            </div>
+          )}
+
+          {/* Second Photo */}
+          {user.pictures && user.pictures[1] && (
+            <div className="relative h-[400px] w-full rounded-lg overflow-hidden">
               <Image
-                src={picture.url}
-                alt={`${user.firstName}'s photo ${index + 2}`}
+                src={user.pictures[1].url}
+                alt={`${user.firstName}'s second photo`}
                 fill
                 className="object-cover"
               />
             </div>
-          ))}
+          )}
+
+          {/* Third Photo */}
+          {user.pictures && user.pictures[2] && (
+            <div className="relative h-[400px] w-full rounded-lg overflow-hidden">
+              <Image
+                src={user.pictures[2].url}
+                alt={`${user.firstName}'s third photo`}
+                fill
+                className="object-cover"
+              />
+            </div>
+          )}
+
+          {/* Location */}
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold text-gray-800">Location</h2>
+            <div className="flex flex-wrap gap-2">
+              <div className="px-4 py-2 rounded-full border-2 border-black/10 bg-white text-black font-medium">
+                <span className="mr-2">📍</span>
+                {user.location.city}, {user.location.state}
+              </div>
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="space-y-3 pt-4">
+            <button
+              className="w-full py-3 px-4 rounded-lg border-2 border-gray-300 bg-white text-gray-700 font-medium hover:bg-gray-50 transition-colors cursor-pointer"
+              onClick={handleBlockClick}
+            >
+              Block
+            </button>
+            <button className="w-full py-3 px-4 rounded-lg border-2 border-red-300 bg-white text-red-600 font-medium hover:bg-red-50 transition-colors cursor-pointer">
+              Report
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Action Buttons - Sticky */}
-      <div className="fixed bottom-24 left-0 right-0 flex justify-between px-8 z-50">
-        <button
-          onClick={() => router.push("/main-app/likes-you")}
-          className="w-16 h-16 rounded-full bg-gradient-to-tr from-gray-50 via-gray-100 to-gray-50 text-black flex items-center justify-center shadow-lg hover:from-gray-200 hover:via-gray-300 hover:to-gray-200 transition-all cursor-pointer"
-        >
+      {/* Action Buttons - Fixed Bottom */}
+      <div className="fixed bottom-24 left-0 right-0 flex justify-center gap-16 sm:gap-22  px-8">
+        <button className="w-16 h-16 rounded-full bg-gradient-to-tr from-rose-300 via-rose-200 to-rose-400 text-black flex items-center justify-center shadow-lg hover:from-rose-400 hover:via-rose-300 hover:to-rose-500 transition-all cursor-pointer">
           <svg
-            className="w-8 h-8"
+            className="w-10 h-10 font-bold"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -154,20 +240,41 @@ export default function LikesYouProfile({
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
+              strokeWidth={3}
               d="M6 18L18 6M6 6l12 12"
             />
           </svg>
         </button>
+
         <button
-          onClick={() => router.push("/main-app/likes-you")}
-          className="w-16 h-16 rounded-full bg-gradient-to-tr from-fuchsia-400 via-fuchsia-300 to-fuchsia-500 text-black flex items-center justify-center shadow-lg hover:from-fuchsia-500 hover:via-fuchsia-400 hover:to-fuchsia-600 transition-all cursor-pointer"
+          className="w-16 h-16 rounded-full bg-gradient-to-tr from-teal-300 via-teal-200 to-teal-400 text-black flex items-center justify-center shadow-lg hover:from-teal-400 hover:via-teal-300 hover:to-teal-500 transition-all cursor-pointer"
+          onClick={handleSparkClick}
         >
           <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
             <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
           </svg>
         </button>
       </div>
+
+      {/* Block Modal */}
+      {showBlockModal && (
+        <BlockModal
+          isOpen={showBlockModal}
+          onClose={handleCloseBlockModal}
+          onConfirm={handleBlockConfirm}
+          userName={user.firstName}
+        />
+      )}
+
+      {/* Spark Modal */}
+      {showSparkModal && (
+        <SparkModal
+          isOpen={showSparkModal}
+          onClose={handleCloseSparkModal}
+          onSend={handleSendSpark}
+          userName={user.firstName}
+        />
+      )}
     </div>
   );
 }
