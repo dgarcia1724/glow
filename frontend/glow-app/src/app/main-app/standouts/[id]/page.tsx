@@ -6,7 +6,6 @@ import { dummyStandouts } from "@/data/dummyStandouts";
 import Image from "next/image";
 import { coreValueEmojis } from "@/utils/emojiMappings";
 import StandoutTopNav from "@/components/StandoutTopNav";
-import LikeModal from "@/components/LikeModal";
 import BlockModal from "@/components/BlockModal";
 import SparkModal from "@/components/SparkModal";
 
@@ -16,8 +15,6 @@ export default function StandoutDetailPage() {
   const id = params.id as string;
 
   // Modal state - moved before conditional return
-  const [showLikeModal, setShowLikeModal] = useState(false);
-  const [likeType, setLikeType] = useState<"like" | "superlike">("like");
   const [showBlockModal, setShowBlockModal] = useState(false);
   const [showSparkModal, setShowSparkModal] = useState(false);
 
@@ -29,21 +26,6 @@ export default function StandoutDetailPage() {
     router.push("/main-app/standouts");
     return null;
   }
-
-  const handleLikeClick = (type: "like" | "superlike") => {
-    setLikeType(type);
-    setShowLikeModal(true);
-  };
-
-  const handleSendLike = (type: "like" | "superlike", comment: string) => {
-    // Handle sending like/super like with comment
-    console.log(`Sending ${type} to ${user.firstName} with comment:`, comment);
-    setShowLikeModal(false);
-  };
-
-  const handleCloseModal = () => {
-    setShowLikeModal(false);
-  };
 
   const handleSparkClick = () => {
     setShowSparkModal(true);
@@ -265,11 +247,11 @@ export default function StandoutDetailPage() {
         </button>
 
         <button
-          className="w-14 h-14 rounded-full bg-black text-yellow-300 flex items-center justify-center shadow-lg hover:bg-gray-900 transition-all cursor-pointer"
+          className="w-16 h-16 rounded-full bg-black text-yellow-300 flex items-center justify-center shadow-lg hover:bg-gray-900 transition-all cursor-pointer"
           onClick={handleSparkClick}
         >
           <svg
-            className="w-7 h-7"
+            className="w-8 h-8"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -283,27 +265,7 @@ export default function StandoutDetailPage() {
             />
           </svg>
         </button>
-
-        <button
-          className="w-16 h-16 rounded-full bg-gradient-to-tr from-teal-300 via-teal-200 to-teal-400 text-black flex items-center justify-center shadow-lg hover:from-teal-400 hover:via-teal-300 hover:to-teal-500 transition-all cursor-pointer"
-          onClick={() => handleLikeClick("like")}
-        >
-          <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-          </svg>
-        </button>
       </div>
-
-      {/* Like Modal */}
-      {showLikeModal && (
-        <LikeModal
-          isOpen={showLikeModal}
-          onClose={handleCloseModal}
-          onSend={handleSendLike}
-          likeType={likeType}
-          userName={user.firstName}
-        />
-      )}
 
       {/* Block Modal */}
       {showBlockModal && (
