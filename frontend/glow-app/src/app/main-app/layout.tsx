@@ -34,7 +34,7 @@ export default function MainAppLayout({
           <Link
             href="/main-app/potential"
             className={`flex flex-col items-center justify-center w-full h-full ${
-              pathname === "/main-app/potential"
+              pathname.startsWith("/main-app/potential")
                 ? "text-teal-300"
                 : "text-gray-400"
             }`}
@@ -59,7 +59,7 @@ export default function MainAppLayout({
           <Link
             href="/main-app/standouts"
             className={`flex flex-col items-center justify-center w-full h-full ${
-              pathname === "/main-app/standouts"
+              pathname.startsWith("/main-app/standouts")
                 ? "text-teal-300"
                 : "text-gray-400"
             }`}
@@ -89,7 +89,7 @@ export default function MainAppLayout({
           <Link
             href="/main-app/likes-you"
             className={`flex flex-col items-center justify-center w-full h-full ${
-              pathname === "/main-app/likes-you"
+              pathname.startsWith("/main-app/likes-you")
                 ? "text-teal-300"
                 : "text-gray-400"
             }`}
@@ -113,7 +113,7 @@ export default function MainAppLayout({
           <Link
             href="/main-app/matches"
             className={`flex flex-col items-center justify-center w-full h-full ${
-              pathname === "/main-app/matches"
+              pathname.startsWith("/main-app/matches")
                 ? "text-teal-300"
                 : "text-gray-400"
             }`}
@@ -136,7 +136,7 @@ export default function MainAppLayout({
           <Link
             href="/main-app/profile"
             className={`flex flex-col items-center justify-center w-full h-full ${
-              pathname === "/main-app/profile"
+              pathname.startsWith("/main-app/profile")
                 ? "text-teal-300"
                 : "text-gray-400"
             }`}
