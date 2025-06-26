@@ -31,7 +31,39 @@ export default function Profile() {
       <div className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="max-w-md mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-extrabold text-gray-900">Profile</h1>
+            <div className="px-4 py-2 rounded-full bg-black flex items-center gap-2">
+              <svg
+                className="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10L12 2Z"
+                  fill="url(#starGradient)"
+                  stroke="url(#starGradient)"
+                  strokeWidth="0.5"
+                  transform="rotate(0 12 12)"
+                />
+                <defs>
+                  <linearGradient
+                    id="starGradient"
+                    x1="2"
+                    y1="2"
+                    x2="22"
+                    y2="22"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#5EEAD4" />
+                    <stop offset="0.5" stopColor="#99F6E4" />
+                    <stop offset="1" stopColor="#2DD4BF" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-tr from-teal-300 via-teal-200 to-teal-400">
+                Glow
+              </span>
+            </div>
             <div className="flex items-center gap-2">
               <button
                 onClick={() => router.push("/main-app/profile/safety")}
