@@ -32,7 +32,9 @@ export default function StandoutsPage() {
       <div className="sticky top-0 z-50 bg-white">
         <div className="max-w-md mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-extrabold text-gray-900">Standouts</h1>
+            <h1 className="text-2xl font-extrabold text-gray-900">
+              🔥 Hot 5 🔥
+            </h1>
             {hasStandouts && (
               <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-black text-yellow-300 shadow-lg hover:bg-gray-900 transition-all cursor-pointer">
                 <svg

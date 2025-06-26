@@ -83,7 +83,7 @@ export default function MainAppLayout({
                 d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
               />
             </svg>
-            <span className="text-xs mt-1">Standouts</span>
+            <span className="text-xs mt-1">Hot 5</span>
           </Link>
 
           <Link
