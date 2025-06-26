@@ -8,6 +8,7 @@ import { coreValueEmojis } from "@/utils/emojiMappings";
 import StandoutTopNav from "@/components/StandoutTopNav";
 import BlockModal from "@/components/BlockModal";
 import SparkModal from "@/components/SparkModal";
+import ReportModal from "@/components/ReportModal";
 
 export default function StandoutDetailPage() {
   const router = useRouter();
@@ -17,6 +18,7 @@ export default function StandoutDetailPage() {
   // Modal state - moved before conditional return
   const [showBlockModal, setShowBlockModal] = useState(false);
   const [showSparkModal, setShowSparkModal] = useState(false);
+  const [showReportModal, setShowReportModal] = useState(false);
 
   // Find the standout user by ID
   const user = dummyStandouts.find((standout) => standout.id.toString() === id);
@@ -53,6 +55,20 @@ export default function StandoutDetailPage() {
 
   const handleCloseBlockModal = () => {
     setShowBlockModal(false);
+  };
+
+  const handleReportClick = () => {
+    setShowReportModal(true);
+  };
+
+  const handleReportConfirm = (reason: string) => {
+    // Handle reporting user
+    console.log(`Reporting ${user.firstName} for: ${reason}`);
+    setShowReportModal(false);
+  };
+
+  const handleCloseReportModal = () => {
+    setShowReportModal(false);
   };
 
   const handleBack = () => {
@@ -221,7 +237,10 @@ export default function StandoutDetailPage() {
             >
               Block
             </button>
-            <button className="w-full py-3 px-4 rounded-lg border-2 border-red-300 bg-white text-red-600 font-medium hover:bg-red-50 transition-colors cursor-pointer">
+            <button
+              className="w-full py-3 px-4 rounded-lg border-2 border-red-300 bg-white text-red-600 font-medium hover:bg-red-50 transition-colors cursor-pointer"
+              onClick={handleReportClick}
+            >
               Report
             </button>
           </div>
@@ -283,6 +302,16 @@ export default function StandoutDetailPage() {
           isOpen={showSparkModal}
           onClose={handleCloseSparkModal}
           onSend={handleSendSpark}
+          userName={user.firstName}
+        />
+      )}
+
+      {/* Report Modal */}
+      {showReportModal && (
+        <ReportModal
+          isOpen={showReportModal}
+          onClose={handleCloseReportModal}
+          onConfirm={handleReportConfirm}
           userName={user.firstName}
         />
       )}
