@@ -8,6 +8,7 @@ import PotentialTopNav from "@/components/PotentialTopNav";
 import LikeModal from "@/components/LikeModal";
 import BlockModal from "@/components/BlockModal";
 import SparkModal from "@/components/SparkModal";
+import ReportModal from "@/components/ReportModal";
 
 export default function PotentialPage() {
   // For now, we'll just use the first user
@@ -18,6 +19,7 @@ export default function PotentialPage() {
   const [likeType, setLikeType] = useState<"like" | "superlike">("like");
   const [showBlockModal, setShowBlockModal] = useState(false);
   const [showSparkModal, setShowSparkModal] = useState(false);
+  const [showReportModal, setShowReportModal] = useState(false);
 
   const handleLikeClick = (type: "like" | "superlike") => {
     setLikeType(type);
@@ -60,6 +62,20 @@ export default function PotentialPage() {
 
   const handleCloseBlockModal = () => {
     setShowBlockModal(false);
+  };
+
+  const handleReportClick = () => {
+    setShowReportModal(true);
+  };
+
+  const handleReportConfirm = (reason: string) => {
+    // Handle reporting user
+    console.log(`Reporting ${user.firstName} for: ${reason}`);
+    setShowReportModal(false);
+  };
+
+  const handleCloseReportModal = () => {
+    setShowReportModal(false);
   };
 
   return (
@@ -207,7 +223,10 @@ export default function PotentialPage() {
             >
               Block
             </button>
-            <button className="w-full py-3 px-4 rounded-lg border-2 border-red-300 bg-white text-red-600 font-medium hover:bg-red-50 transition-colors cursor-pointer">
+            <button
+              className="w-full py-3 px-4 rounded-lg border-2 border-red-300 bg-white text-red-600 font-medium hover:bg-red-50 transition-colors cursor-pointer"
+              onClick={handleReportClick}
+            >
               Report
             </button>
           </div>
@@ -289,6 +308,16 @@ export default function PotentialPage() {
           isOpen={showSparkModal}
           onClose={handleCloseSparkModal}
           onSend={handleSendSpark}
+          userName={user.firstName}
+        />
+      )}
+
+      {/* Report Modal */}
+      {showReportModal && (
+        <ReportModal
+          isOpen={showReportModal}
+          onClose={handleCloseReportModal}
+          onConfirm={handleReportConfirm}
           userName={user.firstName}
         />
       )}
