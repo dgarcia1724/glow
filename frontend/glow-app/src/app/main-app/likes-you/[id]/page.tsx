@@ -7,7 +7,7 @@ import Image from "next/image";
 import { coreValueEmojis } from "@/utils/emojiMappings";
 import StandoutTopNav from "@/components/StandoutTopNav";
 import BlockModal from "@/components/BlockModal";
-import SparkModal from "@/components/SparkModal";
+import LikeModal from "@/components/LikeModal";
 import ReportModal from "@/components/ReportModal";
 
 export default function LikesYouProfile() {
@@ -17,7 +17,7 @@ export default function LikesYouProfile() {
 
   // Modal state - moved before conditional return
   const [showBlockModal, setShowBlockModal] = useState(false);
-  const [showSparkModal, setShowSparkModal] = useState(false);
+  const [showLikeModal, setShowLikeModal] = useState(false);
   const [showReportModal, setShowReportModal] = useState(false);
 
   // Find the user by ID
@@ -30,17 +30,17 @@ export default function LikesYouProfile() {
   }
 
   const handleSparkClick = () => {
-    setShowSparkModal(true);
+    setShowLikeModal(true);
   };
 
-  const handleSendSpark = (comment: string) => {
-    // Handle sending spark with comment
-    console.log(`Sending spark to ${user.firstName} with comment:`, comment);
-    setShowSparkModal(false);
+  const handleSendLike = (type: "like" | "superlike", comment: string) => {
+    // Handle sending like with comment
+    console.log(`Sending ${type} to ${user.firstName} with comment:`, comment);
+    setShowLikeModal(false);
   };
 
-  const handleCloseSparkModal = () => {
-    setShowSparkModal(false);
+  const handleCloseLikeModal = () => {
+    setShowLikeModal(false);
   };
 
   const handleBlockClick = () => {
@@ -285,12 +285,13 @@ export default function LikesYouProfile() {
         />
       )}
 
-      {/* Spark Modal */}
-      {showSparkModal && (
-        <SparkModal
-          isOpen={showSparkModal}
-          onClose={handleCloseSparkModal}
-          onSend={handleSendSpark}
+      {/* Like Modal */}
+      {showLikeModal && (
+        <LikeModal
+          isOpen={showLikeModal}
+          onClose={handleCloseLikeModal}
+          onSend={handleSendLike}
+          likeType="like"
           userName={user.firstName}
         />
       )}
