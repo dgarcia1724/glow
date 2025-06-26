@@ -386,6 +386,366 @@ export const dummyConversations: Conversation[] = [
     },
     unreadCount: 0,
   },
+
+  // Conversation with Isabella (Art Director) - Ends with Isabella's turn (Your turn)
+  {
+    id: generateConversationId(dummyUser.uid, dummyMatches[5].uid),
+    participants: [dummyUser.uid, dummyMatches[5].uid],
+    messages: [
+      {
+        id: generateMessageId(31),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[5].uid,
+        content:
+          "Hi Isabella! I love your art director background. I'm working on some creative tech projects and would love your input!",
+        timestamp: "2024-03-15T19:00:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(32),
+        senderId: dummyMatches[5].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "Hey Danny! That sounds exciting. What kind of creative tech are you working on? I'm always interested in new design challenges!",
+        timestamp: "2024-03-15T19:05:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(33),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[5].uid,
+        content:
+          "It's an AI-powered design tool for dating apps. I think your creative perspective would be invaluable!",
+        timestamp: "2024-03-15T19:10:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(34),
+        senderId: dummyMatches[5].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "That's fascinating! I'd love to help with the design direction. Are you planning to visit Portland anytime soon?",
+        timestamp: "2024-03-15T19:15:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(35),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[5].uid,
+        content:
+          "I've been wanting to explore Portland! Maybe we could meet up and discuss the project over coffee?",
+        timestamp: "2024-03-15T19:20:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(36),
+        senderId: dummyMatches[5].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "Absolutely! I know some amazing coffee shops here. When are you thinking of visiting? I'd love to show you around!",
+        timestamp: "2024-03-15T19:25:00.000Z",
+        isRead: true,
+      },
+    ],
+    lastMessage: {
+      id: generateMessageId(36),
+      senderId: dummyMatches[5].uid,
+      receiverId: dummyUser.uid,
+      content:
+        "Absolutely! I know some amazing coffee shops here. When are you thinking of visiting? I'd love to show you around!",
+      timestamp: "2024-03-15T19:25:00.000Z",
+      isRead: true,
+    },
+    unreadCount: 0,
+  },
+
+  // Conversation with Maya (Data Scientist) - Ends with Danny's turn (Their turn)
+  {
+    id: generateConversationId(dummyUser.uid, dummyMatches[6].uid),
+    participants: [dummyUser.uid, dummyMatches[6].uid],
+    messages: [
+      {
+        id: generateMessageId(37),
+        senderId: dummyMatches[6].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "Hey Danny! I saw you're in tech. I'm a data scientist working on some interesting ML projects. Would love to connect!",
+        timestamp: "2024-03-15T20:00:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(38),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[6].uid,
+        content:
+          "Hi Maya! That's awesome. I've been diving into ML myself. What kind of projects are you working on?",
+        timestamp: "2024-03-15T20:05:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(39),
+        senderId: dummyMatches[6].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "I'm working on recommendation systems and predictive analytics. It's fascinating stuff! Are you planning to visit Austin?",
+        timestamp: "2024-03-15T20:10:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(40),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[6].uid,
+        content:
+          "I've been wanting to explore Austin! Maybe we could meet up and discuss our projects? I'd love to learn more!",
+        timestamp: "2024-03-15T20:15:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(41),
+        senderId: dummyMatches[6].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "That would be perfect! I know some great spots here. When are you thinking of visiting?",
+        timestamp: "2024-03-15T20:20:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(42),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[6].uid,
+        content:
+          "How about next month? I can plan a trip around April 15-20. Would that work for you?",
+        timestamp: "2024-03-15T20:25:00.000Z",
+        isRead: true,
+      },
+    ],
+    lastMessage: {
+      id: generateMessageId(42),
+      senderId: dummyUser.uid,
+      receiverId: dummyMatches[6].uid,
+      content:
+        "How about next month? I can plan a trip around April 15-20. Would that work for you?",
+      timestamp: "2024-03-15T20:25:00.000Z",
+      isRead: true,
+    },
+    unreadCount: 0,
+  },
+
+  // Conversation with Lily (Product Manager) - Ends with Lily's turn (Your turn)
+  {
+    id: generateConversationId(dummyUser.uid, dummyMatches[7].uid),
+    participants: [dummyUser.uid, dummyMatches[7].uid],
+    messages: [
+      {
+        id: generateMessageId(43),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[7].uid,
+        content:
+          "Hi Lily! I noticed you're a product manager in SF. I'm working on some tech products and would love your insights!",
+        timestamp: "2024-03-15T21:00:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(44),
+        senderId: dummyMatches[7].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "Hey Danny! That sounds interesting. What kind of products are you building? I'm always curious about new tech!",
+        timestamp: "2024-03-15T21:05:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(45),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[7].uid,
+        content:
+          "I'm working on AI-powered dating apps and social platforms. I think your PM experience would be invaluable!",
+        timestamp: "2024-03-15T21:10:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(46),
+        senderId: dummyMatches[7].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "That's fascinating! I'd love to help with product strategy. Are you planning to visit SF anytime soon?",
+        timestamp: "2024-03-15T21:15:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(47),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[7].uid,
+        content:
+          "I've been wanting to explore SF! Maybe we could meet up and discuss product strategy over coffee?",
+        timestamp: "2024-03-15T21:20:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(48),
+        senderId: dummyMatches[7].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "Absolutely! I know some amazing coffee shops here. When are you thinking of visiting? I'd love to show you around!",
+        timestamp: "2024-03-15T21:25:00.000Z",
+        isRead: true,
+      },
+    ],
+    lastMessage: {
+      id: generateMessageId(48),
+      senderId: dummyMatches[7].uid,
+      receiverId: dummyUser.uid,
+      content:
+        "Absolutely! I know some amazing coffee shops here. When are you thinking of visiting? I'd love to show you around!",
+      timestamp: "2024-03-15T21:25:00.000Z",
+      isRead: true,
+    },
+    unreadCount: 0,
+  },
+
+  // Conversation with Grace (Music Producer) - Hidden (old conversation from 2+ weeks ago)
+  {
+    id: generateConversationId(dummyUser.uid, dummyMatches[8].uid),
+    participants: [dummyUser.uid, dummyMatches[8].uid],
+    messages: [
+      {
+        id: generateMessageId(49),
+        senderId: dummyMatches[8].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "Hey Danny! I love that you're into tech and music. I'm a music producer and would love to collaborate on something!",
+        timestamp: "2024-02-25T14:00:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(50),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[8].uid,
+        content:
+          "Hi Grace! That's amazing. I play guitar and have been interested in music tech. What kind of collaboration did you have in mind?",
+        timestamp: "2024-02-25T14:05:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(51),
+        senderId: dummyMatches[8].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "I'm working on some AI-generated music tools. I think your tech background could really help! Are you planning to visit Nashville?",
+        timestamp: "2024-02-25T14:10:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(52),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[8].uid,
+        content:
+          "I've been wanting to visit Nashville! Maybe we could meet up and discuss the project? I'd love to learn more!",
+        timestamp: "2024-02-25T14:15:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(53),
+        senderId: dummyMatches[8].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "That would be perfect! I know some amazing studios here. When are you thinking of visiting?",
+        timestamp: "2024-02-25T14:20:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(54),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[8].uid,
+        content:
+          "How about next month? I can plan a trip around March 15-20. Would that work for you?",
+        timestamp: "2024-02-25T14:25:00.000Z",
+        isRead: true,
+      },
+    ],
+    lastMessage: {
+      id: generateMessageId(54),
+      senderId: dummyUser.uid,
+      receiverId: dummyMatches[8].uid,
+      content:
+        "How about next month? I can plan a trip around March 15-20. Would that work for you?",
+      timestamp: "2024-02-25T14:25:00.000Z",
+      isRead: true,
+    },
+    unreadCount: 0,
+  },
+
+  // Conversation with Sophia (Marketing Director) - Hidden (old conversation from 2+ weeks ago)
+  {
+    id: generateConversationId(dummyUser.uid, dummyMatches[9].uid),
+    participants: [dummyUser.uid, dummyMatches[9].uid],
+    messages: [
+      {
+        id: generateMessageId(55),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[9].uid,
+        content:
+          "Hi Sophia! I noticed you're in marketing. I'm working on some tech products and would love your marketing insights!",
+        timestamp: "2024-02-28T15:00:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(56),
+        senderId: dummyMatches[9].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "Hey Danny! That sounds exciting. What kind of tech products are you building? I'm always interested in new opportunities!",
+        timestamp: "2024-02-28T15:05:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(57),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[9].uid,
+        content:
+          "I'm working on AI-powered dating apps and social platforms. I think your marketing expertise would be perfect!",
+        timestamp: "2024-02-28T15:10:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(58),
+        senderId: dummyMatches[9].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "That's fascinating! I'd love to help with marketing strategy. Are you planning to visit Chicago anytime soon?",
+        timestamp: "2024-02-28T15:15:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(59),
+        senderId: dummyUser.uid,
+        receiverId: dummyMatches[9].uid,
+        content:
+          "I've been wanting to explore Chicago! Maybe we could meet up and discuss marketing strategy over dinner?",
+        timestamp: "2024-02-28T15:20:00.000Z",
+        isRead: true,
+      },
+      {
+        id: generateMessageId(60),
+        senderId: dummyMatches[9].uid,
+        receiverId: dummyUser.uid,
+        content:
+          "Absolutely! I know some amazing restaurants here. When are you thinking of visiting? I'd love to show you around!",
+        timestamp: "2024-02-28T15:25:00.000Z",
+        isRead: true,
+      },
+    ],
+    lastMessage: {
+      id: generateMessageId(60),
+      senderId: dummyMatches[9].uid,
+      receiverId: dummyUser.uid,
+      content:
+        "Absolutely! I know some amazing restaurants here. When are you thinking of visiting? I'd love to show you around!",
+      timestamp: "2024-02-28T15:25:00.000Z",
+      isRead: true,
+    },
+    unreadCount: 0,
+  },
 ];
 
 // Export all messages in a flat array for easy access
