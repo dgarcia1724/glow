@@ -512,7 +512,7 @@ export default function Matches() {
                       return (
                         <div
                           key={match.uid}
-                          className="flex items-center py-4 px-3 hover:bg-gray-50 transition-colors duration-150 cursor-pointer relative group opacity-60"
+                          className="flex items-center py-4 px-3 hover:bg-gray-50 transition-colors duration-150 cursor-pointer relative group"
                           onClick={() =>
                             router.push(`/main-app/matches/${match.uid}`)
                           }
