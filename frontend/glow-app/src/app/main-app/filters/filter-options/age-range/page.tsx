@@ -63,7 +63,7 @@ export default function AgeRange() {
                     max="100"
                     value={minAge}
                     onChange={handleMinAgeChange}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-fuchsia-400"
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-teal-300"
                   />
                 </div>
                 <div>
@@ -77,7 +77,7 @@ export default function AgeRange() {
                     max="100"
                     value={maxAge}
                     onChange={handleMaxAgeChange}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-fuchsia-400"
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-teal-300"
                   />
                 </div>
               </div>
@@ -89,7 +89,7 @@ export default function AgeRange() {
                   type="checkbox"
                   checked={isNonNegotiable}
                   onChange={handleNonNegotiableChange}
-                  className="form-checkbox h-5 w-5 text-fuchsia-400 rounded border-gray-300 focus:ring-fuchsia-400 cursor-pointer"
+                  className="form-checkbox h-5 w-5 text-teal-300 rounded border-gray-300 focus:ring-teal-300 cursor-pointer"
                 />
                 <span className="text-gray-700">Non-negotiable</span>
                 <div className="relative group">

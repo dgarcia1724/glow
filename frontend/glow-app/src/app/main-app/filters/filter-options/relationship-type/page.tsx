@@ -73,8 +73,8 @@ export default function RelationshipType() {
                   key={type.text}
                   className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
                     selected.includes(type.text)
-                      ? "border-fuchsia-400 bg-fuchsia-50"
-                      : "border-black/10 bg-white"
+                      ? "border-teal-300 bg-teal-50"
+                      : "border-gray-200 hover:border-gray-300"
                   }`}
                 >
                   <input
@@ -83,7 +83,7 @@ export default function RelationshipType() {
                     value={type.text}
                     checked={selected.includes(type.text)}
                     onChange={() => handleSelection(type.text)}
-                    className="form-checkbox accent-fuchsia-400 mr-3"
+                    className="form-checkbox accent-teal-300 mr-3"
                   />
                   <span className="text-xl mr-3">{type.emoji}</span>
                   <span className="text-lg text-black">{type.text}</span>
@@ -98,7 +98,7 @@ export default function RelationshipType() {
                     type="checkbox"
                     checked={isNonNegotiable}
                     onChange={handleNonNegotiableChange}
-                    className="form-checkbox h-5 w-5 text-fuchsia-400 rounded border-gray-300 focus:ring-fuchsia-400 cursor-pointer"
+                    className="form-checkbox h-5 w-5 text-teal-300 rounded border-gray-300 focus:ring-teal-300 cursor-pointer"
                   />
                   <span className="text-gray-700">Non-negotiable</span>
                   <div className="relative group">

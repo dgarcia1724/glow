@@ -70,8 +70,8 @@ export default function Politics() {
                   key={view.text}
                   className={`flex items-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-colors ${
                     selected.includes(view.text)
-                      ? "border-fuchsia-400 bg-fuchsia-50"
-                      : "border-black/10 bg-white"
+                      ? "border-teal-300 bg-teal-50"
+                      : "border-gray-200 hover:border-gray-300"
                   }`}
                 >
                   <input
@@ -80,7 +80,7 @@ export default function Politics() {
                     value={view.text}
                     checked={selected.includes(view.text)}
                     onChange={() => handleSelection(view.text)}
-                    className="form-checkbox accent-fuchsia-400 mr-3"
+                    className="form-checkbox accent-teal-300 mr-3"
                   />
                   {view.color ? (
                     <div
@@ -101,7 +101,7 @@ export default function Politics() {
                     type="checkbox"
                     checked={isNonNegotiable}
                     onChange={handleNonNegotiableChange}
-                    className="form-checkbox h-5 w-5 text-fuchsia-400 rounded border-gray-300 focus:ring-fuchsia-400 cursor-pointer"
+                    className="form-checkbox h-5 w-5 text-teal-300 rounded border-gray-300 focus:ring-teal-300 cursor-pointer"
                   />
                   <span className="text-gray-700">Non-negotiable</span>
                   <div className="relative group">
