@@ -52,7 +52,7 @@ export default function LikesYou() {
                 <div className="relative">
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-fuchsia-400 cursor-pointer"
+                    className="flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-teal-300 cursor-pointer"
                   >
                     <span>{selectedFilter}</span>
                     <svg
@@ -105,7 +105,7 @@ export default function LikesYou() {
                           }}
                           className={`w-full px-6 py-3 text-sm text-left hover:bg-gray-50 cursor-pointer transition-colors ${
                             selectedFilter === option
-                              ? "text-fuchsia-500 font-medium"
+                              ? "text-teal-500 font-medium"
                               : "text-gray-400"
                           }`}
                         >
