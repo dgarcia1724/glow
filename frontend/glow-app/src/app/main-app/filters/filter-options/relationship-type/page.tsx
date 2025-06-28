@@ -6,7 +6,7 @@ import { dummyUser } from "@/data/dummyUser";
 const RELATIONSHIP_TYPES = [
   { emoji: "💍", text: "Long-term" },
   { emoji: "🔥", text: "Short-term" },
-  { emoji: "😈", text: "Casual" },
+  { emoji: "🥂", text: "Casual" },
   { emoji: "💛", text: "Friendship" },
   { emoji: "🤔", text: "Open to Anything" },
 ];
