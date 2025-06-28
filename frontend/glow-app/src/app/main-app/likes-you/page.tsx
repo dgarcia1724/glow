@@ -171,9 +171,9 @@ export default function LikesYou() {
                     y2="22"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stopColor="#E879F9" />
-                    <stop offset="0.5" stopColor="#F0ABFC" />
-                    <stop offset="1" stopColor="#A855F7" />
+                    <stop stopColor="#5EEAD4" />
+                    <stop offset="0.5" stopColor="#99F6E4" />
+                    <stop offset="1" stopColor="#2DD4BF" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -199,9 +199,9 @@ export default function LikesYou() {
                     y2="22"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stopColor="#E879F9" />
-                    <stop offset="0.5" stopColor="#F0ABFC" />
-                    <stop offset="1" stopColor="#A855F7" />
+                    <stop stopColor="#5EEAD4" />
+                    <stop offset="0.5" stopColor="#99F6E4" />
+                    <stop offset="1" stopColor="#2DD4BF" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -227,9 +227,9 @@ export default function LikesYou() {
                     y2="22"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stopColor="#E879F9" />
-                    <stop offset="0.5" stopColor="#F0ABFC" />
-                    <stop offset="1" stopColor="#A855F7" />
+                    <stop stopColor="#5EEAD4" />
+                    <stop offset="0.5" stopColor="#99F6E4" />
+                    <stop offset="1" stopColor="#2DD4BF" />
                   </linearGradient>
                 </defs>
               </svg>
