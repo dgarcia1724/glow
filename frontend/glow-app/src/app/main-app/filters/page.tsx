@@ -16,9 +16,7 @@ export default function Filters() {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
           <div className="w-10" /> {/* Spacer for balance */}
-          <h1 className="text-xl font-semibold text-gray-900">
-            Dating Filters
-          </h1>
+          <h1 className="text-xl font-semibold text-gray-900">Filters</h1>
           <button
             onClick={() => router.push(`/main-app/${from}`)}
             className="p-2 text-gray-500 hover:text-gray-700 rounded-full hover:bg-gray-100 transition-colors cursor-pointer"
@@ -82,7 +80,7 @@ export default function Filters() {
           <div className="p-6">
             <div className="space-y-6">
               <h2 className="text-xl font-semibold text-gray-800">
-                Dating Preferences
+                Preferences
               </h2>
               <div className="space-y-4">
                 <div
@@ -92,7 +90,7 @@ export default function Filters() {
                   }
                 >
                   <h3 className="text-sm font-bold text-black">
-                    I want to date
+                    I want to meet
                   </h3>
                   <p className="text-gray-600 mt-1">
                     {dummyUser.datingPreferences.lookingFor.join(", ")}

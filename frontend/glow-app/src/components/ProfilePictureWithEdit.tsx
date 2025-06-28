@@ -23,8 +23,8 @@ export default function ProfilePictureWithEdit({
         <div
           className={`w-full h-full rounded-full p-[10px] bg-gradient-to-tr ${
             isHovered
-              ? "from-yellow-300 via-yellow-400 to-yellow-200"
-              : "from-yellow-200 via-yellow-300 to-yellow-100"
+              ? "from-teal-300 via-teal-400 to-teal-200"
+              : "from-teal-200 via-teal-300 to-teal-100"
           }`}
         >
           <div className="w-full h-full rounded-full overflow-hidden">
@@ -42,10 +42,10 @@ export default function ProfilePictureWithEdit({
             e.stopPropagation();
             onEditClick?.();
           }}
-          className={`px-8 py-3 rounded-full bg-gradient-to-tr text-black font-medium transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-200 text-center cursor-pointer ${
+          className={`px-8 py-3 rounded-full bg-gradient-to-tr text-black font-medium transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-teal-200 text-center cursor-pointer ${
             isHovered
-              ? "from-yellow-300 via-yellow-400 to-yellow-200"
-              : "from-yellow-200 via-yellow-300 to-yellow-100"
+              ? "from-teal-300 via-teal-400 to-teal-200"
+              : "from-teal-200 via-teal-300 to-teal-100"
           }`}
         >
           <div className="flex items-center gap-2">
