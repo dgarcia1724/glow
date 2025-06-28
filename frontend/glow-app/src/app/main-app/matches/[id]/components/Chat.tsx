@@ -69,9 +69,9 @@ export default function Chat() {
                 }`}
               >
                 <div
-                  className={`px-4 py-2 rounded-2xl text-base shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-200 text-center transition-all ${
+                  className={`px-4 py-2 rounded-2xl text-base shadow-lg focus:outline-none focus:ring-4 focus:ring-teal-200 text-center transition-all ${
                     isCurrentUser
-                      ? "bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black rounded-br-md"
+                      ? "bg-gradient-to-tr from-teal-200 via-teal-300 to-teal-100 text-black rounded-br-md"
                       : "bg-gray-100 text-black rounded-bl-md"
                   }`}
                 >
@@ -108,12 +108,12 @@ export default function Chat() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Send a message"
-          className="flex-1 rounded-full border border-gray-300 px-4 py-2 text-base outline-none focus:border-yellow-400 bg-gray-50"
+          className="flex-1 rounded-full border border-gray-300 px-4 py-2 text-base outline-none focus:border-teal-400 bg-gray-50"
           maxLength={500}
         />
         <button
           type="submit"
-          className="px-8 py-3 rounded-full bg-gradient-to-tr from-yellow-200 via-yellow-300 to-yellow-100 text-black font-medium hover:from-yellow-300 hover:via-yellow-400 hover:to-yellow-200 transition-all shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-200 text-center cursor-pointer disabled:opacity-50"
+          className="px-8 py-3 rounded-full bg-gradient-to-tr from-teal-200 via-teal-300 to-teal-100 text-black font-medium hover:from-teal-300 hover:via-teal-400 hover:to-teal-200 transition-all shadow-lg focus:outline-none focus:ring-4 focus:ring-teal-200 text-center cursor-pointer disabled:opacity-50"
           disabled={!input.trim()}
         >
           Send

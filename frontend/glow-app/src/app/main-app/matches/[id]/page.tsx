@@ -119,7 +119,7 @@ export default function MatchChatPage() {
             onClick={() => setSelectedTab("chat")}
             className={`text-lg font-bold transition-all cursor-pointer ${
               selectedTab === "chat"
-                ? "text-black relative after:absolute after:bottom-[-1rem] after:left-[-1.5rem] after:right-[-1.5rem] after:h-2 after:bg-gradient-to-r after:from-yellow-200 after:via-yellow-300 after:to-yellow-100"
+                ? "text-black relative after:absolute after:bottom-[-1rem] after:left-[-1.5rem] after:right-[-1.5rem] after:h-2 after:bg-gradient-to-r after:from-teal-200 after:via-teal-300 after:to-teal-100"
                 : "text-gray-400 hover:text-gray-600"
             }`}
             aria-label="Chat"
@@ -131,7 +131,7 @@ export default function MatchChatPage() {
             onClick={() => setSelectedTab("profile")}
             className={`text-lg font-bold transition-all cursor-pointer ${
               selectedTab === "profile"
-                ? "text-black relative after:absolute after:bottom-[-1rem] after:left-[-1.5rem] after:right-[-1.5rem] after:h-2 after:bg-gradient-to-r after:from-yellow-200 after:via-yellow-300 after:to-yellow-100"
+                ? "text-black relative after:absolute after:bottom-[-1rem] after:left-[-1.5rem] after:right-[-1.5rem] after:h-2 after:bg-gradient-to-r after:from-teal-200 after:via-teal-300 after:to-teal-100"
                 : "text-gray-400 hover:text-gray-600"
             }`}
             aria-label="Profile"
