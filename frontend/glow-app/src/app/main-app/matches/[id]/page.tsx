@@ -13,6 +13,22 @@ export default function MatchChatPage() {
   const [openMenu, setOpenMenu] = useState(false);
   const match = dummyMatches.find((m) => m.uid === params.id);
 
+  const calculateAge = (birthday: string) => {
+    const birthDate = new Date(birthday);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birthDate.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
+  };
+
   const handleUnmatch = (matchId: string) => {
     // TODO: Implement unmatch functionality
     console.log("Unmatch with:", matchId);
@@ -46,7 +62,16 @@ export default function MatchChatPage() {
           </button>
           <div className="flex-1 flex justify-center">
             <span className="text-lg font-bold text-gray-900 truncate">
-              {match ? match.firstName : "Match"}
+              {match ? (
+                <>
+                  <span className="font-bold">{match.firstName}</span>
+                  <span className="font-light">
+                    , {calculateAge(match.birthday)}
+                  </span>
+                </>
+              ) : (
+                "Match"
+              )}
             </span>
           </div>
           <div className="relative">
