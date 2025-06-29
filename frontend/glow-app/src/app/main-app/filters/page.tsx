@@ -38,17 +38,6 @@ export default function Filters() {
                 <div
                   className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
                   onClick={() =>
-                    router.push("/main-app/filters/filter-options/religion")
-                  }
-                >
-                  <h3 className="text-sm font-bold text-black">Religion</h3>
-                  <p className="text-gray-600 mt-1">
-                    {dummyUser.coreValues.religion}
-                  </p>
-                </div>
-                <div
-                  className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
-                  onClick={() =>
                     router.push("/main-app/filters/filter-options/politics")
                   }
                 >
@@ -57,6 +46,28 @@ export default function Filters() {
                     {dummyUser.coreValues.politics}
                   </p>
                 </div>
+                <div
+                  className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
+                  onClick={() =>
+                    router.push("/main-app/filters/filter-options/religion")
+                  }
+                >
+                  <h3 className="text-sm font-bold text-black">Religion</h3>
+                  <p className="text-gray-600 mt-1">
+                    {dummyUser.coreValues.religion}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Dating Preferences Section */}
+          <div className="p-6">
+            <div className="space-y-6">
+              <h2 className="text-xl font-semibold text-gray-800">
+                Preferences
+              </h2>
+              <div className="space-y-4">
                 <div
                   className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
                   onClick={() =>
@@ -72,17 +83,6 @@ export default function Filters() {
                     {dummyUser.coreValues.relationshipType}
                   </p>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Dating Preferences Section */}
-          <div className="p-6">
-            <div className="space-y-6">
-              <h2 className="text-xl font-semibold text-gray-800">
-                Preferences
-              </h2>
-              <div className="space-y-4">
                 <div
                   className="cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors"
                   onClick={() =>
