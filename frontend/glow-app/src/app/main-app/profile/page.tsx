@@ -29,16 +29,16 @@ export default function Profile() {
 
   const premiumPlans = [
     {
-      name: "Glow Gold",
+      name: "Gold",
       description: "Premium features to enhance your experience",
-      gradient: "from-yellow-400 to-yellow-600",
-      textColor: "text-yellow-900",
+      gradient: "from-yellow-400 to-white",
+      textColor: "text-black",
     },
     {
-      name: "Glow Diamond",
+      name: "Diamond",
       description: "Ultimate premium experience with exclusive features",
-      gradient: "from-blue-400 to-purple-600",
-      textColor: "text-white",
+      gradient: "from-blue-400 to-white",
+      textColor: "text-black",
     },
   ];
 
@@ -181,7 +181,7 @@ export default function Profile() {
 
           {/* Premium Plans Carousel */}
           <div className="relative">
-            <div className="overflow-hidden rounded-xl h-80">
+            <div className="overflow-hidden rounded-xl h-48">
               <div
                 className="flex transition-transform duration-300 ease-in-out h-full"
                 style={{
@@ -191,11 +191,42 @@ export default function Profile() {
                 {premiumPlans.map((plan, index) => (
                   <div key={index} className="w-full flex-shrink-0 h-full">
                     <button
-                      className={`w-full h-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02] bg-gradient-to-r ${plan.gradient} ${plan.textColor} cursor-pointer flex flex-col justify-center`}
+                      className={`w-full h-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02] bg-gradient-to-b ${plan.gradient} ${plan.textColor} cursor-pointer flex flex-col justify-between relative`}
                     >
-                      <div className="text-left">
-                        <h3 className="text-2xl font-bold mb-3">{plan.name}</h3>
+                      {/* Star Glow - GOLD at Top Center */}
+                      <div className="text-center">
+                        <div className="flex items-center justify-center">
+                          <svg
+                            className="w-6 h-6 mr-2"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10L12 2Z"
+                              fill="currentColor"
+                              stroke="currentColor"
+                              strokeWidth="0.5"
+                              transform="rotate(0 12 12)"
+                            />
+                          </svg>
+                          <span className="text-lg font-bold mr-2">Glow</span>
+                          <span className="text-lg font-bold">
+                            - {plan.name.toUpperCase()}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Description at Center Center */}
+                      <div className="text-center flex-1 flex items-center justify-center">
                         <p className="text-lg opacity-90">{plan.description}</p>
+                      </div>
+
+                      {/* Upgrade Pill at Bottom Center */}
+                      <div className="text-center">
+                        <div className="bg-black text-white px-4 py-2 rounded-full text-sm font-semibold inline-block">
+                          Upgrade
+                        </div>
                       </div>
                     </button>
                   </div>
