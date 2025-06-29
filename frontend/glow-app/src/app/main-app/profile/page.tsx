@@ -113,9 +113,9 @@ export default function Profile() {
         </div>
 
         {/* Premium Feature Buttons */}
-        <div className="space-y-4 mb-8">
+        <div className="space-y-4 mb-8 max-w-md mx-auto w-full">
           {/* Sparks Button */}
-          <button className="w-full bg-white border border-gray-200 text-gray-900 p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]">
+          <button className="w-full bg-white border border-gray-200 text-gray-900 p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02] cursor-pointer">
             <div className="flex items-center gap-4">
               <div className="flex-shrink-0">
                 <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center">
@@ -145,12 +145,31 @@ export default function Profile() {
           </button>
 
           {/* Boosts Button */}
-          <button className="w-full bg-gradient-to-r from-orange-400 to-red-500 text-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]">
-            <div className="text-left">
-              <h3 className="text-lg font-bold mb-1">Boosts</h3>
-              <p className="text-sm opacity-90">
-                Be a top profile for 1 hour & get seen by more people
-              </p>
+          <button className="w-full bg-white border border-gray-200 text-gray-900 p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02] cursor-pointer">
+            <div className="flex items-center gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+                      fill="white"
+                      stroke="white"
+                      strokeWidth="0.5"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div className="text-left">
+                <h3 className="text-lg font-bold mb-1">Boosts</h3>
+                <p className="text-sm text-gray-600">
+                  Be a top profile for 1 hour & get seen by more people
+                </p>
+              </div>
             </div>
           </button>
 
@@ -166,7 +185,7 @@ export default function Profile() {
                 {premiumPlans.map((plan, index) => (
                   <div key={index} className="w-full flex-shrink-0">
                     <button
-                      className={`w-full p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02] bg-gradient-to-r ${plan.gradient} ${plan.textColor}`}
+                      className={`w-full p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02] bg-gradient-to-r ${plan.gradient} ${plan.textColor} cursor-pointer`}
                     >
                       <div className="text-left">
                         <h3 className="text-lg font-bold mb-1">{plan.name}</h3>
@@ -184,7 +203,7 @@ export default function Profile() {
                 <button
                   key={index}
                   onClick={() => setCurrentPremiumPlan(index)}
-                  className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                  className={`w-2 h-2 rounded-full transition-colors duration-200 cursor-pointer ${
                     index === currentPremiumPlan
                       ? "bg-yellow-500"
                       : "bg-gray-300"
