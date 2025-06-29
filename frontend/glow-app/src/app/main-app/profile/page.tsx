@@ -135,11 +135,14 @@ export default function Profile() {
                   </svg>
                 </div>
               </div>
-              <div className="text-left">
+              <div className="text-left flex-1">
                 <h3 className="text-lg font-bold mb-1">Sparks</h3>
                 <p className="text-sm text-gray-600">
                   Sparks are seen first before standard likes
                 </p>
+              </div>
+              <div className="text-right">
+                <span className="text-2xl font-bold text-gray-900">0</span>
               </div>
             </div>
           </button>
@@ -164,32 +167,35 @@ export default function Profile() {
                   </svg>
                 </div>
               </div>
-              <div className="text-left">
+              <div className="text-left flex-1">
                 <h3 className="text-lg font-bold mb-1">Boosts</h3>
                 <p className="text-sm text-gray-600">
                   Be a top profile for 1 hour & get seen by more people
                 </p>
+              </div>
+              <div className="text-right">
+                <span className="text-2xl font-bold text-gray-900">2</span>
               </div>
             </div>
           </button>
 
           {/* Premium Plans Carousel */}
           <div className="relative">
-            <div className="overflow-hidden rounded-xl">
+            <div className="overflow-hidden rounded-xl h-80">
               <div
-                className="flex transition-transform duration-300 ease-in-out"
+                className="flex transition-transform duration-300 ease-in-out h-full"
                 style={{
                   transform: `translateX(-${currentPremiumPlan * 100}%)`,
                 }}
               >
                 {premiumPlans.map((plan, index) => (
-                  <div key={index} className="w-full flex-shrink-0">
+                  <div key={index} className="w-full flex-shrink-0 h-full">
                     <button
-                      className={`w-full p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02] bg-gradient-to-r ${plan.gradient} ${plan.textColor} cursor-pointer`}
+                      className={`w-full h-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02] bg-gradient-to-r ${plan.gradient} ${plan.textColor} cursor-pointer flex flex-col justify-center`}
                     >
                       <div className="text-left">
-                        <h3 className="text-lg font-bold mb-1">{plan.name}</h3>
-                        <p className="text-sm opacity-90">{plan.description}</p>
+                        <h3 className="text-2xl font-bold mb-3">{plan.name}</h3>
+                        <p className="text-lg opacity-90">{plan.description}</p>
                       </div>
                     </button>
                   </div>
@@ -198,15 +204,13 @@ export default function Profile() {
             </div>
 
             {/* Pagination Dots */}
-            <div className="flex justify-center mt-4 space-x-2">
+            <div className="flex justify-center mt-6 space-x-4">
               {premiumPlans.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentPremiumPlan(index)}
-                  className={`w-2 h-2 rounded-full transition-colors duration-200 cursor-pointer ${
-                    index === currentPremiumPlan
-                      ? "bg-yellow-500"
-                      : "bg-gray-300"
+                  className={`w-4 h-4 rounded-full transition-colors duration-200 cursor-pointer ${
+                    index === currentPremiumPlan ? "bg-teal-300" : "bg-gray-300"
                   }`}
                   aria-label={`Go to ${premiumPlans[index].name}`}
                 />
