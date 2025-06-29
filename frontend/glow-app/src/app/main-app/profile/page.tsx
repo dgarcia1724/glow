@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { FiSettings, FiShield } from "react-icons/fi";
 import { dummyUser } from "@/data/dummyUser";
 import ProfilePictureWithEdit from "@/components/ProfilePictureWithEdit";
@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 
 export default function Profile() {
   const router = useRouter();
+  const [currentPremiumPlan, setCurrentPremiumPlan] = useState(0);
   const mainPicture = dummyUser.pictures.find((pic) => pic.isMain);
 
   const calculateAge = (birthday: string) => {
@@ -25,6 +26,21 @@ export default function Profile() {
 
     return age;
   };
+
+  const premiumPlans = [
+    {
+      name: "Glow Gold",
+      description: "Premium features to enhance your experience",
+      gradient: "from-yellow-400 to-yellow-600",
+      textColor: "text-yellow-900",
+    },
+    {
+      name: "Glow Diamond",
+      description: "Ultimate premium experience with exclusive features",
+      gradient: "from-blue-400 to-purple-600",
+      textColor: "text-white",
+    },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -93,6 +109,90 @@ export default function Profile() {
             <h2 className="text-3xl font-bold text-gray-900">
               {dummyUser.firstName}, {calculateAge(dummyUser.birthday)}
             </h2>
+          </div>
+        </div>
+
+        {/* Premium Feature Buttons */}
+        <div className="space-y-4 mb-8">
+          {/* Sparks Button */}
+          <button className="w-full bg-white border border-gray-200 text-gray-900 p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]">
+            <div className="flex items-center gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center">
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 2L14 10L22 12L14 14L12 22L10 14L2 12L10 10L12 2Z"
+                      fill="#FCD34D"
+                      stroke="#FCD34D"
+                      strokeWidth="0.5"
+                      transform="rotate(0 12 12)"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div className="text-left">
+                <h3 className="text-lg font-bold mb-1">Sparks</h3>
+                <p className="text-sm text-gray-600">
+                  Sparks are seen first before standard likes
+                </p>
+              </div>
+            </div>
+          </button>
+
+          {/* Boosts Button */}
+          <button className="w-full bg-gradient-to-r from-orange-400 to-red-500 text-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]">
+            <div className="text-left">
+              <h3 className="text-lg font-bold mb-1">Boosts</h3>
+              <p className="text-sm opacity-90">
+                Be a top profile for 1 hour & get seen by more people
+              </p>
+            </div>
+          </button>
+
+          {/* Premium Plans Carousel */}
+          <div className="relative">
+            <div className="overflow-hidden rounded-xl">
+              <div
+                className="flex transition-transform duration-300 ease-in-out"
+                style={{
+                  transform: `translateX(-${currentPremiumPlan * 100}%)`,
+                }}
+              >
+                {premiumPlans.map((plan, index) => (
+                  <div key={index} className="w-full flex-shrink-0">
+                    <button
+                      className={`w-full p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02] bg-gradient-to-r ${plan.gradient} ${plan.textColor}`}
+                    >
+                      <div className="text-left">
+                        <h3 className="text-lg font-bold mb-1">{plan.name}</h3>
+                        <p className="text-sm opacity-90">{plan.description}</p>
+                      </div>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Pagination Dots */}
+            <div className="flex justify-center mt-4 space-x-2">
+              {premiumPlans.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentPremiumPlan(index)}
+                  className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                    index === currentPremiumPlan
+                      ? "bg-yellow-500"
+                      : "bg-gray-300"
+                  }`}
+                  aria-label={`Go to ${premiumPlans[index].name}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </main>
