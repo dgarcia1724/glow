@@ -30,13 +30,13 @@ export default function Profile() {
   const premiumPlans = [
     {
       name: "Gold",
-      description: "Premium features to enhance your experience",
+      description: "See everyone who likes you & send unlimited likes",
       gradient: "from-yellow-400 to-white",
       textColor: "text-black",
     },
     {
       name: "Diamond",
-      description: "Ultimate premium experience with exclusive features",
+      description: "Includes all GOLD benefits. Plus weekly Sparks & Boosts",
       gradient: "from-blue-400 to-white",
       textColor: "text-black",
     },
@@ -147,28 +147,16 @@ export default function Profile() {
             </div>
           </button>
 
-          {/* Boosts Button */}
+          {/* Spotlights Button */}
           <button className="w-full bg-white border border-gray-200 text-gray-900 p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02] cursor-pointer">
             <div className="flex items-center gap-4">
               <div className="flex-shrink-0">
-                <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
-                      fill="white"
-                      stroke="white"
-                      strokeWidth="0.5"
-                    />
-                  </svg>
+                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center">
+                  <span className="text-lg">🔦</span>
                 </div>
               </div>
               <div className="text-left flex-1">
-                <h3 className="text-lg font-bold mb-1">Boosts</h3>
+                <h3 className="text-lg font-bold mb-1">Spotlights</h3>
                 <p className="text-sm text-gray-600">
                   Be a top profile for 1 hour & get seen by more people
                 </p>
@@ -191,7 +179,7 @@ export default function Profile() {
                 {premiumPlans.map((plan, index) => (
                   <div key={index} className="w-full flex-shrink-0 h-full">
                     <button
-                      className={`w-full h-full p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02] bg-gradient-to-b ${plan.gradient} ${plan.textColor} cursor-pointer flex flex-col justify-between relative`}
+                      className={`w-full h-full p-6 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:scale-[1.02] bg-gradient-to-b ${plan.gradient} ${plan.textColor} cursor-pointer flex flex-col justify-between relative border border-gray-200`}
                     >
                       {/* Star Glow - GOLD at Top Center */}
                       <div className="text-center">
