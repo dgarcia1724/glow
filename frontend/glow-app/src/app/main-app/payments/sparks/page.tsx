@@ -85,6 +85,13 @@ export default function SparksPage() {
           </div>
         </div>
 
+        {/* Sparks Description */}
+        <div className="text-center mb-8">
+          <p className="text-gray-600 text-lg">
+            Sparks are seen first before standard likes
+          </p>
+        </div>
+
         {/* Spark Bundles */}
         <div className="space-y-4 mb-8">
           {sparkBundles.map((bundle) => (

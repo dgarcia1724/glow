@@ -115,7 +115,10 @@ export default function Profile() {
         {/* Premium Feature Buttons */}
         <div className="space-y-4 mb-8 max-w-md mx-auto w-full">
           {/* Sparks Button */}
-          <button className="w-full bg-white border border-gray-200 text-gray-900 p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02] cursor-pointer">
+          <button
+            onClick={() => router.push("/main-app/payments/sparks")}
+            className="w-full bg-white border border-gray-200 text-gray-900 p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02] cursor-pointer"
+          >
             <div className="flex items-center gap-4">
               <div className="flex-shrink-0">
                 <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center">
